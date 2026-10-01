@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogo de Equipos</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+    <header>
+        <div class="title">
+            <div class="square"></div>
+            <h2>Almacén de equipos</h2>
+        </div>
+        <ul>
+            <li><a href="./catalogo.html" class="rapi_mov selected">Catálogo</a></li>
+            <li><a href="" class="rapi_mov">Mis Solicitudes</a></li>
+            <li><a href="" class="rapi_mov">Mis Reservas</a></li>
+            <li><a href="" class="rapi_mov">Calendario</a></li>
+        </ul>
+        <div class="buscador">
+            <input type="text" placeholder="Buscar equipo o codigo de inventario"name="search">
+        </div>
+        <div class="perfil">
+            <h3>Nombre Apellido</h3>
+            <div class="pfp">
+                
+            </div>
+        </div>
+    </header>
+    <main>
+        <aside class="buscador">
+            <h2>Filtros</h2>
+            <h3>CATEGORÍA</h3>
+            <input type="checkbox" id="robotica" name="robotica" value="Robotica">
+            <label for="vehicle1">Robótica</label><br>
+            <input type="checkbox" id="medicion" name="medicion" value="Medicion">
+            <label for="vehicle1">Medición</label><br>
+            <input type="checkbox" id="audiovisual" name="audiovisual" value="Audiovisual">
+            <label for="vehicle1">Audiovisual</label><br>
+            <input type="checkbox" id="computo" name="computo" value="Computo">
+            <label for="vehicle1">Cómputo</label><br>
+            <input type="checkbox" id="redes" name="redes" value="Redes">
+            <label for="vehicle1">Redes</label><br>
+            <input type="checkbox" id="labfis" name="labfis" value="LabFis">
+            <label for="vehicle1">Laboratorio de Física</label><br>
+
+            <h3>DISPONIBILIDAD</h3>
+            <input type="radio" id="libres" name="dispo" value="UniLibres" checked>
+            <label for="libres">Unidades Libres</label><br>
+            <input type="radio" id="todos" name="dispo" value="todos">
+            <label for="todos">Todos</label>
+
+            <h3>DURACIÓN MAXIMA</h3>
+            <input type="radio" id="7dias" name="durac" value="7" checked>
+            <label for="7dias">Hasta 7 días</label><br>
+            <input type="radio" id="15dias" name="durac" value="15">
+            <label for="15dias">Hasta 15 días</label><br>
+            <input type="radio" id="sinlimit" name="durac" value="99">
+            <label for="15dias">Sin limites</label><br>
+
+            <button class="aplicarf">Aplicar Filtros</button><br>
+            <button class="limpiar">Limpiar Todo</button>
+        </aside>
+        <div class="catalogo">
+            <h1>Catálogo de Equipos</h1>
+            <p>X equipos con unidades libres de hasta 7 días</p>
+            <section>
+
+            </section>
+            <section>
+                <article>
+                    <img src="" alt="">
+                </article>    
+            </section>
+        </div>
+    </main>
+    <footer>
+        <h2>Almacén de Equipos - Facultad de Ingeniería</h2>
+        <section class="info_f">
+            <p>Reglamento de Prestamo</p>
+            <p>almacen.equipos@ulima.edu.pe</p>
+            <p>Anexo 3120</p>
+        </section>
+    </footer>
+</body>
+</html>
