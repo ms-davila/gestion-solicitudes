@@ -4,6 +4,114 @@
     padding: 0;
     box-sizing: border-box;
 }
+/*Menu principal*/
+.menu-principal {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto 0;
+    padding: 12px 20px;
+    background-color: white;
+    border: 1px solid #dbe2e2;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Logo + título */
+.menu-izquierda {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+
+
+.menu-titulo {
+    font-weight: bold;
+    font-size: 16px;
+    color: #12211F;
+    white-space: nowrap;
+}
+
+/* Enlaces del menú */
+.menu-enlaces {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    flex-wrap: wrap;
+    background: transparent;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    border-radius: 0;
+}
+
+.menu-enlaces a {
+    text-decoration: none;
+    color: #5E7873;
+    font-size: 14px;
+    font-weight: 500;
+    padding-bottom: 3px;
+    border-bottom: 2px solid transparent;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.menu-enlaces a:hover {
+    color: #17586C;
+}
+
+
+/* Buscador del menú */
+.menu-buscador {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #dbe2e2;
+    border-radius: 6px;
+    padding: 6px 12px;
+    background-color: #f9fbfb;
+    min-width: 230px;
+}
+
+
+.menu-buscador input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 13px;
+    color: #12211F;
+    width: 100%;
+}
+
+.menu-buscador input::placeholder {
+    color: #8a9a96;
+}
+
+/* Responsive para el menú */
+@media (max-width: 700px) {
+    .menu-principal {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        width: 95%;
+        padding: 15px;
+    }
+
+    .menu-enlaces {
+        gap: 14px;
+    }
+
+    .menu-buscador {
+        width: 100%;
+    }
+}
 
 body {
     font-family: Arial, Helvetica, sans-serif;
@@ -120,38 +228,88 @@ td:last-child:hover {
     color: #1d4ed8;
     text-decoration: underline;
 }
-
-/* Diseño responsive para celulares */
-@media (max-width: 700px) {
-
-    header {
-        padding: 20px;
-    }
-
-    header h1 {
-        font-size: 22px;
-    }
-
-    nav {
-        width: 95%;
-    }
-
-    nav form {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    nav input {
-        width: 100%;
-    }
-
-    table {
-        width: 95%;
-        font-size: 12px;
-    }
-
-    th,
-    td {
-        padding: 10px 8px;
-    }
+/* Cambio de vista*/
+.vista {
+    display: none;
 }
+
+.vista.activa {
+    display: block;
+}
+
+.menu-enlaces a.activo {
+    color: #17586C;
+    border-bottom-color: #17586C;
+}
+/* Devoluciones */
+
+/* Caja blanca que contiene el formulario */
+.panel {
+    background-color: white;
+    width: 90%;
+    max-width: 600px;
+    margin: 25px auto;
+    padding: 20px;
+    border: 1px solid #d1d5db;
+}
+
+.panel h2 {
+    font-size: 20px;
+    color: #1e40af;
+    margin-bottom: 15px;
+}
+
+/* Cada campo: etiqueta arriba y cuadro de texto abajo */
+.campo {
+    margin-bottom: 12px;
+}
+
+.campo label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #999;
+    font-size: 14px;
+}
+
+/* Botones */
+.boton {
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+}
+
+.boton-principal {
+    background-color: #2563eb;
+    color: white;
+}
+
+.boton-secundario {
+    background-color: #e5e7eb;
+    color: black;
+}
+
+/* Colores de los estados de la tabla */
+table td.estado-ok {
+    color: green;
+    font-weight: bold;
+}
+
+table td.estado-danio {
+    color: red;
+    font-weight: bold;
+}
+
+table td.estado-pendiente {
+    color: orange;
+    font-weight: bold;
+}
+
