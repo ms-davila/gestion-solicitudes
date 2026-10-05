@@ -7,154 +7,28 @@
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-
-    <div class="menu-principal">
-        <div class="menu-izquierda">
-            <span class="menu-logo"></span>
-            <span class="menu-titulo">Almacén de Equipos</span>
-        </div>
-        <nav class="menu-enlaces">
-            <a href="#" data-vista="inventario" class="activo">Inventario</a>
-            <a href="#" data-vista="solicitudes">Solicitudes</a>
-            <a href="#" data-vista="prestamos">Préstamos</a>
-            <a href="#" data-vista="devoluciones">Devoluciones</a>
-            <a href="#" data-vista="tablero">Tablero</a>
-        </nav>
-        <div class="menu-buscador">
-            <input type="text" placeholder="Buscar por código: INV-OSC-0842" />
-        </div>
-    </div>
     <header>
-        <h1 id="titulo-vista">Inventario</h1>
+        <h1>Bandeja de Solicitudes</h1>
     </header>
+    <nav>
+    <form>
+        <label for="buscar">Buscar:</label>
+        <input type="text" id="busqueda" name="busqueda" />
+    </form>
+    <br>
+    
+    </nav>
+    <table border="1px">
+        <thead>
+            <tr><th>Código</th><th>Estudiante</th>
+            <th>Equipo</th><th>Fecha</th><th>Estado</th><th>Acción</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>20246279</td><td>Mia Davila</td>
+            <td>Laptop</td><td>21/09/26</td><td>Aprobado</td><td>Ver</td></tr>
 
-    <main>
-        <section id="vista-prestamos" class="vista"></section>
-        <section id="vista-tablero" class="vista"></section>
-        <!-- Vista: Inventario -->
-        <section id="vista-inventario" class="vista activa">
-            <nav>
-                <form>
-                    <label for="buscar">Buscar:</label>
-                    <input type="text" id="busqueda" name="busqueda" />
-                </form>
-                <br>
-            </nav>
-            <p style="text-align:center; color:#5E7873; margin: 20px;">
-            </p>
-        </section>
-
-        <!-- Vista: Solicitudes (tu tabla ) -->
-        <section id="vista-solicitudes" class="vista">
-            <table border="1px">
-                <thead>
-                    <tr><th>Código</th><th>Estudiante</th>
-                    <th>Equipo</th><th>Fecha</th><th>Estado</th><th>Acción</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>20246279</td><td>Mia Davila</td>
-                    <td>Laptop</td><td>21/09/26</td><td>Aprobado</td><td>Ver</td></tr>
-                </tbody>
-                <tbody>
-                    <tr><td>20241534</td><td>Jimena Gómez</td>
-                    <td>Mause</td><td>23/09/26</td><td>Aprobado</td><td>Ver</td></tr>
-                </tbody>   
-            </table>
-        </section>
+        </tbody>
         
-        <!-- Vista: Devoluciones -->
-        <section id="vista-devoluciones" class="vista">
-
-            <div class="panel">
-                <h2>Registrar devolución</h2>
-                <form class="form-devolucion">
-                    <div class="campo">
-                        <label for="codigo-prestamo">Código de préstamo</label>
-                        <input type="text" id="codigo-prestamo" name="codigo-prestamo" placeholder="Ej: PRE-0215" />
-                    </div>
-
-                    <div class="campo">
-                        <label for="estudiante">Estudiante</label>
-                        <input type="text" id="estudiante" name="estudiante" placeholder="Nombre del estudiante" />
-                    </div>
-
-                    <div class="campo">
-                        <label for="equipo">Equipo</label>
-                        <input type="text" id="equipo" name="equipo" placeholder="Ej: Laptop" />
-                    </div>
-
-                    <div class="campo">
-                        <label for="fecha">Fecha de devolución</label>
-                        <input type="date" id="fecha" name="fecha" />
-                    </div>
-
-                    <div class="campo">
-                        <label for="estado-equipo">Estado del equipo</label>
-                        <select id="estado-equipo" name="estado-equipo">
-                            <option value="">Selecciona un estado</option>
-                            <option value="bueno">Buen estado</option>
-                            <option value="danado">Con daños</option>
-                            <option value="incompleto">Incompleto</option>
-                        </select>
-                    </div>
-
-                    <div class="campo campo-ancho">
-                        <label for="observaciones">Observaciones</label>
-                        <textarea id="observaciones" name="observaciones" rows="3"
-                            placeholder="Describe cualquier daño o accesorio faltante"></textarea>
-                    </div>
-
-                    <div class="acciones">
-                        <button type="submit" class="boton boton-principal">Registrar devolución</button>
-                        <button type="reset" class="boton boton-secundario">Limpiar</button>
-                    </div>
-                </form>
-            </div>
-
-            <table>
-                <thead>
-                    <tr><th>Código</th><th>Estudiante</th><th>Equipo</th>
-                    <th>Fecha</th><th>Estado</th><th>Acción</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>20246279</td><td>Mia Davila</td><td>Laptop</td><td>28/09/26</td>
-                    <td class="estado-ok">Devuelto</td><td>Ver</td></tr>
-                    <tr><td>20241534</td><td>Jimena Gómez</td><td>Mouse</td><td>29/09/26</td>
-                    <td class="estado-danio">Con daños</td><td>Ver</td></tr>
-                    
-                </tbody>
-            </table>
-        </section>
-
-    </main>
-    <script>
-        const enlaces = document.querySelectorAll('.menu-enlaces a');
-        const vistas = document.querySelectorAll('.vista');
-        const titulo = document.getElementById('titulo-vista');
-
-        const titulos = {
-            inventario: 'Inventario',
-            solicitudes: 'Bandeja de Solicitudes',
-            prestamos: 'Préstamos',
-            devoluciones: 'Devoluciones de Equipos',
-            tablero: 'Tablero'
-        };
-
-        enlaces.forEach(function (enlace) {
-            enlace.addEventListener('click', function (e) {
-                e.preventDefault();
-                const nombre = enlace.dataset.vista;
-
-                enlaces.forEach(a => a.classList.remove('activo'));
-                vistas.forEach(v => v.classList.remove('activa'));
-
-                enlace.classList.add('activo');
-                const destino = document.getElementById('vista-' + nombre);
-                if (destino) destino.classList.add('activa');
-                titulo.textContent = titulos[nombre];
-            });
-        });
-    </script>
-
+    </table>
 </body>
 </html>
