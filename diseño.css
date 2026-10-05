@@ -1,4 +1,3 @@
-/* ===== Variables del sistema de diseño ===== */
 :root {
   --primary: #17505C;
   --primary-dark: #0F3A43;
@@ -480,6 +479,7 @@ label {
 .caja textarea {
   height: 96px;
   padding: 10px 12px;
+  resize: none;
 }
 
 .caja input:focus, .caja select:focus, .caja textarea:focus {
@@ -515,6 +515,7 @@ label {
   height: 100px;
 }
 
+/* botones del formulario */
 .botones {
   text-align: right;
 }
