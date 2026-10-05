@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Historia 1 — Cuenta y acceso</title>
+  <link rel="stylesheet" href="Acceso.css">
+</head>
+<body>
+
+  <!-- ================= 1.1 LANDING PÚBLICA ================= -->
+  <section class="pantalla" id="landing">
+    <div class="rol">1.1 Landing pública · Rol: Visitante · 1920 × 1080</div>
+    <header class="cabecera">
+      <div class="cabecera-izquierda"><div class="logo"></div><span class="nombre-sistema">Almacén de Equipos</span></div>
+      <nav class="cabecera-centro"><a href="#landing">Inicio</a><a href="#">Catálogo</a><a href="#">Reglas del préstamo</a><a href="#">Ayuda</a></nav>
+      <div class="cabecera-derecha"><button class="boton boton-secundario">Iniciar sesión</button><button class="boton boton-primario">Crear cuenta</button></div>
+    </header>
+
+    <div class="hero">
+      <div class="hero-contenido">
+        <div class="hero-texto">
+          <h1 class="titulo-pantalla">Reserva el equipo del laboratorio antes de tu práctica</h1>
+          <p class="texto-ayuda">Busca por equipo o categoría, revisa cuántas unidades hay libres y solicita el préstamo con tus fechas. Recojo en el Almacén H-102.</p>
+          <div class="fila-buscar">
+            <input class="campo" type="text" placeholder="Busca un equipo: «osciloscopio» o «robótica»">
+            <button class="boton boton-primario">Buscar</button>
+          </div>
+        </div>
+        <div class="foto foto-hero">fotografía del almacén · 520 × 300</div>
+      </div>
+    </div>
+
+    <div class="cuerpo">
+      <main class="contenido contenido-ancho">
+        <div class="fila-enlaces">
+          <h2 class="titulo-seccion">Equipos destacados</h2>
+          <a href="#">Ver todo el catálogo →</a>
+        </div>
+        <div class="cuatro">
+          <div class="tarjeta">
+            <div class="foto foto-equipo">foto 1:1</div>
+            <p class="nombre-equipo">Osciloscopio TBS1052B</p>
+            <p class="marca-equipo">Tektronix · medición</p>
+            <span class="libres codigo">3 / 5 libres</span>
+          </div>
+          <div class="tarjeta">
+            <div class="foto foto-equipo">foto 1:1</div>
+            <p class="nombre-equipo">Cámara Canon EOS 90D</p>
+            <p class="marca-equipo">Canon · audiovisual</p>
+            <span class="libres codigo">2 / 4 libres</span>
+          </div>
+          <div class="tarjeta">
+            <div class="foto foto-equipo">foto 1:1</div>
+            <p class="nombre-equipo">Kit Arduino Mega</p>
+            <p class="marca-equipo">Arduino · robótica</p>
+            <span class="libres codigo">6 / 6 libres</span>
+          </div>
+          <div class="tarjeta">
+            <div class="foto foto-equipo">foto 1:1</div>
+            <p class="nombre-equipo">Multímetro Fluke 117</p>
+            <p class="marca-equipo">Fluke · medición</p>
+            <span class="libres libres-cero codigo">0 / 3 libres</span>
+          </div>
+        </div>
+
+        <div class="columnas">
+          <div class="tarjeta">
+            <p><span class="numero-paso">1</span> <b>Solicita con anticipación</b></p>
+            <p class="texto-ayuda">El encargado responde en un máximo de 24 horas hábiles.</p>
+          </div>
+          <div class="tarjeta">
+            <p><span class="numero-paso">2</span> <b>Recoge con tu carné</b></p>
+            <p class="texto-ayuda">Verifica los accesorios en la entrega y firma la constancia.</p>
+          </div>
+          <div class="tarjeta">
+            <p><span class="numero-paso">3</span> <b>Devuelve a tiempo</b></p>
+            <p class="texto-ayuda">Cada día de retraso genera penalidad y bloquea nuevos préstamos.</p>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <footer class="pie">
+      <div>Almacén de Equipos · Facultad de Ingeniería<br>Universidad de Lima · Av. Javier Prado Este 4600, Santiago de Surco</div>
+      <div><a href="#">Reglamento de préstamo</a><a href="#">almacen.equipos@ulima.edu.pe</a><span> Anexo 3120</span></div>
+    </footer>
+  </section>
+
+  <!-- ================= 1.2 INICIO DE SESIÓN ================= -->
+  <section class="pantalla" id="login">
+    <div class="rol">1.2 Inicio de sesión · Rol: Visitante · 1920 × 1080</div>
+    <header class="cabecera">
+      <div class="cabecera-izquierda"><div class="logo"></div><span class="nombre-sistema">Almacén de Equipos</span></div>
+      <nav class="cabecera-centro"><a href="#landing">Inicio</a><a href="#">Catálogo</a><a href="#">Reglas del préstamo</a><a href="#">Ayuda</a></nav>
+      <div class="cabecera-derecha"><button class="boton boton-secundario">Iniciar sesión</button><button class="boton boton-primario">Crear cuenta</button></div>
+    </header>
+
+    <div class="cuerpo">
+      <main class="contenido">
+        <section class="tarjeta tarjeta-estrecha">
+          <h1 class="titulo-pantalla">Inicia sesión</h1>
+          <p class="texto-ayuda">Usa tu correo institucional para solicitar y seguir tus préstamos.</p>
+
+          <div class="grupo-campo">
+            <label class="etiqueta-campo">CORREO INSTITUCIONAL</label>
+            <input class="campo codigo" type="text" placeholder="tucorreo@aloe.ulima.edu.pe">
+          </div>
+          <div class="grupo-campo">
+            <label class="etiqueta-campo">CONTRASEÑA</label>
+            <input class="campo" type="password" value="••••••••">
+          </div>
+          <div class="fila-enlaces">
+            <label><input type="checkbox"> Recordarme</label>
+            <a href="#recuperar">¿Olvidaste tu contraseña?</a>
+          </div>
+          <button class="boton boton-primario boton-ancho">Ingresar</button>
+          <p class="texto-ayuda texto-centro" style="margin-top:15px;">¿No tienes cuenta? <a href="#registro">Crear cuenta</a></p>
+        </section>
+
+        <div class="estado">
+          <p class="estado-titulo">ESTADO · ERROR DE CREDENCIALES (mensaje dentro de la tarjeta)</p>
+          <section class="tarjeta tarjeta-estrecha">
+            <div class="alerta alerta-roja"><b>Correo o contraseña incorrectos.</b> Te quedan 4 intentos.</div>
+            <div class="grupo-campo">
+              <label class="etiqueta-campo">CORREO INSTITUCIONAL</label>
+              <input class="campo campo-error codigo" type="text" value="rmendoza@aloe.ulima.edu.pe">
+            </div>
+            <div class="grupo-campo">
+              <label class="etiqueta-campo">CONTRASEÑA</label>
+              <input class="campo campo-error" type="password" value="••••••">
+              <span class="ayuda-error">Verifica tus datos e inténtalo otra vez.</span>
+            </div>
+          </section>
+        </div>
+
+        <div class="estado">
+          <p class="estado-titulo">ESTADO · CUENTA BLOQUEADA POR DEUDA</p>
+          <div class="alerta alerta-amarilla">
+            <b>Cuenta bloqueada:</b> penalidad pendiente de <b class="codigo">S/ 45.00</b> por el préstamo <span class="codigo">PRE-2026-0291</span>. Puedes ingresar para ver tu historial, pero no solicitar equipos hasta regularizar en Tesorería.
+          </div>
+        </div>
+
+        <div class="estado">
+          <p class="estado-titulo">ESTADO · BOTÓN EN CARGA</p>
+          <section class="tarjeta tarjeta-estrecha">
+            <button class="boton boton-deshabilitado boton-ancho" style="margin-top:0;">Ingresando…</button>
+            <p class="texto-ayuda texto-centro" style="margin-top:10px;">Campos y enlaces deshabilitados mientras se valida.</p>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <footer class="pie">
+      <div>Almacén de Equipos · Facultad de Ingeniería</div>
+      <div><a href="#">Reglamento de préstamo</a><a href="#">almacen.equipos@ulima.edu.pe</a><span> Anexo 3120</span></div>
+    </footer>
+  </section>
+
+  <!-- ================= 1.3 REGISTRO DE ESTUDIANTE ================= -->
+  <section class="pantalla" id="registro">
+    <div class="rol">1.3 Registro de estudiante · Rol: Visitante · 1920 × 1080</div>
+    <header class="cabecera">
+      <div class="cabecera-izquierda"><div class="logo"></div><span class="nombre-sistema">Almacén de Equipos</span></div>
+      <nav class="cabecera-centro"><a href="#landing">Inicio</a><a href="#">Catálogo</a><a href="#">Reglas del préstamo</a><a href="#">Ayuda</a></nav>
+      <div class="cabecera-derecha"><button class="boton boton-secundario">Iniciar sesión</button><button class="boton boton-primario">Crear cuenta</button></div>
+    </header>
+
+    <div class="cuerpo">
+      <main class="contenido">
+        <h1 class="titulo-pantalla">Crea tu cuenta de estudiante</h1>
+        <p class="texto-ayuda">Solo se admiten correos @aloe.ulima.edu.pe. La cuenta se activa con el enlace de verificación.</p>
+
+        <section class="tarjeta">
+          <h2 class="subtitulo-seccion">DATOS PERSONALES</h2>
+          <hr class="linea">
+          <div class="fila-dos">
+            <div class="grupo-campo"><label class="etiqueta-campo">NOMBRES</label><input class="campo" type="text" value="Renzo Andrés"></div>
+            <div class="grupo-campo"><label class="etiqueta-campo">APELLIDOS</label><input class="campo" type="text" value="Mendoza Cárdenas"></div>
+          </div>
+          <div class="fila-dos">
+            <div class="grupo-campo"><label class="etiqueta-campo">CARRERA</label>
+              <select class="campo"><option>Ingeniería Electrónica</option></select></div>
+            <div class="grupo-campo"><label class="etiqueta-campo">CICLO</label>
+              <select class="campo"><option>6.º</option></select></div>
+          </div>
+
+          <h2 class="subtitulo-seccion">ACCESO</h2>
+          <hr class="linea">
+          <div class="grupo-campo">
+            <label class="etiqueta-campo">CORREO INSTITUCIONAL</label>
+            <input class="campo codigo" type="text" placeholder="nombre@aloe.ulima.edu.pe">
+            <span class="ayuda-campo">Debe terminar en @aloe.ulima.edu.pe</span>
+          </div>
+          <div class="fila-dos">
+            <div class="grupo-campo">
+              <label class="etiqueta-campo">CONTRASEÑA</label>
+              <input class="campo" type="password" value="••••••••">
+              <span class="ayuda-campo">Mínimo 8 caracteres, una mayúscula y un número.</span>
+            </div>
+            <div class="grupo-campo">
+              <label class="etiqueta-campo">CONFIRMAR CONTRASEÑA</label>
+              <input class="campo" type="password" value="••••••••">
+            </div>
+          </div>
+
+          <label class="casilla">
+            <input type="checkbox">
+            <span>Acepto el reglamento de préstamo de equipos y me responsabilizo por el cuidado y la devolución de las unidades asignadas.</span>
+          </label>
+
+          <div class="botones-fila">
+            <button class="boton boton-secundario">Cancelar</button>
+            <button class="boton boton-primario">Crear cuenta</button>
+          </div>
+        </section>
+
+        <div class="estado">
+          <p class="estado-titulo">ESTADO · VALIDACIÓN EN LÍNEA</p>
+          <section class="tarjeta">
+            <div class="fila-dos">
+              <div class="grupo-campo">
+                <label class="etiqueta-campo">CORREO INSTITUCIONAL</label>
+                <input class="campo campo-error codigo" type="text" value="rmendoza@gmail.com">
+                <span class="ayuda-error">Debe terminar en @aloe.ulima.edu.pe</span>
+              </div>
+              <div class="grupo-campo">
+                <label class="etiqueta-campo">CONFIRMAR CONTRASEÑA</label>
+                <input class="campo campo-error" type="password" value="•••••">
+                <span class="ayuda-error">Las contraseñas no coinciden.</span>
+              </div>
+            </div>
+            <div class="alerta alerta-roja"><b>Revisa 3 campos antes de continuar.</b></div>
+          </section>
+        </div>
+
+        <div class="estado">
+          <p class="estado-titulo">ESTADO · ÉXITO (MENSAJE)</p>
+          <div class="alerta alerta-verde">
+            <b>✓ Cuenta creada.</b> Enviamos un enlace de verificación a <span class="codigo">rmendoza@aloe.ulima.edu.pe</span>. Válido por 24 horas.
+          </div>
+        </div>
+
+        <div class="estado">
+          <p class="estado-titulo">NOTIFICACIÓN DE RESULTADO</p>
+          <div class="alerta alerta-roja">
+            Ya existe una cuenta con el correo <span class="codigo">rmendoza@aloe.ulima.edu.pe</span>. Inicia sesión o recupera tu contraseña.
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <footer class="pie">
+      <div>Almacén de Equipos · Facultad de Ingeniería</div>
+      <div><a href="#">Reglamento de préstamo</a><a href="#">almacen.equipos@ulima.edu.pe</a><span> Anexo 3120</span></div>
+    </footer>
+  </section>
+
+  <!-- ================= 1.4 REGISTRO DE ENCARGADO ================= -->
+  <section class="pantalla" id="encargado">
+    <div class="rol">1.4 Registro de encargado · Rol: Visitante · alta de encargado de almacén · 1920 × 1080</div>
+    <header class="cabecera">
+      <div class="cabecera-izquierda"><div class="logo"></div><span class="nombre-sistema">Almacén de Equipos</span></div>
+      <nav class="cabecera-centro"><a href="#landing">Inicio</a><a href="#">Catálogo</a><a href="#">Reglas del préstamo</a><a href="#">Ayuda</a></nav>
+      <div class="cabecera-derecha"><button class="boton boton-secundario">Iniciar sesión</button><button class="boton boton-primario">Crear cuenta</button></div>
+    </header>
+
+    <div class="cuerpo">
+      <main class="contenido">
+        <h1 class="titulo-pantalla">Registro de encargado de almacén</h1>
+        <p class="texto-ayuda">El alta queda pendiente hasta que el jefe de laboratorio la apruebe. Solo se admiten correos @ulima.edu.pe del personal.</p>
+
+        <section class="tarjeta">
+          <h2 class="subtitulo-seccion">DATOS PERSONALES</h2>
+          <hr class="linea">
+          <div class="fila-dos">
+            <div class="grupo-campo"><label class="etiqueta-campo">NOMBRES</label><input class="campo" type="text" value="Elena Sofía"></div>
+            <div class="grupo-campo"><label class="etiqueta-campo">APELLIDOS</label><input class="campo" type="text" value="Rivas Talledo"></div>
+          </div>
+
+          <h2 class="subtitulo-seccion">ACCESO</h2>
+          <hr class="linea">
+          <div class="grupo-campo">
+            <label class="etiqueta-campo">CORREO INSTITUCIONAL</label>
+            <input class="campo codigo" type="text" value="erivas@ulima.edu.pe">
+            <span class="ayuda-campo">Debe terminar en @ulima.edu.pe</span>
+          </div>
+          <div class="fila-dos">
+            <div class="grupo-campo">
+              <label class="etiqueta-campo">CONTRASEÑA</label>
+              <input class="campo" type="password" value="••••••••">
+              <span class="ayuda-campo">Mínimo 8 caracteres, una mayúscula y un número.</span>
+            </div>
+            <div class="grupo-campo">
+              <label class="etiqueta-campo">CONFIRMAR CONTRASEÑA</label>
+              <input class="campo" type="password" value="••••••••">
+            </div>
+          </div>
+
+          <h2 class="subtitulo-seccion">ASIGNACIÓN</h2>
+          <hr class="linea">
+          <div class="fila-dos">
+            <div class="grupo-campo">
+              <label class="etiqueta-campo">ALMACÉN ASIGNADO</label>
+              <select class="campo"><option>Almacén H-102</option><option>Almacén N-005</option><option>Laboratorio de Electrónica H210</option></select>
+              <span class="ayuda-campo">Opciones: Almacén H-102, Almacén N-005, Laboratorio de Electrónica H210.</span>
+            </div>
+            <div class="grupo-campo">
+              <label class="etiqueta-campo">ANEXO TELEFÓNICO</label>
+              <input class="campo codigo" type="text" value="3120">
+            </div>
+          </div>
+
+          <div class="alerta alerta-amarilla">La cuenta se crea en estado «Pendiente de aprobación». Hasta entonces no podrá aprobar solicitudes ni registrar entregas.</div>
+
+          <div class="botones-fila">
+            <button class="boton boton-secundario">Cancelar</button>
+            <button class="boton boton-primario">Registrar encargado</button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="pie">
+      <div>Almacén de Equipos · Facultad de Ingeniería</div>
+      <div><a href="#">Reglamento de préstamo</a><a href="#">almacen.equipos@ulima.edu.pe</a><span> Anexo 3120</span></div>
+    </footer>
+  </section>
+
+  <!-- ================= 1.5 RECUPERAR CONTRASEÑA ================= -->
+  <section class="pantalla" id="recuperar">
+    <div class="rol">1.5 Recuperar contraseña · paso 1 de 3 · Rol: Visitante · 1920 × 1080</div>
+    <header class="cabecera">
+      <div class="cabecera-izquierda"><div class="logo"></div><span class="nombre-sistema">Almacén de Equipos</span></div>
+      <nav class="cabecera-centro"><a href="#landing">Inicio</a><a href="#">Catálogo</a><a href="#">Reglas del préstamo</a><a href="#">Ayuda</a></nav>
+      <div class="cabecera-derecha"><button class="boton boton-secundario">Iniciar sesión</button><button class="boton boton-primario">Crear cuenta</button></div>
+    </header>
+
+    <div class="cuerpo">
+      <main class="contenido">
+        <section class="tarjeta tarjeta-estrecha">
+          <div class="pasos"><span class="paso paso-activo">1</span><span class="paso">2</span><span class="paso">3</span></div>
+          <h1 class="titulo-pantalla">Recupera tu acceso</h1>
+          <p class="texto-ayuda">Te enviaremos un enlace para crear una contraseña nueva. El enlace expira en 60 minutos.</p>
+          <div class="grupo-campo">
+            <label class="etiqueta-campo">CORREO INSTITUCIONAL</label>
+            <input class="campo codigo" type="text" placeholder="nombre@aloe.ulima.edu.pe">
+          </div>
+          <button class="boton boton-primario boton-ancho">Enviar enlace</button>
+          <p class="texto-centro" style="margin-top:15px;"><a href="#login">Volver al inicio de sesión</a></p>
+        </section>
+
+        <div class="estado">
+          <p class="estado-titulo">PASO 2 · CONFIRMACIÓN DE ENVÍO (mensaje en la misma pantalla)</p>
+          <section class="tarjeta tarjeta-estrecha texto-centro">
+            <div class="pasos"><span class="paso">1</span><span class="paso paso-activo">2</span><span class="paso">3</span></div>
+            <h2 class="titulo-seccion">✉ Revisa tu correo</h2>
+            <p class="texto-ayuda">Enviamos el enlace a <span class="codigo">rmendoza@aloe.ulima.edu.pe</span>. Podrás reenviarlo en <span class="codigo">00:45</span>.</p>
+          </section>
+        </div>
+
+        <div class="estado">
+          <p class="estado-titulo">PASO 3 · NUEVA CONTRASEÑA</p>
+          <section class="tarjeta tarjeta-estrecha">
+            <div class="pasos"><span class="paso">1</span><span class="paso">2</span><span class="paso paso-activo">3</span></div>
+            <div class="grupo-campo">
+              <label class="etiqueta-campo">NUEVA CONTRASEÑA</label>
+              <input class="campo" type="password" value="••••••••••">
+              <span class="ayuda-campo" style="color:#1E7F4D; font-weight:600;">Segura</span>
+            </div>
+            <button class="boton boton-primario boton-ancho">Guardar contraseña</button>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <footer class="pie">
+      <div>Almacén de Equipos · Facultad de Ingeniería</div>
+      <div><a href="#">Reglamento de préstamo</a><a href="#">almacen.equipos@ulima.edu.pe</a><span> Anexo 3120</span></div>
+    </footer>
+  </section>
+
+  <!-- ================= 1.6 MI CUENTA ================= -->
+  <section class="pantalla" id="cuenta">
+    <div class="rol">1.6 Mi cuenta · Rol: Estudiante · 1920 × 1080</div>
+    <header class="cabecera">
+      <div class="cabecera-izquierda"><div class="logo"></div><span class="nombre-sistema">Almacén de Equipos</span></div>
+      <nav class="cabecera-centro"><a href="#">Catálogo</a><a href="#">Mis solicitudes</a><a href="#">Mis reservas</a><a href="#">Calendario</a></nav>
+      <input class="buscador" type="text" placeholder="⌕ Buscar por código: INV-OSC-0042">
+      <div class="cabecera-derecha"><span>Renzo Mendoza</span><div class="logo"></div></div>
+    </header>
+
+    <div class="cuerpo">
+      <main class="contenido">
+        <p class="texto-ayuda">Inicio / Mi cuenta</p>
+        <h1 class="titulo-pantalla">Mi cuenta</h1>
+
+        <div class="alerta alerta-roja">
+          Tienes una penalidad pendiente de <b class="codigo">S/ 45.00</b> por 3 días de retraso en <span class="codigo">PRE-2026-0291</span>. Regularízala en Tesorería para volver a solicitar equipos.
+        </div>
+
+        <section class="tarjeta" style="margin-top:20px;">
+          <h2 class="titulo-seccion">Datos personales</h2>
+          <div class="fila-dos">
+            <div class="grupo-campo"><label class="etiqueta-campo">NOMBRES</label><input class="campo" type="text" value="Renzo Andrés"></div>
+            <div class="grupo-campo"><label class="etiqueta-campo">APELLIDOS</label><input class="campo" type="text" value="Mendoza Cárdenas"></div>
+          </div>
+          <div class="fila-dos">
+            <div class="grupo-campo"><label class="etiqueta-campo">CARRERA</label>
+              <select class="campo"><option>Ingeniería Electrónica</option></select></div>
+            <div class="grupo-campo"><label class="etiqueta-campo">CICLO</label>
+              <select class="campo"><option>6.º</option></select></div>
+          </div>
+          <div class="fila-dos">
+            <div class="grupo-campo">
+              <label class="etiqueta-campo">CORREO INSTITUCIONAL</label>
+              <input class="campo campo-deshabilitado codigo" type="text" value="rmendoza@aloe.ulima.edu.pe" disabled>
+              <span class="ayuda-campo">No editable.</span>
+            </div>
+            <div class="grupo-campo"><label class="etiqueta-campo">CELULAR</label><input class="campo codigo" type="text" value="987 654 321"></div>
+          </div>
+          <div class="botones-fila">
+            <button class="boton boton-secundario">Descartar</button>
+            <button class="boton boton-primario">Guardar cambios</button>
+          </div>
+        </section>
+
+        <section class="tarjeta">
+          <h2 class="titulo-seccion">Cambiar contraseña</h2>
+          <div class="fila-dos">
+            <div class="grupo-campo"><label class="etiqueta-campo">CONTRASEÑA ACTUAL</label><input class="campo" type="password" value="••••••••"></div>
+            <div class="grupo-campo"><label class="etiqueta-campo">NUEVA</label><input class="campo" type="password" value="••••••••"></div>
+            <div class="grupo-campo"><label class="etiqueta-campo">CONFIRMAR</label><input class="campo" type="password" value="••••••••"></div>
+          </div>
+          <div class="botones-fila"><button class="boton boton-primario">Actualizar contraseña</button></div>
+        </section>
+
+        <section class="tarjeta">
+          <h2 class="titulo-seccion">Resumen de préstamos</h2>
+          <div class="resumen">
+            <div><b class="codigo">14</b>préstamos</div>
+            <div><b class="codigo">2</b>retrasos</div>
+            <div><b class="codigo" style="color:#B4322B;">S/ 45.00</b>deuda</div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="pie">
+      <div>Almacén de Equipos · Facultad de Ingeniería</div>
+      <div><a href="#">Reglamento de préstamo</a><a href="#">almacen.equipos@ulima.edu.pe</a><span> Anexo 3120</span></div>
+    </footer>
+  </section>
+
+  <!-- ================= 1.7 ACCESO DENEGADO (403) ================= -->
+  <section class="pantalla" id="error403">
+    <div class="rol">1.7 Acceso denegado (403) · Rol: Estudiante intentando entrar al panel del encargado · 1920 × 1080</div>
+    <header class="cabecera">
+      <div class="cabecera-izquierda"><div class="logo"></div><span class="nombre-sistema">Almacén de Equipos</span></div>
+      <nav class="cabecera-centro"><a href="#">Catálogo</a><a href="#">Mis solicitudes</a><a href="#">Mis reservas</a><a href="#">Calendario</a></nav>
+      <div class="cabecera-derecha"><span>Renzo Mendoza</span><div class="logo"></div></div>
+    </header>
+
+    <div class="cuerpo">
+      <main class="contenido texto-centro">
+        <p class="error-grande">!</p>
+        <p class="etiqueta-campo">ERROR 403 · ACCESO DENEGADO</p>
+        <h1 class="titulo-pantalla">No tienes permiso para ver esta página</h1>
+        <p class="texto-ayuda" style="margin-top:10px;">Esta sección pertenece al panel del encargado de almacén. Si crees que es un error, escribe a almacen.equipos@ulima.edu.pe indicando tu código de estudiante.</p>
+        <div class="botones-fila" style="justify-content:center;">
+          <button class="boton boton-primario">Ir al catálogo</button>
+          <button class="boton boton-secundario">Ver mis solicitudes</button>
+        </div>
+      </main>
+    </div>
+
+    <footer class="pie">
+      <div>Almacén de Equipos · Facultad de Ingeniería</div>
+      <div><a href="#">Reglamento de préstamo</a><a href="#">almacen.equipos@ulima.edu.pe</a><span> Anexo 3120</span></div>
+    </footer>
+  </section>
+
+  <!-- ================= 1.7 PÁGINA NO ENCONTRADA (404) ================= -->
+  <section class="pantalla" id="error404">
+    <div class="rol">1.7 Página no encontrada (404) · Rol: Visitante o cualquier rol · 1920 × 1080</div>
+    <header class="cabecera">
+      <div class="cabecera-izquierda"><div class="logo"></div><span class="nombre-sistema">Almacén de Equipos</span></div>
+      <nav class="cabecera-centro"><a href="#landing">Inicio</a><a href="#">Catálogo</a><a href="#">Reglas del préstamo</a><a href="#">Ayuda</a></nav>
+      <div class="cabecera-derecha"><button class="boton boton-secundario">Iniciar sesión</button><button class="boton boton-primario">Crear cuenta</button></div>
+    </header>
+
+    <div class="cuerpo">
+      <main class="contenido texto-centro">
+        <p class="error-grande" style="color:#17505C;">?</p>
+        <p class="etiqueta-campo">ERROR 404 · PÁGINA NO ENCONTRADA</p>
+        <h1 class="titulo-pantalla">No encontramos esta página</h1>
+        <p class="texto-ayuda" style="margin-top:10px;">El enlace pudo cambiar o la ficha del equipo ya no está publicada en el catálogo.</p>
+        <div class="botones-fila" style="justify-content:center;">
+          <button class="boton boton-primario">Ir al inicio</button>
+          <button class="boton boton-secundario">Buscar un equipo</button>
+        </div>
+      </main>
+    </div>
+
+    <footer class="pie">
+      <div>Almacén de Equipos · Facultad de Ingeniería</div>
+      <div><a href="#">Reglamento de préstamo</a><a href="#">almacen.equipos@ulima.edu.pe</a><span> Anexo 3120</span></div>
+    </footer>
+  </section>
+
+</body>
+</html>
