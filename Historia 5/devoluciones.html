@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Historia 5 — Devoluciones | Almacén de Equipos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="devoluciones.css">
+</head>
+<body>
+
+  <!-- cabecera-->
+  <header class="cabecera">
+    <div class="cabecera-izquierda">
+      <div class="logo"></div>
+      <span class="nombre-sistema">Almacén de Equipos</span>
+    </div>
+
+    <div class="cabecera-centro">
+      <input class="buscador" type="text" placeholder="Buscar préstamo">
+    </div>
+  </header>
+
+  <!-- contenidoo -->
+  <div class="cuerpo">
+    <main class="contenido">
+      <h1 class="titulo-pantalla">Registrar devolución</h1>
+      <p class="texto-ayuda">Devolución con retraso y accesorio faltante</p>
+
+      <div class="columnas">
+
+        <!--REGISTRO DE DEVOLUCIÓN -->
+        <section class="tarjeta">
+          <label class="etiqueta-campo">BUSCAR PRÉSTAMO</label>
+          <div class="fila-buscar">
+            <input class="campo codigo" type="text" value="PRE-2026-0291">
+            <button class="boton boton-primario">Buscar</button>
+          </div>
+
+          <div class="datos-prestamo">
+            <div class="dato">
+              <span class="etiqueta-campo">ESTUDIANTE</span>
+              <span>Camila Quispe Andrade</span>
+            </div>
+            <div class="dato">
+              <span class="etiqueta-campo">EQUIPO Y UNIDAD</span>
+              <span>Tableta Wacom Intuos · INV-TAB-0004</span>
+            </div>
+            <div class="dato">
+              <span class="etiqueta-campo">DEVOLUCIÓN PACTADA</span>
+              <span class="codigo">11/09/2026</span>
+            </div>
+            <div class="dato">
+              <span class="etiqueta-campo">RETORNO REAL</span>
+              <span class="codigo">14/09/2026</span>
+            </div>
+          </div>
+
+          <h2 class="subtitulo-seccion">VERIFICACIÓN DE ACCESORIOS</h2>
+          <hr class="linea">
+
+          <label class="accesorio">
+            <input type="checkbox" checked>
+            <span>Lápiz digital</span>
+          </label>
+          <label class="accesorio">
+            <input type="checkbox" checked>
+            <span class="accesorio-nombre">Cable USB</span>
+          </label>
+          <label class="accesorio">
+            <input type="checkbox" checked>
+            <span>Estuche</span>
+          </label>
+
+          <div class="fila-estado">
+            <div class="grupo-estado">
+              <label class="etiqueta-campo">ESTADO DE RETORNO</label>
+              <div class="opciones-estado">
+                <button class="opcion">Sin novedades</button>
+                <button class="opcion">Con daños</button>
+                <button class="opcion opcion-activa-roja">Faltantes</button>
+              </div>
+            </div>
+            <div class="grupo-fecha">
+              <label class="etiqueta-campo">FECHA DE RETORNO</label>
+              <input class="campo codigo" type="text" value="14/09/2026">
+            </div>
+          </div>
+
+          <div class="alerta alerta-roja">
+            <b>3 días de retraso.</b> Penalidad calculada: <b class="codigo">S/ 45.00</b> (S/ 15.00 por día). La cuenta quedará bloqueada hasta regularizar.
+          </div>
+
+          <div class="botones-fila">
+            <button class="boton boton-secundario">Cancelar</button>
+            <button class="boton boton-primario">Registrar devolución</button>
+          </div>
+        </section>
+
+        <!-- DAÑOS O FALTANTES -->
+        <section class="tarjeta">
+          <h2 class="titulo-seccion">Registrar daños o faltantes</h2>
+          <p class="texto-ayuda">Paso siguiente cuando el retorno no es «sin novedades»</p>
+
+          <label class="etiqueta-campo">DESCRIPCIÓN DEL DAÑO</label>
+          <textarea class="campo area-texto">Superficie activa con rayadura profunda en la esquina inferior derecha; el trazo se corta en esa zona.</textarea>
+
+          <div class="botones-fila">
+            <button class="boton boton-secundario">Cancelar</button>
+            <button class="boton boton-primario">Guardar y cerrar devolución</button>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>
