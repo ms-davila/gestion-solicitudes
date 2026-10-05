@@ -1,0 +1,339 @@
+:root {
+    --primary: #17505C;
+    --primary-dark: #0F3A43;
+    --background: #F5F7F8;
+    --base: #FFFFFF;
+    --border: #D8E0E2;
+    --text: #12211F;
+    --text-secondary: #5E7073;
+    --success: #1E7F4D;
+    --warning: #B7791F;
+    --danger: #B4322B;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Barlow', sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    background-color: var(--base);
+    padding: 15px 60px;
+    border-bottom: 1px solid var(--border);
+}
+
+.titulo {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 30px;
+    height: 30px;
+    background-color: var(--primary);
+    margin-right: 10px;
+    border-radius: 4px;
+}
+
+.titulo h2 {
+    color: var(--primary);
+    font-size: 18px;
+}
+
+nav {
+    margin-left: 25px;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none; /* quita los puntos de la lista */
+}
+
+nav li {
+    margin-left: 20px;
+}
+
+nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+/* Indica en qué pantalla estamos */
+.seleccionado {
+    color: var(--primary);
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.buscador-header {
+    margin-left: auto;
+}
+
+.buscador-header input {
+    width: 280px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+}
+
+.perfil {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.perfil p {
+    font-size: 13px;
+    margin-right: 10px;
+}
+
+.foto {
+    width: 35px;
+    height: 35px;
+    background-color: var(--primary);
+    color: white;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+.encabezado-reservas {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: var(--primary-dark);
+    margin-bottom: 5px;
+}
+
+.descripcion {
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--primary-dark);
+}
+
+.reservas {
+    background-color: var(--base);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+
+th {
+    color: var(--text-secondary);
+    background-color: var(--background);
+    font-size: 12px;
+}
+
+td {
+    background-color: var(--base);
+    font-size: 13px;
+}
+
+tbody tr:hover {
+    background-color: var(--background);
+}
+
+.fila-espera {
+    background-color: #FFF9EE;
+}
+
+/* Estados de las reservas */
+.estado {
+    padding: 5px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+}
+
+.confirmado {
+    color: var(--success);
+    background-color: #EAF7EF;
+    border: 1px solid var(--success);
+}
+
+.espera {
+    color: var(--warning);
+    background-color: #FFF4DD;
+    border: 1px solid var(--warning);
+}
+
+.cumplida {
+    color: var(--text-secondary);
+    background-color: var(--background);
+    border: 1px solid var(--border);
+}
+
+.cancelar {
+    color: var(--danger);
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.cancelar:hover {
+    text-decoration: underline;
+}
+
+.detalle {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.detalle:hover {
+    text-decoration: underline;
+}
+
+/* Parte inferior */
+.parte-inferior {
+    display: flex;
+    margin-top: 20px;
+}
+
+.sin-reservas,
+.cancelacion {
+    width: 50%;
+    background-color: var(--base);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px;
+}
+
+.sin-reservas {
+    margin-right: 15px;
+    text-align: center;
+}
+
+.cancelacion {
+    margin-left: 15px;
+}
+
+.texto-pequeno {
+    color: var(--text-secondary);
+    font-size: 11px;
+    margin-bottom: 15px;
+}
+
+.icono-vacio {
+    width: 40px;
+    height: 40px;
+    background-color: var(--background);
+    color: var(--text-secondary);
+    margin: 0 auto 15px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sin-reservas h3 {
+    margin-bottom: 8px;
+}
+
+.sin-reservas p {
+    color: var(--text-secondary);
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.cuadro-cancelacion {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px;
+}
+
+.cuadro-cancelacion h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.cuadro-cancelacion p {
+    color: var(--text-secondary);
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.botones-cancelacion {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.mantener {
+    background-color: var(--base);
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    margin-right: 10px;
+}
+
+.cancelar-boton {
+    background-color: var(--danger);
+}
+
+.cancelar-boton:hover {
+    background-color: #8F2924;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    background-color: var(--text);
+    color: white;
+    padding: 20px 60px;
+    margin-top: 40px;
+}
+
+.informacion {
+    display: flex;
+    margin-left: auto;
+}
+
+.informacion p {
+    margin-left: 20px;
+}

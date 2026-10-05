@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Reservas</title>
+    <link rel="stylesheet" href="reservas.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="titulo">
+            <div class="logo"></div>
+            <h2>Almacén de Equipos</h2>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="../Historia 3/catalogo.html">Catálogo</a></li>
+                <li><a href="../index.html">Mis Solicitudes</a></li>
+                <li><a href="reservas.html" class="seleccionado">Mis Reservas</a></li>
+                <li><a href="calendario.html">Calendario</a></li>
+            </ul>
+        </nav>
+
+        <div class="buscador-header">
+            <input type="text" placeholder="Buscar equipo o código de inventario">
+        </div>
+
+        <div class="perfil">
+            <p>Natalia Rebatta</p>
+            <div class="foto">NR</div>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="encabezado-reservas">
+            <div>
+                <h1>Mis Reservas</h1>
+                <p class="descripcion">3 reservas activas · 1 en lista de espera</p>
+            </div>
+            <button type="button">Nueva reserva</button>
+        </section>
+
+        <section class="reservas">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Equipo</th>
+                        <th>Rango</th>
+                        <th>Estado</th>
+                        <th>Lista de espera</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Osciloscopio Tektronix TBS1052B</td>
+                        <td>16/09 - 18/09/2026</td>
+                        <td> <span class="estado confirmado">Confirmada</span> </td>
+                        <td>-</td>
+                        <td> <a href="#" class="cancelar">Cancelar reserva</a> </td>
+                    </tr>
+
+                    <tr>
+                        <td>Kit de robótica Arduino Mega</td>
+                        <td>22/09 - 26/09/2026</td>
+                        <td>  <span class="estado confirmado">Confirmada</span> </td>
+                        <td>-</td>
+                        <td> <a href="#" class="cancelar">Cancelar reserva</a> </td>
+                    </tr>
+
+                    <tr class="fila-espera">
+                        <td>Cámara Canon EOS 90D</td>
+                        <td>20/09/2026 - 24/09/2026</td>
+                        <td>
+                            <span class="estado espera">En espera</span>
+                        </td>
+                        <td>Puesto 2 de 4</td>
+                        <td>
+                            <a href="#" class="cancelar">Cancelar reserva</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Multímetro Fluke 117</td>
+                        <td>05/09 - 08/09/2026</td>
+                        <td> <span class="estado cumplida">Cumplida</span>   </td>
+                        <td>-</td>
+                        <td> <a href="#" class="detalle">Ver detalle</a> </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </section>
+
+        <section class="parte-inferior">
+
+            <section class="sin-reservas">
+
+                <p class="texto-pequeno"> Estado vacío de esta misma pantalla   </p>
+                <div class="icono-vacio">✕</div>
+                <h3>No tienes reservas</h3>
+                <p> Revisa el calendario de ocupación de un equipo y reserva con anticipación.
+                </p>
+
+                <a href="calendario.html" class="boton-calendario"> Ver calendario  </a>
+
+            </section>
+
+            <section class="cancelacion">
+
+                <p class="texto-pequeno"> Confirmación de cancelación </p>
+                <div class="cuadro-cancelacion">
+                    <h3>¿Cancelar reserva?</h3>
+                    <p>  ¿Estás seguro/a de que deseas cancelar esta reserva? </p>
+                    <div class="botones-cancelacion">
+
+                        <button type="button" class="mantener">
+                            Mantener reserva
+                        </button>
+
+                        <button type="button" class="cancelar-boton">
+                            Cancelar reserva
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+    </main>
+
+    <footer>
+
+        <h3>Almacén de Equipos - Facultad de Ingeniería</h3>
+
+        <div class="informacion">
+            <p>Reglamento de Préstamo</p>
+            <p>almacen.equipos@ulima.edu.pe</p>
+            <p>Anexo 3120</p>
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
