@@ -1,0 +1,263 @@
+/* Historia 5 — Devoluciones */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Barlow', sans-serif;
+  font-size: 15px;
+  color: #12211F;
+  background: #F5F7F8;
+}
+
+.codigo {
+  font-family: 'Roboto Mono', monospace;
+}
+
+/* CABECERA */
+.cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+  padding: 0 20px;
+  background: white;
+  border-bottom: 1px solid #D8E0E2;
+}
+
+.cabecera-izquierda {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 24px;
+  height: 24px;
+  background: #17505C;
+  border-radius: 4px;
+}
+
+.nombre-sistema {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0F3A43;
+}
+
+.cabecera-centro {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.buscador {
+  width: 100%;
+  max-width: 500px;
+  height: 40px;
+  padding: 0 12px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 13px;
+  background: #F5F7F8;
+  border: 1px solid #D8E0E2;
+  border-radius: 4px;
+}
+
+/* CONTENIDO */
+.cuerpo {
+  display: flex;
+  justify-content: center;
+}
+
+.contenido {
+  width: 100%;
+  max-width: 900px;
+  padding: 30px 20px;
+}
+
+.titulo-pantalla {
+  font-size: 26px;
+  color: #0F3A43;
+}
+
+.titulo-seccion {
+  font-size: 20px;
+}
+
+.texto-ayuda {
+  margin-bottom: 20px;
+  font-size: 13px;
+  color: #5E7073;
+}
+
+.tarjeta {
+  padding: 20px;
+  margin-bottom: 20px;
+  background: white;
+  border: 1px solid #D8E0E2;
+  border-radius: 4px;
+}
+
+/* ETIQUETAS Y CAMPOS */
+.etiqueta-campo,
+.subtitulo-seccion {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #5E7073;
+}
+
+.subtitulo-seccion {
+  margin-top: 15px;
+}
+
+.linea {
+  border: none;
+  border-top: 1px solid #D8E0E2;
+  margin: 8px 0;
+}
+
+.campo {
+  width: 100%;
+  padding: 8px 12px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 15px;
+  border: 1px solid #D8E0E2;
+  border-radius: 4px;
+}
+
+.campo.codigo {
+  font-family: 'Roboto Mono', monospace;
+}
+
+.area-texto {
+  height: 110px;
+  resize: none;
+}
+
+/* BOTONES */
+.boton {
+  height: 40px;
+  padding: 0 20px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.boton-primario {
+  color: white;
+  background: #17505C;
+  border: 1px solid #17505C;
+}
+
+.boton-secundario {
+  color: #17505C;
+  background: white;
+  border: 1px solid #17505C;
+}
+
+.botones-fila {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+/* TARJETA 1 */
+.fila-buscar {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.datos-prestamo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 15px;
+  margin-top: 15px;
+  background: #F5F7F8;
+  border: 1px solid #D8E0E2;
+  border-radius: 4px;
+}
+
+.dato {
+  width: 45%;
+}
+
+.dato span {
+  display: block;
+}
+
+.accesorio {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 44px;
+  padding: 0 14px;
+  margin-top: 8px;
+  border: 1px solid #D8E0E2;
+  border-radius: 4px;
+}
+
+
+.accesorio-nombre {
+  flex: 1;
+}
+
+.texto-faltante {
+  font-size: 13px;
+  font-weight: 600;
+  color: #B4322B;
+}
+
+.fila-estado {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 15px;
+}
+
+.opciones-estado {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.opcion {
+  height: 40px;
+  padding: 0 14px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 14px;
+  background: white;
+  border: 1px solid #D8E0E2;
+  border-radius: 4px;
+}
+
+.opcion-activa-roja {
+  font-weight: 600;
+  color: white;
+  background: #B4322B;
+  border-color: #B4322B;
+}
+
+.grupo-fecha {
+  width: 180px;
+}
+
+.alerta {
+  margin-top: 15px;
+  padding: 12px 15px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.alerta-roja {
+  color: #B4322B;
+  background: #FBEDEC;
+  border: 1px solid #B4322B;
+}

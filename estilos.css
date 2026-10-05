@@ -1,0 +1,157 @@
+/* Configuración general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+}
+
+/* Encabezado */
+header {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+    padding: 25px 40px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+header h1 {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+/* Barra de navegación / búsqueda */
+nav {
+    background-color: white;
+    margin: 25px auto;
+    padding: 20px 25px;
+    width: 90%;
+    max-width: 1200px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+nav form {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+nav label {
+    font-weight: bold;
+    color: #374151;
+}
+
+nav input {
+    width: 300px;
+    padding: 11px 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+/* Efecto al seleccionar el buscador */
+nav input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* Tabla */
+table {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Encabezados */
+thead {
+    background-color: #1e40af;
+    color: white;
+}
+
+th {
+    padding: 15px;
+    text-align: left;
+    font-size: 14px;
+}
+
+/* Celdas */
+td {
+    padding: 14px 15px;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 14px;
+}
+
+/* Efecto al pasar el mouse por una fila */
+tbody tr {
+    transition: 0.2s;
+}
+
+tbody tr:hover {
+    background-color: #eff6ff;
+    transform: scale(1.005);
+}
+
+/* Estado aprobado */
+td:nth-child(5) {
+    color: #15803d;
+    font-weight: bold;
+}
+
+/* Botón "Ver" */
+td:last-child {
+    color: #2563eb;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+td:last-child:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
+
+/* Diseño responsive para celulares */
+@media (max-width: 700px) {
+
+    header {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 22px;
+    }
+
+    nav {
+        width: 95%;
+    }
+
+    nav form {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav input {
+        width: 100%;
+    }
+
+    table {
+        width: 95%;
+        font-size: 12px;
+    }
+
+    th,
+    td {
+        padding: 10px 8px;
+    }
+}
