@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Inventario de equipos · Almacén de Equipos</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <header>
+    <a href="index.html">
+      <span class="logo"></span>
+      <span class="nombre-sitio">Almacén de Equipos</span>
+    </a>
+
+    <form class="buscador" action="#">
+      <input type="search" name="codigo" placeholder="⌕ Buscar por código de inventario: INV-OSC-0042">
+    </form>
+
+    <div class="derecha">
+      <a class="pendientes" href="#">Solicitudes pendientes</a>
+      <a class="avatar" href="#"></a>
+    </div>
+  </header>
+
+  <div class="zona">
+
+    <nav>
+      <p>Operación</p>
+      <ul>
+        <li><a class="activo" href="index.html">Inventario</a></li>
+        <li><a href="#">Solicitudes</a></li>
+        <li><a href="#">Préstamos vigentes</a></li>
+        <li><a href="#">Vencidos</a></li>
+        <li><a href="#">Devoluciones</a></li>
+      </ul>
+      <hr>
+      <p>Complementarios</p>
+      <ul>
+        <li><a href="#">Reservas</a></li>
+        <li><a href="#">Lista de espera</a></li>
+        <li><a href="#">Tablero</a></li>
+        <li><a href="#">Usuarios</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <div class="titulo">
+        <h1>Inventario de equipos</h1>
+        <p class="subtitulo">Equipos registrados en el Almacén H-102</p>
+        <a class="boton" href="#">Nuevo equipo</a>
+      </div>
+
+      <form class="filtros" action="#">
+        <select name="categoria">
+          <option>Categoría: todas</option>
+          <option>Medición</option>
+          <option>Audiovisual</option>
+          <option>Robótica</option>
+          <option>Cómputo</option>
+          <option>Redes</option>
+          <option>Lab. de física</option>
+        </select><select name="estado">
+          <option>Estado: todos</option>
+          <option>Libre</option>
+          <option>Prestada</option>
+          <option>Mantenimiento</option>
+          <option>De baja</option>
+        </select><input type="search" name="inventario" placeholder="⌕ Código de inventario">
+      </form>
+
+      <div class="tarjeta">
+        <table>
+          <thead>
+            <tr>
+              <th class="c-foto">Foto</th>
+              <th class="c-equipo">Equipo</th>
+              <th class="c-marca">Marca y modelo</th>
+              <th class="c-categoria">Categoría</th>
+              <th class="c-unidades">Unidades por estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="foto"></span></td>
+              <td class="equipo">Osciloscopio TBS1052B</td>
+              <td class="gris">Tektronix · TBS1052B</td>
+              <td class="gris">Medición</td>
+              <td class="unidades"><span class="libre">3 libres</span><span class="punto">·</span><span class="prestada">1 prestada</span><span class="punto">·</span><span class="mant">1 mant.</span></td>
+              <td class="acciones"><a href="#">Unidades</a><span class="punto">·</span><a href="#">Condiciones</a><span class="punto">·</span><a href="#">Editar</a></td>
+            </tr>
+            <tr>
+              <td><span class="foto"></span></td>
+              <td class="equipo">Cámara Canon EOS 90D</td>
+              <td class="gris">Canon · EOS 90D</td>
+              <td class="gris">Audiovisual</td>
+              <td class="unidades"><span class="libre">2 libres</span><span class="punto">·</span><span class="prestada">2 prestadas</span></td>
+              <td class="acciones"><a href="#">Unidades</a><span class="punto">·</span><a href="#">Condiciones</a><span class="punto">·</span><a href="#">Editar</a></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="pie-tabla">
+          Mostrando 1 a 2 de 2 equipos
+          <div class="paginas">
+            <a href="#">‹</a>
+            <a class="actual" href="#">1</a>
+            <a href="#">›</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+  </div>
+
+  <footer>
+    Almacén de Equipos · Panel del encargado · Almacén H-102
+    <div class="pie-derecha">
+      <a href="#">Manual del encargado</a>
+      <span>Soporte: sistemas@ulima.edu.pe</span>
+      <span>Última sincronización: </span>
+    </div>
+  </footer>
+
+</body>
+</html>

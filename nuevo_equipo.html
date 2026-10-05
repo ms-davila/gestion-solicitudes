@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Nuevo equipo · Almacén de Equipos</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <header>
+    <a href="index.html">
+      <span class="logo"></span>
+      <span class="nombre-sitio">Almacén de Equipos</span>
+    </a>
+
+    <form class="buscador" action="#">
+      <input type="search" name="codigo" placeholder="⌕ Buscar por código de inventario: INV-OSC-0042">
+    </form>
+
+    <div class="derecha">
+      <a class="pendientes" href="#">Solicitudes pendientes</a>
+      <a class="avatar" href="#"></a>
+    </div>
+  </header>
+
+  <div class="zona">
+
+    <nav>
+      <p>Operación</p>
+      <ul>
+        <li><a class="activo" href="index.html">Inventario</a></li>
+        <li><a href="#">Solicitudes</a></li>
+        <li><a href="#">Préstamos vigentes</a></li>
+        <li><a href="#">Vencidos</a></li>
+        <li><a href="#">Devoluciones</a></li>
+      </ul>
+      <hr>
+      <p>Complementarios</p>
+      <ul>
+        <li><a href="#">Reservas</a></li>
+        <li><a href="#">Lista de espera</a></li>
+        <li><a href="#">Tablero</a></li>
+        <li><a href="#">Usuarios</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <p class="migas"><a href="index.html">Inventario</a> / Nuevo equipo</p>
+      <div class="titulo">
+        <h1>Nuevo equipo</h1>
+      </div>
+
+      <form action="#" method="post">
+      <div class="columnas">
+
+        <div class="izquierda">
+          <div class="caja">
+            <p class="seccion">Identificación</p>
+
+            <div class="fila-campos"><div class="col-grande">
+                <label for="nombre">Nombre del equipo</label>
+                <input type="text" id="nombre" name="nombre" required>
+              </div><div class="col-chica">
+                <label for="categoria">Categoría</label>
+                <select id="categoria" name="categoria" required>
+                  <option></option>
+                  <option>Redes</option>
+                  <option>Medición</option>
+                  <option>Audiovisual</option>
+                  <option>Robótica</option>
+                  <option>Cómputo</option>
+                  <option>Lab. de física</option>
+                </select>
+              </div></div>
+
+            <div class="fila-campos"><div class="col-mitad">
+                <label for="marca">Marca</label>
+                <input type="text" id="marca" name="marca" required>
+              </div><div class="col-mitad segunda">
+                <label for="modelo">Modelo</label>
+                <input class="codigo" type="text" id="modelo" name="modelo" required>
+              </div></div>
+
+            <p class="seccion">Descripción</p>
+            <div class="campo">
+              <textarea id="descripcion" name="descripcion" maxlength="400"></textarea>
+              <p class="ayuda">Máximo 400 caracteres. Se muestra en la ficha pública del catálogo.</p>
+            </div>
+
+            <p class="seccion">Accesorios incluidos</p>
+            <div class="agregar">
+              <input type="text" name="accesorio">
+              <a class="boton-sec" href="#">Agregar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="derecha-form">
+          <div class="caja">
+            <p class="seccion">Fotografías</p>
+            <div class="fotos"></div>
+          </div>
+
+          <div class="caja">
+            <p class="seccion">Estado del formulario</p>
+
+            <div class="campo">
+              <label for="nombre-estado">Nombre del equipo</label>
+              <input type="text" id="nombre-estado" name="nombre-estado">
+            </div>
+
+            <div class="campo">
+              <label for="modelo-estado">Modelo</label>
+              <input class="codigo" type="text" id="modelo-estado" name="modelo-estado">
+            </div>
+          </div>
+
+          <div class="botones">
+            <a class="cancelar" href="index.html">Cancelar</a><button class="sec" type="button">Guardar borrador</button><button class="principal" type="submit">Guardar equipo</button>
+          </div>
+        </div>
+
+      </div>
+      </form>
+    </main>
+
+  </div>
+
+  <footer>
+    Almacén de Equipos · Panel del encargado · Almacén H-102
+    <div class="pie-derecha">
+      <a href="#">Manual del encargado</a>
+      <span>Soporte: sistemas@ulima.edu.pe</span>
+      <span>Última sincronización: </span>
+    </div>
+  </footer>
+
+</body>
+</html>
