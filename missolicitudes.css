@@ -153,9 +153,18 @@ header ul li{
 main{
     width: auto;
     margin-bottom: auto;
+    padding-left: 100px;
+    padding-right: 100px;
 }
 
+.titular h1{
+    font-weight: 600;
 
+}
+.cabezal{
+    display: flex;
+    align-items: center;
+}
 
 
 
