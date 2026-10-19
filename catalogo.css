@@ -267,3 +267,120 @@ footer h2{
     text-decoration: underline;
     
 }
+.inventario {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+/* Tarjeta individual del producto */
+.card_producto {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card_producto:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Área de imagen del producto (Contenedor 1:1 con patrón rayado) */
+.card_imagen {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: #EEF2F3;
+    /* Patrón de líneas diagonales grises suaves idéntico a la imagen de referencia */
+    background-image: repeating-linear-gradient(
+        -45deg,
+        rgba(0, 0, 0, 0.03),
+        rgba(0, 0, 0, 0.03) 10px,
+        transparent 10px,
+        transparent 20px
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Para cuando utilices etiquetas <img> dentro del contenedor */
+.card_imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Contenido y detalles del producto */
+.card_contenido {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card_titulo {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 4px 0;
+    line-height: 1.3;
+}
+
+.card_subtitulo {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    margin: 0 0 16px 0;
+}
+
+/* Pie de la tarjeta (Categoría + Unidades) */
+.card_footer {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Badge / Etiqueta de Categoría */
+.badge_categoria {
+    background-color: var(--primary-soft);
+    color: var(--primary-dark);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* Indicador de Unidades Disponibles */
+.unidades_disponibles {
+    font-size: 0.8125rem;
+    color: var(--success);
+    font-weight: 600;
+}
+
+.unidades_disponibles b {
+    font-weight: 700;
+}
+
+/* Responsive para pantallas medianas o pequeñas */
+@media (max-width: 1200px) {
+    .inventario {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .inventario {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
