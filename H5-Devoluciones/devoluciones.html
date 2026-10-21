@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Historia 5 : Devoluciones</title>
+
+  <link rel="stylesheet" href="devoluciones.css">
+</head>
+<body>
+
+  <!-- CABECERA -->
+  <header class="cabecera">
+      <div class="cabecera-izquierda">
+        <span class="nombre-sistema">Almacén de Equipos</span>
+    </div>
+
+    <div class="cabecera-centro">
+      <input class="buscador" type="text" placeholder="⌕ Buscar por código de préstamo: PRE-2026-0291">
+    </div>
+
+    <div class="cabecera-derecha">
+      <div class="pendientes">
+        <span>Solicitudes pendientes</span>
+        <span class="contador-pendientes codigo">12</span>
+      </div>
+      <div class="avatar">ER</div>
+    </div>
+  </header>
+
+  <!-- CUERPO -->
+  <div class="cuerpo">
+
+    <!-- MENÚ LATERAL: la página actual (Devoluciones) va resaltada -->
+      <nav class="menu-lateral">
+        <p class="menu-titulo">OPERACIÓN</p>
+        <a class="menu-item" href="#"><span>Inventario</span></a>
+        <a class="menu-item" href="#"><span>Solicitudes</span></a>
+        <a class="menu-item" href="#"><span>Préstamos vigentes</span></a>
+        <a class="menu-item" href="#"><span>Vencidos</span></a>
+        <a class="menu-item menu-item-activo" href="devoluciones.html"><span>Devoluciones</span></a>
+
+        <hr class="menu-linea">
+
+        <p class="menu-titulo">COMPLEMENTARIOS</p>
+        <a class="menu-item" href="#"><span>Reservas</span></a>
+        <a class="menu-item" href="#"><span>Lista de espera</span></a>
+        <a class="menu-item" href="#"><span>Tablero</span></a>
+        <a class="menu-item" href="usuarios.html"><span>Usuarios</span></a>
+      </nav>
+    <!-- CONTENIDO -->
+    <main class="contenido">
+      <h1 class="titulo-pantalla">Registrar devolución</h1>
+      <p class="texto-ayuda">Devolución con retraso y accesorio faltante</p>
+
+      <!-- mensaje de resultado: el JavaScript lo muestra y le cambia el texto -->
+      <div id="mensaje" class="alerta oculto"></div>
+
+      <div class="columnas">
+
+        <!-- 5.1 REGISTRO DE DEVOLUCIÓN -->
+        <section class="tarjeta">
+          <label class="etiqueta-campo">BUSCAR PRÉSTAMO</label>
+          <div class="fila-buscar">
+            <input class="campo codigo" id="codigo-prestamo" type="text" value="PRE-2026-0291">
+            <button class="boton boton-primario" id="btn-buscar">Buscar</button>
+          </div>
+
+          <div class="datos-prestamo">
+            <div class="dato">
+              <span class="etiqueta-campo">ESTUDIANTE</span>
+              <span>Camila Quispe Andrade</span>
+            </div>
+            <div class="dato">
+              <span class="etiqueta-campo">EQUIPO Y UNIDAD</span>
+              <span>Tableta Wacom Intuos · <span class="codigo">INV-TAB-0004</span></span>
+            </div>
+            <div class="dato">
+              <span class="etiqueta-campo">DEVOLUCIÓN PACTADA</span>
+              <span class="codigo" id="fecha-pactada">11/09/2026</span>
+            </div>
+            <div class="dato">
+              <span class="etiqueta-campo">RETORNO REAL</span>
+              <span class="codigo" id="retorno-real">14/09/2026</span>
+            </div>
+          </div>
+
+          <h2 class="subtitulo-seccion">VERIFICACIÓN DE ACCESORIOS</h2>
+          <hr class="linea">
+
+          <label class="accesorio">
+            <input id="acc-lapiz" type="checkbox" checked>
+            <span class="accesorio-nombre">Lápiz digital</span>
+            <span class="texto-faltante">faltante</span>
+          </label>
+          <label class="accesorio">
+            <input id="acc-usb" type="checkbox">
+            <span class="accesorio-nombre">Cable USB</span>
+            <span class="texto-faltante">faltante</span>
+          </label>
+          <label class="accesorio">
+            <input id="acc-estuche" type="checkbox" checked>
+            <span class="accesorio-nombre">Estuche</span>
+            <span class="texto-faltante">faltante</span>
+          </label>
+
+          <div class="fila-estado">
+            <div class="grupo-estado">
+              <label class="etiqueta-campo">ESTADO DE RETORNO</label>
+              <div class="opciones-estado">
+                <button class="opcion" id="btn-sin">Sin novedades</button>
+                <button class="opcion" id="btn-danos">Con daños</button>
+                <button class="opcion opcion-activa-roja" id="btn-faltantes">Faltantes</button>
+              </div>
+            </div>
+            <div class="grupo-fecha">
+              <label class="etiqueta-campo">FECHA DE RETORNO</label>
+              <input class="campo codigo" id="fecha-retorno" type="text" value="14/09/2026">
+            </div>
+          </div>
+
+          <div class="alerta alerta-roja" id="alerta-retraso">
+            <b>3 días de retraso.</b> Penalidad calculada: <b class="codigo">S/ 45.00</b> (S/ 15.00 por día). La cuenta quedará bloqueada hasta regularizar.
+          </div>
+
+          <div class="botones-fila">
+            <button class="boton boton-secundario" id="btn-cancelar-1">Cancelar</button>
+            <button class="boton boton-primario" id="btn-registrar">Registrar devolución</button>
+          </div>
+        </section>
+
+        <!-- 5.2 DAÑOS O FALTANTES -->
+        <section class="tarjeta" id="tarjeta-danos">
+          <h2 class="titulo-seccion">Registrar daños o faltantes</h2>
+          <p class="texto-ayuda">Paso siguiente cuando el retorno no es «sin novedades»</p>
+
+          <label class="etiqueta-campo">DESCRIPCIÓN DEL DAÑO</label>
+          <textarea class="campo area-texto" id="descripcion-dano">Superficie activa con rayadura profunda en la esquina inferior derecha; el trazo se corta en esa zona.</textarea>
+
+          <div class="fila-faltantes">
+            <div class="columna-faltantes">
+              <span class="etiqueta-campo">ACCESORIOS FALTANTES</span>
+
+              <label class="faltante">
+                <input id="falt-usb" type="checkbox" checked>
+                <span>Cable USB</span>
+              </label>
+
+              <label class="faltante">
+                <input id="falt-lapiz" type="checkbox">
+                <span>Lápiz digital</span>
+              </label>
+
+              <label class="faltante">
+                <input id="falt-estuche" type="checkbox">
+                <span>Estuche</span>
+              </label>
+            </div>
+
+            <div class="columna-foto">
+              <span class="etiqueta-campo">FOTOGRAFÍA DEL DAÑO</span>
+              <div class="foto-dano codigo"><img src="USB.jpg" alt="fotografía del daño"></div>
+            </div>
+          </div>
+
+          <label class="derivacion">
+            <input type="checkbox" id="derivar" checked>
+            <span class="interruptor"></span>
+            <span>Derivar la unidad a mantenimiento</span>
+          </label>
+
+          <div class="alerta alerta-amarilla" id="alerta-inventario">
+            <b>Efecto sobre el inventario.</b> La unidad <span class="codigo">INV-TAB-0004</span> pasará a «En mantenimiento» y la disponibilidad del equipo bajará de 1 a 0 unidades libres. Hay 1 reserva del 22/09/2026 que deberá reasignarse.
+          </div>
+
+          <div class="botones-fila">
+            <button class="boton boton-secundario" id="btn-cancelar-2">Cancelar</button>
+            <button class="boton boton-primario" id="btn-guardar">Guardar y cerrar devolución</button>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- botón para renovar: abajo de las dos tarjetas -->
+      <div class="botones-fila">
+        <button class="boton boton-secundario" id="btn-renovar-prestamo">Renovar préstamo</button>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="pie">
+    <span>Almacén de Equipos · Panel del encargado · Almacén H-102</span>
+    <div class="pie-derecha">
+      <span>Manual del encargado</span>
+      <span>Soporte: sistemas@ulima.edu.pe</span>
+      <span class="codigo">Última sincronización: 14/09/2026 08:05</span>
+    </div>
+  </footer>
+
+  <!-- 5.3 MODAL DE RENOVACIÓN: es uno solo, el JS cambia su contenido según la situación -->
+  <div class="modal" id="modal-renovar">
+    <div class="modal-caja">
+      <h2 class="titulo-seccion">Renovar préstamo</h2>
+      <p class="modal-subtitulo"><span class="codigo" id="modal-codigo"></span> · <span id="modal-detalle"></span></p>
+
+      <!-- fechas: solo se ven en la situación 1 (devuelto a tiempo y en buen estado) -->
+      <div id="bloque-fechas">
+        <div class="fila-fechas">
+          <div>
+            <label class="etiqueta-campo">VENCIMIENTO ACTUAL</label>
+            <input class="campo codigo campo-bloqueado" id="modal-vencimiento" type="text" disabled>
+          </div>
+          <div>
+            <label class="etiqueta-campo">NUEVA FECHA</label>
+            <input class="campo codigo" id="nueva-fecha" type="date">
+          </div>
+        </div>
+      </div>
+
+      <!-- aviso: verde si se puede renovar, amarillo si no se puede o la fecha no sirve -->
+      <div class="alerta alerta-borde" id="modal-aviso"></div>
+
+      <!-- botones cuando SÍ se puede renovar -->
+      <div class="botones-fila" id="botones-posible">
+        <button class="boton boton-secundario" id="btn-cancelar-modal">Cancelar</button>
+        <button class="boton boton-primario" id="btn-renovar">Renovar</button>
+      </div>
+
+      <!-- botones cuando NO se puede renovar -->
+      <div id="botones-bloqueado">
+        <button class="boton boton-deshabilitado boton-ancho" disabled>Renovar</button>
+        <button class="boton boton-secundario boton-ancho" id="btn-ver-lista">Ver lista de espera</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="devoluciones.js"></script>
+
+</body>
+</html>

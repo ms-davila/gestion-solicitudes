@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Historia 5 : Historial del estudiante</title>
+
+  <!-- fuentes del mockup: Barlow (texto) y Roboto Mono (códigos y fechas) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- 1° estilos compartidos (cabecera, menú lateral, botones, pie) y 2° estilos de esta pantalla -->
+  <link rel="stylesheet" href="devoluciones.css">
+  <link rel="stylesheet" href="usuarios.css">
+</head>
+<body>
+
+  <!-- CABECERA -->
+  <header class="cabecera">
+    <div class="cabecera-izquierda">
+      <div class="logo"></div>
+      <span class="nombre-sistema">Almacén de Equipos</span>
+      <span class="etiqueta-panel">PANEL DEL ENCARGADO</span>
+    </div>
+
+    <div class="cabecera-centro">
+      <input class="buscador" type="text" placeholder="⌕ Buscar estudiante, código o correo">
+    </div>
+
+    <div class="cabecera-derecha">
+      <div class="pendientes">
+        <span>Solicitudes pendientes</span>
+        <span class="contador-pendientes codigo">12</span>
+      </div>
+      <div class="avatar">ER</div>
+    </div>
+  </header>
+
+  <!-- CUERPO -->
+  <div class="cuerpo">
+
+    <!-- MENÚ LATERAL: aquí la página actual es Usuarios -->
+    <nav class="menu-lateral">
+      <p class="menu-titulo">OPERACIÓN</p>
+      <a class="menu-item" href="#"><span>Inventario</span><span class="menu-contador">42</span></a>
+      <a class="menu-item" href="#"><span>Solicitudes</span><span class="menu-contador menu-contador-azul">12</span></a>
+      <a class="menu-item" href="#"><span>Préstamos vigentes</span><span class="menu-contador">8</span></a>
+      <a class="menu-item" href="#"><span>Vencidos</span><span class="menu-contador menu-contador-rojo">2</span></a>
+      <a class="menu-item" href="devoluciones.html"><span>Devoluciones</span><span class="menu-contador">—</span></a>
+
+      <hr class="menu-linea">
+
+      <p class="menu-titulo">COMPLEMENTARIOS</p>
+      <a class="menu-item" href="#"><span>Reservas</span><span class="menu-contador">5</span></a>
+      <a class="menu-item" href="#"><span>Lista de espera</span><span class="menu-contador">6</span></a>
+      <a class="menu-item" href="#"><span>Tablero</span></a>
+      <a class="menu-item menu-item-activo" href="usuarios.html"><span>Usuarios</span><span class="menu-contador">15</span></a>
+    </nav>
+    <!-- CONTENIDO -->
+    <main class="contenido">
+
+      <p class="ruta">Usuarios / Estudiantes / Camila Quispe Andrade</p>
+
+      <!-- 5.4 ENCABEZADO DEL ESTUDIANTE -->
+      <div class="fila-encabezado">
+        <div>
+          <h1 class="titulo-pantalla">Camila Quispe Andrade</h1>
+          <p class="datos-estudiante">Ingeniería Industrial · 8.º ciclo · código <span class="codigo">20204512</span> · <span class="codigo">cquispe@aloe.ulima.edu.pe</span></p>
+        </div>
+        <div class="botones-encabezado">
+          <button class="boton boton-secundario" id="btn-pago">Registrar pago</button>
+          <button class="boton boton-destructivo" id="btn-bloquear">Bloquear cuenta</button>
+        </div>
+      </div>
+
+      <!-- mensaje de resultado: el JavaScript lo muestra y le cambia el texto -->
+      <div id="mensaje" class="alerta oculto"></div>
+
+      <!-- 5.5 AVISO DE DEUDA PENDIENTE -->
+      <div class="alerta alerta-roja alerta-borde aviso-deuda">
+        <b>Aviso de deuda pendiente.</b> <span class="codigo">S/ 45.00</span> por 3 días de retraso en <span class="codigo">PRE-2026-0291</span>, más 1 accesorio faltante por valorizar. La estudiante no puede solicitar equipos.
+      </div>
+
+      <!-- RESUMEN -->
+      <div class="tarjetas-resumen">
+        <div class="resumen">
+          <span class="etiqueta-campo">PRÉSTAMOS</span>
+          <span class="resumen-numero codigo">14</span>
+        </div>
+        <div class="resumen">
+          <span class="etiqueta-campo">RETRASOS ACUMULADOS</span>
+          <span class="resumen-numero numero-rojo codigo">2</span>
+        </div>
+        <div class="resumen">
+          <span class="etiqueta-campo">PENALIDADES</span>
+          <span class="resumen-numero numero-ambar codigo">S/ 45.00</span>
+        </div>
+        <div class="resumen">
+          <span class="etiqueta-campo">ESTADO</span>
+          <span class="etiqueta-estado" id="estado-cuenta">Con deuda</span>
+        </div>
+      </div>
+
+      <!-- HISTORIAL DE PRÉSTAMOS -->
+      <div class="contenedor-tabla">
+        <table class="tabla">
+          <thead>
+            <tr>
+              <th>PRÉSTAMO</th>
+              <th>EQUIPO Y UNIDAD</th>
+              <th>ENTREGA</th>
+              <th>DEVOLUCIÓN</th>
+              <th>RETRASO</th>
+              <th>PENALIDAD</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="codigo">PRE-2026-0291</td>
+              <td>Tableta Wacom Intuos · <span class="codigo">INV-TAB-0004</span></td>
+              <td class="codigo">07/09/2026</td>
+              <td class="codigo">14/09/2026</td>
+              <td><span class="insignia-roja codigo">3 d</span></td>
+              <td class="codigo texto-rojo" id="penalidad-0291">S/ 45.00</td>
+            </tr>
+            <tr>
+              <td class="codigo">PRE-2026-0245</td>
+              <td>Cámara Canon EOS 90D · <span class="codigo">INV-CAM-0010</span></td>
+              <td class="codigo">20/08/2026</td>
+              <td class="codigo">25/08/2026</td>
+              <td class="texto-gris">—</td>
+              <td class="texto-gris">—</td>
+            </tr>
+            <tr>
+              <td class="codigo">PRE-2026-0198</td>
+              <td>Trípode Manfrotto MT055 · <span class="codigo">INV-TRI-0007</span></td>
+              <td class="codigo">05/08/2026</td>
+              <td class="codigo">09/08/2026</td>
+              <td><span class="insignia-roja codigo">1 d</span></td>
+              <td class="codigo texto-gris">S/ 15.00 pagada</td>
+            </tr>
+            <tr>
+              <td class="codigo">PRE-2026-0142</td>
+              <td>Multímetro Fluke 117 · <span class="codigo">INV-MUL-0022</span></td>
+              <td class="codigo">14/07/2026</td>
+              <td class="codigo">18/07/2026</td>
+              <td class="texto-gris">—</td>
+              <td class="texto-gris">—</td>
+            </tr>
+            <tr>
+              <td class="codigo">PRE-2026-0087</td>
+              <td>Kit de robótica Arduino Mega · <span class="codigo">INV-ARD-0013</span></td>
+              <td class="codigo">02/07/2026</td>
+              <td class="codigo">09/07/2026</td>
+              <td class="texto-gris">—</td>
+              <td class="texto-gris">—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="pie">
+    <span>Almacén de Equipos · Panel del encargado · Almacén H-102</span>
+    <div class="pie-derecha">
+      <span>Manual del encargado</span>
+      <span>Soporte: sistemas@ulima.edu.pe</span>
+      <span class="codigo">Última sincronización: 14/09/2026 08:05</span>
+    </div>
+  </footer>
+
+  <script src="usuarios.js"></script>
+
+</body>
+</html>
