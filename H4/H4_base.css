@@ -1,0 +1,21 @@
+:root{
+    --primary: #17505C;
+    --primary-dark:#0F3A43;
+    --primary-soft:#E3EEF0;
+    --accent:#D9A404;
+    --bg:#F5F7F8;
+    --surface:#FFFFFF;
+    --border:#D8E0E2;
+    --text:#12211F;
+    --text-muted:#5E7073;
+    --success:#1E7F4D;
+    --warning:#B7791F;
+    --danger:#B4322B;
+    --info:#3B6FA8;
+
+    --fuente: "Barlow", sans-serif;
+    --mono: "Roboto Mono", monospace;
+    background-color: var(--bg);
+    color: var(--text);
+    
+}
