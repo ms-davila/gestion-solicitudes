@@ -1,4 +1,15 @@
 /* src/index.css — reset mínimo para que no interfiera con tu diseño */
+:root {
+  --color-principal: #17505C;
+  --color-oscuro: #0F3A43;
+  --color-fondo: #F5F7F8;
+  --color-borde: #D8E0E2;
+  --color-texto: #12211F;
+  --color-secundario: #5E7073;
+  --color-exito: #1E7F4D;
+  --color-alerta: #B7791F;
+  --color-error: #B4322B;
+}
 *,
 *::before,
 *::after {
@@ -7,4 +18,13 @@
 
 body {
   margin: 0;
+  font-family: 'Barlow', sans-serif;
+
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
 }
