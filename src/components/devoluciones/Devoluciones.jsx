@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../../styles/devoluciones/Devoluciones.css";
 import fotoUsb from "../../assets/USB.jpg";
 
@@ -34,7 +35,7 @@ function Devoluciones() {
             <a className="menu-item" href="#"><span>Solicitudes</span></a>
             <a className="menu-item" href="#"><span>Préstamos vigentes</span></a>
             <a className="menu-item" href="#"><span>Vencidos</span></a>
-            <a className="menu-item menu-item-activo" href="../../src/components/devoluciones/Devoluciones.jsx"><span>Devoluciones</span></a>
+            <Link className="menu-item menu-item-activo" to="/devoluciones"><span>Devoluciones</span></Link>
 
             <hr className="menu-linea" />
 
@@ -42,7 +43,7 @@ function Devoluciones() {
             <a className="menu-item" href="#"><span>Reservas</span></a>
             <a className="menu-item" href="#"><span>Lista de espera</span></a>
             <a className="menu-item" href="#"><span>Tablero</span></a>
-            <a className="menu-item" href="../../src/components/devoluciones/Usuarios.jsx"><span>Usuarios</span></a>
+            <Link className="menu-item" to="/devoluciones/usuarios"><span>Usuarios</span></Link>
           </nav>
         {/* CONTENIDO */}
         <main className="contenido">

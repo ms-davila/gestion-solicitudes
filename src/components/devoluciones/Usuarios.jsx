@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../../styles/devoluciones/Devoluciones.css";
 import "../../styles/devoluciones/Usuarios.css";
 
@@ -38,7 +39,7 @@ function Usuarios() {
           <a className="menu-item" href="#"><span>Solicitudes</span><span className="menu-contador menu-contador-azul">12</span></a>
           <a className="menu-item" href="#"><span>Préstamos vigentes</span><span className="menu-contador">8</span></a>
           <a className="menu-item" href="#"><span>Vencidos</span><span className="menu-contador menu-contador-rojo">2</span></a>
-          <a className="menu-item" href="../../src/components/devoluciones/Devoluciones.jsx"><span>Devoluciones</span><span className="menu-contador">—</span></a>
+          <Link className="menu-item" to="/devoluciones"><span>Devoluciones</span><span className="menu-contador">—</span></Link>
 
           <hr className="menu-linea" />
 
@@ -46,7 +47,7 @@ function Usuarios() {
           <a className="menu-item" href="#"><span>Reservas</span><span className="menu-contador">5</span></a>
           <a className="menu-item" href="#"><span>Lista de espera</span><span className="menu-contador">6</span></a>
           <a className="menu-item" href="#"><span>Tablero</span></a>
-          <a className="menu-item menu-item-activo" href="Usuarios.jsx"><span>Usuarios</span><span className="menu-contador">15</span></a>
+          <Link className="menu-item menu-item-activo" to="/devoluciones/usuarios"><span>Usuarios</span><span className="menu-contador">15</span></Link>
         </nav>
 
         {/* CONTENIDO */}

@@ -1,20 +1,13 @@
-//src/App.jsx
+import { Routes, Route } from 'react-router-dom';
 import Devoluciones from './components/devoluciones/Devoluciones.jsx';
 import Usuarios from './components/devoluciones/Usuarios.jsx';
 
 function App() {
   return (
-    <div>
-      {/* Este es el contenedor principal de tu proyecto */}
-      <nav style={{ padding: '10px', background: '#eee' }}>
-        <h2>Menú Temporal de Mi Proyecto</h2>
-      </nav>
-
-      {/* Aquí renderizas tus componentes recién creados */}
-      <Devoluciones />
-      <hr />
-      <Usuarios />
-    </div>
+    <Routes>
+      <Route path="/devoluciones" element={<Devoluciones />} />
+      <Route path="/devoluciones/usuarios" element={<Usuarios />} />
+    </Routes>
   );
 }
 
