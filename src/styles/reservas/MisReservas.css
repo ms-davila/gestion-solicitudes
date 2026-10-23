@@ -1,0 +1,313 @@
+
+/* Mis reservas */
+.mis-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #F5F7F8;
+  color: #12211F;
+  font-family: 'Barlow', sans-serif;
+}
+
+.mis-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px 30px;
+  background-color: white;
+  border-bottom: 1px solid #D8E0E2;
+}
+
+.mis-logo,
+.mis-nav,
+.mis-perfil {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.mis-logo-cuadro {
+  width: 28px;
+  height: 28px;
+  background-color: #17505C;
+  border-radius: 4px;
+}
+
+.mis-logo h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #0F3A43;
+}
+
+.mis-nav a {
+  color: #5E7073;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.mis-nav .mis-activo {
+  color: #17505C;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.mis-perfil {
+  font-size: 14px;
+}
+
+.mis-avatar {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #17505C;
+  color: white;
+  border-radius: 4px;
+}
+
+.mis-main {
+  flex: 1;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 30px 24px;
+}
+
+.mis-encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.mis-encabezado h1 {
+  margin: 0 0 6px;
+  color: #0F3A43;
+  font-size: 28px;
+}
+
+.mis-encabezado p {
+  margin: 0;
+  color: #5E7073;
+}
+
+.mis-nueva {
+  padding: 12px 18px;
+  color: white;
+  background-color: #17505C;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.mis-nueva:hover {
+  background-color: #0F3A43;
+}
+
+.mis-tarjeta {
+  background-color: white;
+  border: 1px solid #D8E0E2;
+  border-radius: 4px;
+}
+
+.mis-filtros {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px;
+}
+
+.mis-filtros label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.mis-filtros select {
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid #D8E0E2;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.mis-tabla-contenedor {
+  overflow-x: auto;
+}
+
+.mis-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.mis-tabla th {
+  padding: 16px;
+  background-color: #E3EEF0;
+  color: #0F3A43;
+  font-size: 13px;
+}
+
+.mis-tabla td {
+  padding: 16px;
+  border-top: 1px solid #D8E0E2;
+  font-size: 14px;
+}
+
+.mis-estado {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.mis-confirmada {
+  background-color: #E8F4EE;
+  color: #1E7F4D;
+}
+
+.mis-en-espera {
+  background-color: #FFF3DC;
+  color: #B7791F;
+}
+
+.mis-completada {
+  background-color: #E3EEF0;
+  color: #17505C;
+}
+
+.mis-cancelada {
+  background-color: #FBEDEC;
+  color: #B4322B;
+}
+
+.mis-cancelar {
+  background-color: white;
+  border: 1px solid #B4322B;
+  color: #B4322B;
+  padding: 9px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.mis-cancelar:hover {
+  background-color: #FBEDEC;
+}
+
+.mis-sin-accion {
+  color: #5E7073;
+}
+
+.mis-vacio {
+  padding: 40px !important;
+  text-align: center;
+  color: #5E7073;
+}
+
+.mis-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 30px;
+  background-color: #0F3A43;
+  color: white;
+  font-size: 13px;
+}
+
+@media (max-width: 850px) {
+  .mis-header,
+  .mis-encabezado {
+    flex-wrap: wrap;
+  }
+
+  .mis-filtros {
+    flex-wrap: wrap;
+  }
+}
+
+
+/* Modal de cancelación */
+.mis-modal-fondo {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(18, 33, 31, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.mis-modal {
+  width: 440px;
+  max-width: 90%;
+  padding: 24px;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.mis-modal h2 {
+  margin: 0 0 12px;
+  color: #0F3A43;
+  font-size: 22px;
+}
+
+.mis-modal > p {
+  color: #5E7073;
+  font-size: 14px;
+}
+
+.mis-modal-detalle {
+  margin: 20px 0;
+  padding: 16px;
+  background-color: #F5F7F8;
+  border: 1px solid #D8E0E2;
+  border-radius: 4px;
+}
+
+.mis-modal-detalle p {
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.mis-modal-botones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.mis-modal-botones button {
+  min-height: 40px;
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.mis-modal-volver {
+  background-color: white;
+  color: #17505C;
+  border: 1px solid #D8E0E2;
+}
+
+.mis-modal-confirmar {
+  background-color: #B4322B;
+  color: white;
+  border: none;
+}
+
+.mis-modal-confirmar:hover {
+  background-color: #922620;
+}
+
+.mis-mensaje {
+  margin-top: 16px;
+  padding: 12px;
+  background-color: #E8F4EE;
+  border: 1px solid #1E7F4D;
+  border-radius: 4px;
+  color: #1E7F4D;
+}

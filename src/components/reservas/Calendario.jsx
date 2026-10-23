@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../../styles/reservas/Calendario.css";
 import ModalReserva from "./ModalReserva.jsx";
+import { Link } from "react-router-dom";
 
 // Datos simulados de los equipos
 const equipos = [
@@ -184,7 +185,7 @@ function confirmarReserva() {
         <nav className="cal-nav">
           <a href="#">Catálogo</a>
           <a href="#">Mis solicitudes</a>
-          <a href="#">Mis reservas</a>
+          <Link to="/mis-reservas">Mis reservas</Link>
           <a href="/calendario" className="cal-activo">
             Calendario
           </a>
