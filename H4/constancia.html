@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Constancia de entrega · Almacén de Equipos</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../H4/css/base.css">
+  <link rel="stylesheet" href="../H4/css/layout.css">
+  <link rel="stylesheet" href="../H4/css/componentes.css">
+  <link rel="stylesheet" href="../H4/css/historia4.css">
+</head>
+<body>
+
+  <!-- ============ HEADER (compartido) ============ -->
+  <header class="header">
+    <div class="square"></div>
+    <a class="header__marca" href="#">Almacén de Equipos</a>
+    <span class="header__panel">Panel del encargado</span>
+
+    <form class="header__buscador" action="#" role="search">
+      <input class="campo__input" type="search" id="buscar-prestamo" placeholder="Buscar por código: PRE-2026-0318">
+    </form>
+
+    <a class="header__pendientes" href="bandeja.html">
+      Solicitudes pendientes <span class="header__contador">12</span>
+    </a>
+
+    <div class="header__usuario">
+      <span class="header__usuario-nombre">Elena Rivas · H-102</span>
+      <span class="avatar">ER</span>
+    </div>
+  </header>
+
+  <div class="app">
+
+    <!-- ============ SIDEBAR (compartido) ============ -->
+    <aside class="sidebar">
+      <nav aria-label="Navegación del encargado">
+        <h2 class="sidebar__titulo">Operación</h2>
+        <ul class="sidebar__lista">
+          <li><a class="sidebar__enlace" href="#">Inventario <span class="sidebar__contador">42</span></a></li>
+          <li><a class="sidebar__enlace is-active" href="bandeja.html" aria-current="page">Solicitudes <span class="sidebar__contador">12</span></a></li>
+          <li><a class="sidebar__enlace" href="vigentes.html">Préstamos vigentes <span class="sidebar__contador">8</span></a></li>
+          <li><a class="sidebar__enlace sidebar__enlace--alerta" href="vigentes.html">Vencidos <span class="sidebar__contador">2</span></a></li>
+          <li><a class="sidebar__enlace" href="#">Devoluciones <span class="sidebar__contador">—</span></a></li>
+        </ul>
+
+        <h2 class="sidebar__titulo">Complementarios</h2>
+        <ul class="sidebar__lista">
+          <li><a class="sidebar__enlace" href="#">Reservas <span class="sidebar__contador">5</span></a></li>
+          <li><a class="sidebar__enlace" href="#">Lista de espera <span class="sidebar__contador">6</span></a></li>
+          <li><a class="sidebar__enlace" href="#">Tablero</a></li>
+          <li><a class="sidebar__enlace" href="#">Usuarios <span class="sidebar__contador">15</span></a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- ============ CONTENIDO · 4.5 ============ -->
+    <main class="contenido">
+
+      <div class="encabezado-pantalla">
+        <h1 class="titulo-pantalla">Constancia de entrega</h1>
+        <div class="encabezado-pantalla__acciones">
+          <a class="btn btn--secondary" href="#">Descargar PDF</a>
+          <button class="btn btn--primary" type="button">Imprimir</button>
+        </div>
+      </div>
+
+      <!-- Documento imprimible -->
+      <article class="constancia">
+
+        <header class="constancia__cabecera">
+          <p class="constancia__institucion">Universidad de Lima · Facultad de Ingeniería</p>
+          <h2 class="constancia__titulo">Constancia de entrega de equipo</h2>
+        </header>
+
+        <dl class="constancia__datos">
+          <div class="constancia__dato">
+            <dt class="campo__etiqueta">Código de préstamo</dt>
+            <dd class="codigo">PRE-2026-0318</dd>
+          </div>
+
+          <div class="constancia__dato">
+            <dt class="campo__etiqueta">Estudiante</dt>
+            <dd>
+              Renzo Andrés Mendoza Cárdenas
+              <span class="texto-auxiliar">Ing. Electrónica · 6.º ciclo · código <span class="codigo">20213456</span></span>
+            </dd>
+          </div>
+
+          <div class="constancia__dato">
+            <dt class="campo__etiqueta">Curso asociado</dt>
+            <dd>
+              IN324 Laboratorio de Circuitos
+              <span class="texto-auxiliar">Docente: Ing. Elena Rivas Talledo</span>
+            </dd>
+          </div>
+
+          <div class="constancia__dato">
+            <dt class="campo__etiqueta">Equipo y unidad</dt>
+            <dd>
+              Osciloscopio Tektronix TBS1052B
+              <span class="texto-auxiliar"><span class="codigo">INV-OSC-0042</span> · Almacén H-102</span>
+            </dd>
+          </div>
+
+          <div class="constancia__dato">
+            <dt class="campo__etiqueta">Fechas</dt>
+            <dd>
+              Entrega: <span class="codigo">16/09/2026 09:20</span><br>
+              Devolución: <span class="codigo">21/09/2026 19:00</span>
+            </dd>
+          </div>
+        </dl>
+
+        <section>
+          <h3 class="subtitulo">Accesorios entregados</h3>
+          <table class="tabla tabla--simple">
+            <thead>
+              <tr>
+                <th scope="col">Accesorio</th>
+                <th scope="col">Entregado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>2 sondas de medición</td><td>Sí</td></tr>
+              <tr><td>Cable USB</td><td>Sí</td></tr>
+              <tr><td>Estuche rígido</td><td>No</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <p class="constancia__declaracion">
+          Declaro recibir el equipo en las condiciones descritas y me comprometo a devolverlo en la fecha pactada.
+          El retraso genera una penalidad de S/ 15.00 por día y suspende nuevos préstamos.
+        </p>
+
+        <div class="constancia__firmas">
+          <div class="constancia__firma">
+            <span class="constancia__linea"></span>
+            <p>Firma del estudiante</p>
+          </div>
+          <div class="constancia__firma">
+            <span class="constancia__linea"></span>
+            <p>Firma del encargado de almacén</p>
+          </div>
+        </div>
+
+      </article>
+
+    </main>
+  </div>
+
+  <!-- ============ FOOTER (compartido) ============ -->
+  <footer class="footer">
+    <p>Almacén de Equipos · Panel del encargado · Almacén H-102</p>
+    <p>
+      <a href="#">Manual del encargado</a>
+      <span>Soporte: sistemas@ulima.edu.pe</span>
+      <span>Última sincronización: <span class="codigo">14/09/2026 08:05</span></span>
+    </p>
+  </footer>
+
+</body>
+</html>
