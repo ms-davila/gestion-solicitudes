@@ -1,4 +1,3 @@
-
 function ModalCancelacion({ reserva, cerrar, confirmar }) {
   return (
     <div className="mis-modal-fondo">

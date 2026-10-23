@@ -1,4 +1,3 @@
-
 function ModalReserva({ equipo, fechaInicio, fechaFin, cerrar, confirmar }) {
 
   function formatearFecha(fecha) {
