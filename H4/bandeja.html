@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bandeja de solicitudes · Almacén de Equipos</title>
+
+  <!-- Fuentes: acuerden en el equipo si usan Google Fonts o archivos locales -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Orden: base → layout → componentes → historia -->
+  <link rel="stylesheet" href="../H4/css/base.css">
+  <link rel="stylesheet" href="../H4/css/layout.css">
+  <link rel="stylesheet" href="../H4/css/componentes.css">
+  <link rel="stylesheet" href="../H4/css/historia4.css">
+</head>
+<body>
+
+  <!-- ============ HEADER (compartido) ============ -->
+  <header class="header">
+    <div class="square"></div>
+    <a class="header__marca">Almacén de Equipos</a>
+    <span class="header__panel">Panel del encargado</span>
+
+    <form class="header__buscador" action="#" role="search">
+      <input class="campo__input" type="search" id="buscar-prestamo" placeholder="Buscar por código: PRE-2026-0318">
+    </form>
+
+    <a class="header__pendientes" href="bandeja.html">
+      Solicitudes pendientes <span class="header__contador">12</span>
+    </a>
+
+    <div class="header__usuario">
+      <span class="header__usuario-nombre">Elena Rivas · H-102</span>
+      <span class="avatar">ER</span>
+    </div>
+  </header>
+
+  <div class="app">
+
+    <!-- ============ SIDEBAR (compartido) ============ -->
+    <aside class="sidebar">
+      <nav aria-label="Navegación del encargado">
+        <h2 class="sidebar__titulo">Operación</h2>
+        <ul class="sidebar__lista">
+          <li><a class="sidebar__enlace" href="#">Inventario <span class="sidebar__contador">42</span></a></li>
+          <li><a class="sidebar__enlace is-active" href="bandeja.html" aria-current="page">Solicitudes <span class="sidebar__contador">12</span></a></li>
+          <li><a class="sidebar__enlace" href="vigentes.html">Préstamos vigentes <span class="sidebar__contador">8</span></a></li>
+          <li><a class="sidebar__enlace sidebar__enlace--alerta" href="vigentes.html">Vencidos <span class="sidebar__contador">2</span></a></li>
+          <li><a class="sidebar__enlace" href="#">Devoluciones <span class="sidebar__contador">—</span></a></li>
+        </ul>
+
+        <h2 class="sidebar__titulo">Complementarios</h2>
+        <ul class="sidebar__lista">
+          <li><a class="sidebar__enlace" href="#">Reservas <span class="sidebar__contador">5</span></a></li>
+          <li><a class="sidebar__enlace" href="#">Lista de espera <span class="sidebar__contador">6</span></a></li>
+          <li><a class="sidebar__enlace" href="#">Tablero</a></li>
+          <li><a class="sidebar__enlace" href="#">Usuarios <span class="sidebar__contador">15</span></a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- ============ CONTENIDO · 4.1 ============ -->
+    <main class="contenido">
+
+      <div class="encabezado-pantalla">
+        <div>
+          <h1 class="titulo-pantalla">Bandeja de solicitudes</h1>
+          <p class="texto-auxiliar">12 solicitudes · Almacén H-102</p>
+        </div>
+      </div>
+
+      <!-- Pestañas por estado -->
+      <div class="pestanas" role="tablist">
+        <a class="pestanas__item is-active" href="#" role="tab" aria-selected="true">Enviadas <span class="pestanas__contador">6</span></a>
+        <a class="pestanas__item" href="#" role="tab">Aprobadas <span class="pestanas__contador">4</span></a>
+        <a class="pestanas__item" href="#" role="tab">Rechazadas <span class="pestanas__contador">2</span></a>
+      </div>
+
+      <!-- Aviso de deuda (5.5) -->
+      <div class="aviso aviso--danger" role="alert">
+        <strong>Aviso de deuda pendiente.</strong>
+        2 solicitantes de esta bandeja tienen penalidades sin regularizar por S/ 105.00 en total.
+        Sus filas están marcadas con el indicador de deuda.
+      </div>
+
+      <!-- Filtros -->
+      <form class="filtros" action="#">
+        <div class="campo">
+          <label class="campo__etiqueta" for="filtro-estado">Estado</label>
+          <select class="campo__input" id="filtro-estado">
+            <option>Enviadas</option>
+            <option>Aprobadas</option>
+            <option>Rechazadas</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label class="campo__etiqueta" for="filtro-categoria">Categoría</label>
+          <select class="campo__input" id="filtro-categoria">
+            <option>Todas</option>
+            <option>Medición</option>
+            <option>Audiovisual</option>
+            <option>Robótica</option>
+          </select>
+        </div>
+        <div class="campo campo--ancho">
+          <label class="campo__etiqueta" for="filtro-busqueda">Buscar</label>
+          <input class="campo__input" type="search" id="filtro-busqueda" placeholder="Estudiante, curso o equipo">
+        </div>
+      </form>
+
+      <!-- Tabla de solicitudes -->
+      <div class="tabla-contenedor">
+        <table class="tabla">
+          <thead>
+            <tr>
+              <th scope="col">Solicitante</th>
+              <th scope="col">Equipo</th>
+              <th scope="col">Fechas</th>
+              <th scope="col">Motivo</th>
+              <th scope="col">Antigüedad</th>
+              <th scope="col">Estado</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="tabla__fila">
+              <td>
+                <span class="tabla__principal">Renzo Mendoza Cárdenas</span>
+                <span class="texto-auxiliar">Ing. Electrónica · 6.º</span>
+              </td>
+              <td>Osciloscopio TBS1052B</td>
+              <td class="codigo">16/09 → 21/09/2026</td>
+              <td>Práctica calificada 3 de circuitos</td>
+              <td>hace 2 h</td>
+              <td><span class="badge badge--enviada">Enviada</span></td>
+              <td class="tabla__acciones">
+                <a class="btn btn--primary" href="#modal-aprobar">Aprobar</a>
+                <a class="btn btn--destructive" href="#modal-rechazar">Rechazar</a>
+              </td>
+            </tr>
+
+            <tr class="tabla__fila tabla__fila--deuda">
+              <td>
+                <span class="tabla__principal">Alejandra Huamán Solís</span>
+                <span class="badge badge--deuda">Deuda S/ 60.00</span>
+              </td>
+              <td>Cámara Canon EOS 90D</td>
+              <td class="codigo">17/09 → 22/09/2026</td>
+              <td>Registro fotográfico del taller</td>
+              <td>hace 5 h</td>
+              <td><span class="badge badge--enviada">Enviada</span></td>
+              <td class="tabla__acciones">
+                <a class="btn btn--primary" href="#modal-sin-unidades">Aprobar</a>
+                <a class="btn btn--destructive" href="#modal-rechazar">Rechazar</a>
+              </td>
+            </tr>
+
+            <tr class="tabla__fila">
+              <td>
+                <span class="tabla__principal">Diego Salcedo Vera</span>
+                <span class="texto-auxiliar">Ing. Industrial · 8.º</span>
+              </td>
+              <td>Kit de robótica Arduino Mega</td>
+              <td class="codigo">18/09 → 25/09/2026</td>
+              <td>Prototipo del proyecto integrador</td>
+              <td>hace 1 d</td>
+              <td><span class="badge badge--enviada">Enviada</span></td>
+              <td class="tabla__acciones">
+                <a class="btn btn--primary" href="#modal-aprobar">Aprobar</a>
+                <a class="btn btn--destructive" href="#modal-rechazar">Rechazar</a>
+              </td>
+            </tr>
+
+            <tr class="tabla__fila">
+              <td>
+                <span class="tabla__principal">Fabiana Loayza Ramos</span>
+                <span class="texto-auxiliar">Comunicación · 5.º</span>
+              </td>
+              <td>Trípode Manfrotto MT055</td>
+              <td class="codigo">16/09 → 18/09/2026</td>
+              <td>Grabación del cortometraje</td>
+              <td>hace 1 d</td>
+              <td><span class="badge badge--enviada">Enviada</span></td>
+              <td class="tabla__acciones">
+                <a class="btn btn--primary" href="#modal-aprobar">Aprobar</a>
+                <a class="btn btn--destructive" href="#modal-rechazar">Rechazar</a>
+              </td>
+            </tr>
+
+            <tr class="tabla__fila">
+              <td>
+                <span class="tabla__principal">Mateo Chávez Ríos</span>
+                <span class="texto-auxiliar">Ing. de Sistemas · 7.º</span>
+              </td>
+              <td>Analizador de redes portátil</td>
+              <td class="codigo">19/09 → 23/09/2026</td>
+              <td>Certificación de cableado del lab.</td>
+              <td>hace 2 d</td>
+              <td><span class="badge badge--aprobada">Aprobada</span></td>
+              <td class="tabla__acciones">
+                <a class="btn btn--secondary" href="entrega.html">Registrar entrega</a>
+              </td>
+            </tr>
+
+            <tr class="tabla__fila">
+              <td>
+                <span class="tabla__principal">Lucía Paredes Ynga</span>
+                <span class="texto-auxiliar">Ing. Electrónica · 9.º</span>
+              </td>
+              <td>Multímetro Fluke 117</td>
+              <td class="codigo">15/09 → 19/09/2026</td>
+              <td>Mediciones de la tesis</td>
+              <td>hace 3 d</td>
+              <td><span class="badge badge--aprobada">Aprobada</span></td>
+              <td class="tabla__acciones">
+                <a class="btn btn--secondary" href="entrega.html">Registrar entrega</a>
+              </td>
+            </tr>
+
+            <tr class="tabla__fila tabla__fila--deuda">
+              <td>
+                <span class="tabla__principal">Camila Quispe Andrade</span>
+                <span class="badge badge--deuda">Deuda S/ 45.00</span>
+              </td>
+              <td>Tableta gráfica Wacom Intuos</td>
+              <td class="codigo">10/09 → 14/09/2026</td>
+              <td>Entrega del curso de dibujo</td>
+              <td>hace 6 d</td>
+              <td><span class="badge badge--rechazada">Rechazada</span></td>
+              <td class="tabla__acciones">
+                <a class="btn btn--tertiary" href="#">Ver motivo</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Paginación -->
+      <nav class="paginacion" aria-label="Paginación">
+        <p class="texto-auxiliar">Mostrando 1 a 7 de 12 solicitudes</p>
+        <ul class="paginacion__lista">
+          <li><a class="paginacion__enlace" href="#" aria-label="Anterior">‹</a></li>
+          <li><a class="paginacion__enlace is-active" href="#" aria-current="page">1</a></li>
+          <li><a class="paginacion__enlace" href="#">2</a></li>
+          <li><a class="paginacion__enlace" href="#" aria-label="Siguiente">›</a></li>
+        </ul>
+      </nav>
+
+    </main>
+  </div>
+
+  <!-- ============ FOOTER (compartido) ============ -->
+  <footer class="footer">
+    <p>Almacén de Equipos · Panel del encargado · Almacén H-102</p>
+    <p>
+      <a href="#">Manual del encargado</a>
+      <span>Soporte: sistemas@ulima.edu.pe</span>
+      <span>Última sincronización: <span class="codigo">14/09/2026 08:05</span></span>
+    </p>
+  </footer>
+
+
+  <!-- ======================================================
+       MODALES · se abren con :target (href="#id") y se
+       cierran con href="#". Pueden pasar a ser estado en React.
+       ====================================================== -->
+
+  <!-- 4.2 · Modal de aprobación: asignar unidad -->
+  <div class="modal" id="modal-aprobar" role="dialog" aria-modal="true" aria-labelledby="aprobar-titulo">
+    <a class="modal__fondo" href="#" aria-label="Cerrar"></a>
+    <div class="modal__caja">
+      <h2 class="modal__titulo" id="aprobar-titulo">Aprobar solicitud</h2>
+      <p class="texto-auxiliar">
+        Osciloscopio TBS1052B · Renzo Mendoza Cárdenas ·
+        <span class="codigo">16/09 → 21/09/2026</span>
+      </p>
+
+      <form action="#">
+        <fieldset class="campo-grupo">
+          <legend class="campo__etiqueta">Asigna una unidad</legend>
+
+          <label class="opcion-unidad">
+            <input type="radio" name="unidad" value="INV-OSC-0042" checked>
+            <span class="codigo">INV-OSC-0042</span>
+            <span class="texto-auxiliar">Almacén H-102 · anaquel 3</span>
+            <span class="badge badge--disponible">Disponible</span>
+          </label>
+
+          <label class="opcion-unidad">
+            <input type="radio" name="unidad" value="INV-OSC-0043">
+            <span class="codigo">INV-OSC-0043</span>
+            <span class="texto-auxiliar">Almacén H-102 · anaquel 3</span>
+            <span class="badge badge--disponible">Disponible</span>
+          </label>
+
+          <label class="opcion-unidad">
+            <input type="radio" name="unidad" value="INV-OSC-0046">
+            <span class="codigo">INV-OSC-0046</span>
+            <span class="texto-auxiliar">Almacén N-005</span>
+            <span class="badge badge--disponible">Disponible</span>
+          </label>
+        </fieldset>
+
+        <div class="modal__acciones">
+          <a class="btn btn--secondary" href="#">Cancelar</a>
+          <button class="btn btn--primary" type="submit">Aprobar y asignar unidad</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 4.2 · Modal: sin unidades en el rango y solicitante con deuda -->
+  <div class="modal" id="modal-sin-unidades" role="dialog" aria-modal="true" aria-labelledby="sin-unidades-titulo">
+    <a class="modal__fondo" href="#" aria-label="Cerrar"></a>
+    <div class="modal__caja">
+      <h2 class="modal__titulo" id="sin-unidades-titulo">No se puede aprobar</h2>
+      <p class="texto-auxiliar">
+        Cámara Canon EOS 90D · Alejandra Huamán Solís ·
+        <span class="codigo">17/09 → 22/09/2026</span>
+      </p>
+
+      <div class="aviso aviso--warning" role="alert">
+        <strong>Sin unidades libres en el rango.</strong>
+        No hay unidades disponibles entre el 17/09 y el 22/09/2026.
+      </div>
+      <div class="aviso aviso--danger" role="alert">
+        <strong>Solicitante con deuda.</strong>
+        Tiene una penalidad pendiente de S/ 60.00. No puede recibir equipos hasta regularizar en Tesorería.
+      </div>
+
+      <div class="modal__acciones">
+        <a class="btn btn--secondary" href="#">Cerrar</a>
+        <a class="btn btn--destructive" href="#modal-rechazar">Rechazar solicitud</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4.3 · Modal de rechazo -->
+  <div class="modal" id="modal-rechazar" role="dialog" aria-modal="true" aria-labelledby="rechazar-titulo">
+    <a class="modal__fondo" href="#" aria-label="Cerrar"></a>
+    <div class="modal__caja">
+      <h2 class="modal__titulo" id="rechazar-titulo">Rechazar solicitud</h2>
+      <p class="texto-auxiliar">El estudiante recibirá el motivo en su solicitud.</p>
+
+      <form action="#">
+        <div class="campo">
+          <label class="campo__etiqueta" for="rechazo-motivo">Motivo</label>
+          <select class="campo__input" id="rechazo-motivo">
+            <option>Sin unidades disponibles</option>
+            <option>Falta autorización del docente</option>
+            <option>Penalidad pendiente</option>
+            <option>Otro</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="rechazo-detalle">Detalle</label>
+          <textarea class="campo__input" id="rechazo-detalle" rows="4" placeholder="Explica al estudiante qué debe corregir"></textarea>
+          <p class="campo__ayuda">Mínimo 20 caracteres.</p>
+        </div>
+
+        <div class="modal__acciones">
+          <a class="btn btn--secondary" href="#">Cancelar</a>
+          <button class="btn btn--destructive" type="submit">Rechazar solicitud</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>

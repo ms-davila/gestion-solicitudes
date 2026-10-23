@@ -1,0 +1,314 @@
+/* =========================================================
+   historia4.css · Aprobación y entrega (encargado de almacén)
+   Pantallas: bandeja, entrega, constancia, vigentes
+   ========================================================= */
+
+/* ---------- Encabezado de pantalla y migas ---------- */
+.encabezado-pantalla {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-6);
+}
+
+.encabezado-pantalla__acciones {
+  display: flex;
+  gap: var(--sp-3);
+}
+
+.migas {
+  margin-bottom: var(--sp-2);
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-muted);
+}
+
+.migas a {
+  text-decoration: none;
+}
+
+/* ---------- 4.1 Bandeja: pestañas y filtros ---------- */
+.pestanas {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: var(--sp-4);
+}
+
+.pestanas__item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-bottom: -1px;
+  padding: var(--sp-3) var(--sp-5);
+  border-bottom: 3px solid transparent;
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.pestanas__item.is-active {
+  border-bottom-color: var(--primary);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.pestanas__contador {
+  padding: 0 var(--sp-2);
+  border-radius: var(--radio);
+  background: var(--primary-soft);
+  font-family: 'Roboto Mono', monospace;
+  font-size: 13px;
+}
+
+.filtros {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-4);
+}
+
+.filtros .campo {
+  min-width: 200px;
+}
+
+.filtros .campo--ancho {
+  flex: 1;
+}
+
+/* Filas marcadas */
+.tabla__fila--deuda td:first-child {
+  border-left: 4px solid var(--danger);
+}
+
+.tabla__fila--vencido {
+  background: var(--danger-soft);
+}
+.tabla__fila--vencido td:first-child {
+  border-left: 4px solid var(--danger);
+  color: var(--danger);
+}
+
+.tabla__fila--hoy {
+  background: var(--warning-soft);
+}
+.tabla__fila--hoy td:first-child {
+  border-left: 4px solid var(--accent);
+}
+
+/* ---------- 4.2 Modal: elegir unidad ---------- */
+.opcion-unidad {
+  display: grid;
+  grid-template-columns: auto auto 1fr auto;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radio);
+  cursor: pointer;
+}
+
+.opcion-unidad input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary);
+}
+
+.opcion-unidad:has(input:checked) {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+}
+
+/* ---------- 4.4 Registro de entrega ---------- */
+.formulario {
+  display: grid;
+  gap: var(--sp-6);
+  max-width: 800px;
+  padding: var(--sp-8);
+  border: 1px solid var(--border);
+  border-radius: var(--radio);
+  background: var(--surface);
+  margin-top: var(--sp-6);
+}
+
+.formulario__acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--sp-3);
+  padding-top: var(--sp-6);
+  border-top: 1px solid var(--border);
+}
+
+.resumen {
+  padding: var(--sp-5);
+  border-radius: var(--radio);
+  background: var(--primary-soft);
+}
+
+.resumen__lista {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-4) var(--sp-6);
+}
+
+.resumen__item dd {
+  margin-top: var(--sp-1);
+  font-weight: 500;
+}
+
+.checklist__item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radio);
+  cursor: pointer;
+}
+
+.checklist__item input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary);
+}
+
+.checklist__item .texto-auxiliar {
+  margin-left: auto;
+}
+
+/* ---------- 4.5 Constancia ---------- */
+.constancia {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: var(--sp-12);
+  border: 1px solid var(--border);
+  border-radius: var(--radio);
+  background: var(--surface);
+}
+
+.constancia__cabecera {
+  margin-bottom: var(--sp-8);
+  padding-bottom: var(--sp-6);
+  border-bottom: 2px solid var(--primary);
+  text-align: center;
+}
+
+.constancia__institucion {
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.constancia__titulo {
+  margin: var(--sp-2) 0 0;
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 600;
+  color: var(--primary-dark);
+}
+
+.constancia__datos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-6) var(--sp-8);
+  margin-bottom: var(--sp-8);
+}
+
+.constancia__dato dd {
+  margin-top: var(--sp-1);
+}
+
+.constancia__dato .texto-auxiliar {
+  display: block;
+}
+
+.constancia .subtitulo {
+  margin-bottom: var(--sp-3);
+}
+
+.constancia__declaracion {
+  margin: var(--sp-8) 0 0;
+}
+
+.constancia__firmas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-12);
+  margin-top: var(--sp-12);
+  text-align: center;
+}
+
+.constancia__linea {
+  display: block;
+  height: 56px;
+  border-bottom: 1px solid var(--text);
+}
+
+.constancia__firma p {
+  margin-top: var(--sp-2);
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-muted);
+}
+
+/* Tabla simple dentro de la constancia */
+.tabla--simple {
+  border: 1px solid var(--border);
+}
+.tabla--simple th {
+  position: static;
+}
+
+/* ---------- 4.6 Préstamos vigentes ---------- */
+.grupo {
+  margin-bottom: var(--sp-8);
+}
+
+.grupo .subtitulo {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-3);
+}
+
+.grupo__contador {
+  padding: 0 var(--sp-2);
+  border-radius: var(--radio);
+  background: var(--primary-soft);
+  color: var(--primary-dark);
+  font-family: 'Roboto Mono', monospace;
+  font-size: 13px;
+}
+
+.grupo--vencidos .subtitulo {
+  color: var(--danger);
+}
+.grupo--vencidos .grupo__contador {
+  background: var(--danger);
+  color: #fff;
+}
+
+.grupo--hoy .grupo__contador {
+  background: var(--accent);
+  color: var(--text);
+}
+
+/* ---------- Impresión de la constancia ---------- */
+@media print {
+  .header,
+  .sidebar,
+  .footer,
+  .encabezado-pantalla__acciones {
+    display: none;
+  }
+
+  .app {
+    display: block;
+  }
+
+  .constancia {
+    border: 0;
+  }
+}
