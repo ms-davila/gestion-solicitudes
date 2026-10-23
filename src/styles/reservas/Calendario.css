@@ -1,4 +1,3 @@
-
 /* Calendario de ocupación */
 
 .cal-page {
@@ -345,4 +344,99 @@
   border: 1px solid #1E7F4D;
   color: #1E7F4D;
   border-radius: 4px;
+}
+
+/* Disponibilidad de equipos */
+.cal-dia {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.cal-disponibilidad {
+  display: inline-block;
+  padding: 5px 8px;
+  background-color: #E8F4EE;
+  color: #1E7F4D;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Días sin disponibilidad */
+.cal-disponibilidad.cal-sin-cupo {
+  background-color: #FBEDEC;
+  color: #B4322B;
+}
+
+/* Disponibilidad del rango seleccionado */
+.cal-panel .cal-rango-disponible {
+  padding: 10px;
+  background-color: #E8F4EE;
+  color: #1E7F4D;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* Estados de ocupación */
+.cal-estados {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.cal-reservadas,
+.cal-prestadas {
+  padding: 4px 7px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.cal-reservadas {
+  background-color: #FFF3DC;
+  color: #B7791F;
+}
+
+.cal-prestadas {
+  background-color: #E3EEF0;
+  color: #17505C;
+}
+
+.cal-disponibilidad {
+  background-color: #E8F4EE;
+  color: #1E7F4D;
+}
+
+/* Estados de ocupación */
+.cal-estados {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.cal-reservadas,
+.cal-prestadas {
+  padding: 4px 7px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.cal-reservadas {
+  background-color: #FFF3DC;
+  color: #B7791F;
+}
+
+.cal-prestadas {
+  background-color: #E3EEF0;
+  color: #17505C;
+}
+
+.cal-disponibilidad {
+  background-color: #E8F4EE;
+  color: #1E7F4D;
 }

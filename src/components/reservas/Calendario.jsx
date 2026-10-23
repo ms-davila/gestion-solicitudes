@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../../styles/reservas/Calendario.css";
 import ModalReserva from "./ModalReserva.jsx";
+import { Link } from "react-router-dom";
 
 // Datos simulados de los equipos
 const equipos = [
@@ -8,6 +9,28 @@ const equipos = [
   { id: 2, nombre: "Cámara Canon EOS 90D", unidades: 4 },
   { id: 3, nombre: "Kit de robótica Arduino Mega", unidades: 6 },
   { id: 4, nombre: "Tableta gráfica Wacom Intuos", unidades: 3 },
+];
+
+// Préstamos activos de ejemplo
+const prestamos = [
+  {
+    equipoId: 1,
+    inicio: "2026-10-26",
+    fin: "2026-10-29",
+    unidades: 2
+  },
+  {
+    equipoId: 2,
+    inicio: "2026-10-27",
+    fin: "2026-10-30",
+    unidades: 1
+  },
+  {
+  equipoId: 4,
+  inicio: "2026-11-10",
+  fin: "2026-11-12",
+  unidades: 3
+  }
 ];
 
 // Días de la semana
@@ -61,6 +84,8 @@ function Calendario() {
   // Cambiar de mes
   const cambiarMes = (cantidad) => {
     setFechaActual(new Date(anio, mes + cantidad, 1));
+    setFechaInicio(null);
+    setFechaFin(null);
   };
 
     // Seleccionar fechas
@@ -108,68 +133,137 @@ function Calendario() {
     setModalAbierto(false);
   }
 
+  // Comprobar disponibilidad durante todo el rango
+  function hayDisponibilidad(inicio, fin) {
+    const fecha = new Date(inicio.getFullYear(), inicio.getMonth(), inicio.getDate());
+    const ultimoDia = new Date(fin.getFullYear(), fin.getMonth(), fin.getDate());
+
+    while (fecha <= ultimoDia) {
+      const disponibles = calcularDisponibilidad(fechaTexto(fecha));
+
+      if (disponibles === 0) {
+        return false;
+      }
+
+      fecha.setDate(fecha.getDate() + 1);
+    }
+
+    return true;
+  }
+
   // Confirmar la reserva
-  
-function confirmarReserva() {
+  function confirmarReserva() {
 
-  // Convertir las fechas al formato AAAA-MM-DD
+    const inicio = fechaTexto(fechaInicio);
+    const fin = fechaTexto(fechaFin);
+    const hoy = fechaTexto(new Date());
+
+    if (inicio < hoy) {
+      setMensaje("No puedes reservar equipos en fechas anteriores a hoy.");
+      setModalAbierto(false);
+      return;
+    }
+
+    // Verificar si ya existe una reserva del mismo estudiante
+    const existeReserva = reservas.some((reserva) =>
+      reserva.equipoId === equipoId &&
+      reserva.estudiante === "Natalia Rebatta" &&
+      ["Confirmada", "En espera"].includes(reserva.estado) &&
+      inicio <= reserva.fin &&
+      fin >= reserva.inicio
+    );
+
+    if (existeReserva) {
+      setMensaje("Ya tienes una reserva de este equipo en las fechas seleccionadas.");
+      setModalAbierto(false);
+      return;
+    }
+
+    // Crear una nueva reserva
+    const disponible = hayDisponibilidad(fechaInicio, fechaFin);
+
+    const nuevaReserva = {
+      id: Date.now(),
+      equipoId: equipoId,
+      equipo: equipoSeleccionado.nombre,
+      estudiante: "Natalia Rebatta",
+      inicio: inicio,
+      fin: fin,
+      estado: disponible ? "Confirmada" : "En espera"
+    };
+
+    // Agregar la reserva al arreglo
+    const nuevasReservas = [...reservas, nuevaReserva];
+
+    // Actualizar React y guardar en el navegador
+    setReservas(nuevasReservas);
+    localStorage.setItem("reservasH6", JSON.stringify(nuevasReservas));
+
+    setModalAbierto(false);
+    setMensaje(
+      disponible
+        ? "Reserva confirmada correctamente."
+        : "No hay unidades disponibles. Se registró tu solicitud en lista de espera."
+    );
+    setFechaInicio(null);
+    setFechaFin(null);
+  }
+
+  // Consultar unidades reservadas y prestadas
+    function obtenerOcupacion(fecha) {
+      const reservadas = reservas.filter((reserva) =>
+        reserva.equipoId === equipoId &&
+        reserva.estado === "Confirmada" &&
+        fecha >= reserva.inicio &&
+        fecha <= reserva.fin
+      ).length;
+
+      const prestadas = prestamos
+        .filter((prestamo) =>
+          prestamo.equipoId === equipoId &&
+          fecha >= prestamo.inicio &&
+          fecha <= prestamo.fin
+        )
+        .reduce((total, prestamo) => total + prestamo.unidades, 0);
+
+      return { reservadas, prestadas };
+    }
+
+    // Calcular unidades libres
+    function calcularDisponibilidad(fecha) {
+      const { reservadas, prestadas } = obtenerOcupacion(fecha);
+
+      return Math.max(
+        0,
+        equipoSeleccionado.unidades - reservadas - prestadas
+      );
+    }
+  // Convertir una fecha al formato AAAA-MM-DD
   function fechaTexto(fecha) {
-    const anio = fecha.getFullYear();
-    const mes = String(fecha.getMonth() + 1).padStart(2, "0");
-    const dia = String(fecha.getDate()).padStart(2, "0");
+    const anioFecha = fecha.getFullYear();
+    const mesFecha = String(fecha.getMonth() + 1).padStart(2, "0");
+    const diaFecha = String(fecha.getDate()).padStart(2, "0");
 
-    return `${anio}-${mes}-${dia}`;
+    return `${anioFecha}-${mesFecha}-${diaFecha}`;
   }
 
-  const inicio = fechaTexto(fechaInicio);
-  const fin = fechaTexto(fechaFin);
-  const hoy = fechaTexto(new Date());
+  // Calcular unidades libres durante todo el rango
+  function disponibilidadRango(inicio, fin) {
+    let minimo = equipoSeleccionado.unidades;
+    const fecha = new Date(inicio);
 
-  if (inicio < hoy) {
-    setMensaje("No puedes reservar equipos en fechas anteriores a hoy.");
-    setModalAbierto(false);
-    return;
+    while (fecha <= fin) {
+      const disponibles = calcularDisponibilidad(fechaTexto(fecha));
+
+      if (disponibles < minimo) {
+        minimo = disponibles;
+      }
+
+      fecha.setDate(fecha.getDate() + 1);
+    }
+
+    return minimo;
   }
-
-  // Verificar si ya existe una reserva del mismo estudiante
-  const existeReserva = reservas.some((reserva) =>
-    reserva.equipoId === equipoId &&
-    reserva.estudiante === "Natalia Rebatta" &&
-    reserva.estado === "Confirmada" &&
-    inicio <= reserva.fin &&
-    fin >= reserva.inicio
-  );
-
-  if (existeReserva) {
-    setMensaje("Ya tienes una reserva de este equipo en las fechas seleccionadas.");
-    setModalAbierto(false);
-    return;
-  }
-
-  // Crear una nueva reserva
-  const nuevaReserva = {
-    id: Date.now(),
-    equipoId: equipoId,
-    equipo: equipoSeleccionado.nombre,
-    estudiante: "Natalia Rebatta",
-    inicio: inicio,
-    fin: fin,
-    estado: "Confirmada"
-  };
-
-  // Agregar la reserva al arreglo
-  const nuevasReservas = [...reservas, nuevaReserva];
-
-  // Actualizar React y guardar en el navegador
-  setReservas(nuevasReservas);
-  localStorage.setItem("reservasH6", JSON.stringify(nuevasReservas));
-
-  setModalAbierto(false);
-  setMensaje("Reserva confirmada correctamente.");
-  setFechaInicio(null);
-  setFechaFin(null);
-}
-
 
   return (
     <div className="cal-page">
@@ -184,7 +278,7 @@ function confirmarReserva() {
         <nav className="cal-nav">
           <a href="#">Catálogo</a>
           <a href="#">Mis solicitudes</a>
-          <a href="#">Mis reservas</a>
+          <Link to="/mis-reservas">Mis reservas</Link>
           <a href="/calendario" className="cal-activo">
             Calendario
           </a>
@@ -212,7 +306,12 @@ function confirmarReserva() {
             {/* SELECCIONAR EQUIPO */}
             <select
               value={equipoId}
-              onChange={(e) => setEquipoId(Number(e.target.value))}
+              onChange={(e) => {
+                setEquipoId(Number(e.target.value));
+                setFechaInicio(null);
+                setFechaFin(null);
+                setMensaje("");
+              }}
             >
               {equipos.map((equipo) => (
                 <option key={equipo.id} value={equipo.id}>
@@ -255,7 +354,38 @@ function confirmarReserva() {
                   `}
                 >
                   {dia !== null && (
-                    <span className="cal-numero">{dia}</span>
+                    <>
+                      <span className="cal-numero">{dia}</span>
+
+                      <div className="cal-estados">
+
+                        <span
+                          className={`cal-disponibilidad ${
+                            calcularDisponibilidad(fechaTexto(new Date(anio, mes, dia))) === 0
+                              ? "cal-sin-cupo"
+                              : ""
+                          }`}
+                        >
+                          {calcularDisponibilidad(fechaTexto(new Date(anio, mes, dia))) === 0
+                            ? "Sin cupo"
+                            : `${calcularDisponibilidad(fechaTexto(new Date(anio, mes, dia)))} libres`}
+                        </span>
+
+                        {obtenerOcupacion(fechaTexto(new Date(anio, mes, dia))).reservadas > 0 && (
+                          <span className="cal-reservadas">
+                            {obtenerOcupacion(fechaTexto(new Date(anio, mes, dia))).reservadas} reservadas
+                          </span>
+                        )}
+
+                        {obtenerOcupacion(fechaTexto(new Date(anio, mes, dia))).prestadas > 0 && (
+                          <span className="cal-prestadas">
+                            {obtenerOcupacion(fechaTexto(new Date(anio, mes, dia))).prestadas} prestadas
+                          </span>
+                        )}
+
+                      </div>
+
+                    </>
                   )}
                 </button>
               ))}
@@ -275,7 +405,14 @@ function confirmarReserva() {
                 </p>
 
                 {fechaFin ? (
-                  <p>{totalDiasSeleccionados} días seleccionados</p>
+                  <>
+                    <p>{totalDiasSeleccionados} días seleccionados</p>
+
+                    <p className="cal-rango-disponible">
+                      {disponibilidadRango(fechaInicio, fechaFin)} unidades libres
+                      durante todo el rango
+                    </p>
+                  </>
                 ) : (
                   <p>Selecciona la fecha de finalización.</p>
                 )}
