@@ -44,7 +44,7 @@ body {
   justify-content: center;
 }
 
-.buscador {
+.cabecera-centro .buscador {
   width: 100%;
   max-width: 700px;
   height: 40px;
@@ -62,7 +62,7 @@ body {
   gap: 20px;
 }
 
-.pendientes {
+.cabecera-derecha .pendientes {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -82,7 +82,7 @@ body {
   border-radius: 4px;
 }
 
-.avatar {
+.cabecera-derecha .avatar {
   display: flex;
   justify-content: center;
   align-items: center;

@@ -35,8 +35,8 @@ function Usuarios() {
         {/* MENÚ LATERAL */}
         <nav className="menu-lateral">
           <p className="menu-titulo">OPERACIÓN</p>
-          <a className="menu-item" href="#"><span>Inventario</span><span className="menu-contador">42</span></a>
-          <a className="menu-item" href="#"><span>Solicitudes</span><span className="menu-contador menu-contador-azul">12</span></a>
+          <Link className="menu-item" to="/inventario"><span>Inventario</span><span className="menu-contador">42</span></Link>
+          <Link className="menu-item" to="/missolicitudes"><span>Solicitudes</span><span className="menu-contador menu-contador-azul">12</span></Link>
           <a className="menu-item" href="#"><span>Préstamos vigentes</span><span className="menu-contador">8</span></a>
           <a className="menu-item" href="#"><span>Vencidos</span><span className="menu-contador menu-contador-rojo">2</span></a>
           <Link className="menu-item" to="/devoluciones"><span>Devoluciones</span><span className="menu-contador">—</span></Link>
@@ -44,8 +44,8 @@ function Usuarios() {
           <hr className="menu-linea" />
 
           <p className="menu-titulo">COMPLEMENTARIOS</p>
-          <a className="menu-item" href="#"><span>Reservas</span><span className="menu-contador">5</span></a>
-          <a className="menu-item" href="#"><span>Lista de espera</span><span className="menu-contador">6</span></a>
+          <Link className="menu-item" to="/mis-reservas"><span>Reservas</span><span className="menu-contador">5</span></Link>
+          <Link className="menu-item" to="/lista-espera"><span>Lista de espera</span><span className="menu-contador">6</span></Link>
           <a className="menu-item" href="#"><span>Tablero</span></a>
           <Link className="menu-item menu-item-activo" to="/devoluciones/usuarios"><span>Usuarios</span><span className="menu-contador">15</span></Link>
         </nav>

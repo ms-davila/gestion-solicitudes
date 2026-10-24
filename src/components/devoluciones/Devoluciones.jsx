@@ -31,8 +31,8 @@ function Devoluciones() {
         {/* MENÚ LATERAL: la página actual (Devoluciones) va resaltada */}
           <nav className="menu-lateral">
             <p className="menu-titulo">OPERACIÓN</p>
-            <a className="menu-item" href="#"><span>Inventario</span></a>
-            <a className="menu-item" href="#"><span>Solicitudes</span></a>
+            <Link className="menu-item" to="/inventario"><span>Inventario</span></Link>
+            <Link className="menu-item" to="/missolicitudes"><span>Solicitudes</span></Link>
             <a className="menu-item" href="#"><span>Préstamos vigentes</span></a>
             <a className="menu-item" href="#"><span>Vencidos</span></a>
             <Link className="menu-item menu-item-activo" to="/devoluciones"><span>Devoluciones</span></Link>
@@ -40,8 +40,8 @@ function Devoluciones() {
             <hr className="menu-linea" />
 
             <p className="menu-titulo">COMPLEMENTARIOS</p>
-            <a className="menu-item" href="#"><span>Reservas</span></a>
-            <a className="menu-item" href="#"><span>Lista de espera</span></a>
+            <Link className="menu-item" to="/mis-reservas"><span>Reservas</span></Link>
+            <Link className="menu-item" to="/lista-espera"><span>Lista de espera</span></Link>
             <a className="menu-item" href="#"><span>Tablero</span></a>
             <Link className="menu-item" to="/devoluciones/usuarios"><span>Usuarios</span></Link>
           </nav>

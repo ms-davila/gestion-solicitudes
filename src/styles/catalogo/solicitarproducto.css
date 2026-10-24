@@ -19,7 +19,32 @@
     color: var(--text);
     
 }
-body {
+
+.prestamo-page {
+    min-height: 100vh;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-family: var(--fuente);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    background-color: var(--bg);
+    color: var(--text);
+
+
+.prestamo-page {
+    min-height: 100vh;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-family: var(--fuente);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    background-color: var(--bg);
+    color: var(--text);
+
     min-height: 100vh;
     height: auto;
     display: flex;
@@ -417,4 +442,6 @@ footer h2{
 .info_f a:hover{
     text-decoration: underline;
     
+}
+
 }

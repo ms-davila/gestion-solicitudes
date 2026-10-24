@@ -19,7 +19,32 @@
     color: var(--text);
     
 }
-body {
+
+.catalogo-page {
+    min-height: 100vh;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-family: var(--fuente);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    background-color: var(--bg);
+    color: var(--text);
+
+
+.catalogo-page {
+    min-height: 100vh;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-family: var(--fuente);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    background-color: var(--bg);
+    color: var(--text);
+
     min-height: 100vh;
     height: auto;
     display: flex;
@@ -151,13 +176,13 @@ header ul li{
 
 }
 
-main{
+main, .catalogo-main{
     display: flex;
     flex: 1;
     width: auto;
     margin-bottom: 100px;
 }
-aside.buscador {
+aside.buscador, aside {
     background-color: var(--surface);
     border: var(--border) 2px solid;
     border-radius: 2px;
@@ -473,4 +498,6 @@ footer h2{
     .inventario {
         grid-template-columns: repeat(2, 1fr);
     }
+}
+
 }
