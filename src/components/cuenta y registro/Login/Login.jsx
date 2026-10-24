@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useUsuario } from '../../context/UsuarioContext.jsx';
+import { useUsuario } from '../context/UsuarioContext.jsx';
 import Campo from '../Campo/Campo.jsx';
 import Aviso from '../Aviso/Aviso.jsx';
 

@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { useUsuario } from '../../context/UsuarioContext.jsx';
+import { useUsuario } from '../context/UsuarioContext.jsx';
 
 const Header = () => {
 

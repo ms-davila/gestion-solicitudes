@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { EQUIPOS } from '../../data/opciones.js';
+import { EQUIPOS } from '../data/opciones.js';
 
 const Inicio = () => {
 

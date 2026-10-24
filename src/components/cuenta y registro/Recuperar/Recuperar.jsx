@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useUsuario } from '../../context/UsuarioContext.jsx';
-import { contrasenaValida } from '../../utils/validaciones.js';
+import { useUsuario } from '../context/UsuarioContext.jsx';
+import { contrasenaValida } from '../../../pages/cuenta y registro/utils/validaciones.js';
 import Campo from '../Campo/Campo.jsx';
 import Aviso from '../Aviso/Aviso.jsx';
 

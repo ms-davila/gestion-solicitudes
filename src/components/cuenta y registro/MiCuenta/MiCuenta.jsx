@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
-import { useUsuario } from '../../context/UsuarioContext.jsx';
-import { contrasenaValida } from '../../utils/validaciones.js';
-import { CARRERAS, CICLOS } from '../../data/opciones.js';
+import { useUsuario } from '../context/UsuarioContext.jsx';
+import { contrasenaValida } from '../../../pages/cuenta y registro/utils/validaciones.js';
+import { CARRERAS, CICLOS } from '../data/opciones.js';
 import Campo from '../Campo/Campo.jsx';
 import Aviso from '../Aviso/Aviso.jsx';
 
