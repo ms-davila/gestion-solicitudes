@@ -263,7 +263,7 @@ textarea.campo__input {
 
 /* ---------- Modal (única pieza con sombra) ---------- */
 .modal {
-  display: none;
+  display: flex;
   position: fixed;
   inset: 0;
   z-index: 100;
@@ -271,9 +271,7 @@ textarea.campo__input {
   justify-content: center;
 }
 
-.modal:target {
-  display: flex;
-}
+
 
 .modal__fondo {
   position: absolute;
