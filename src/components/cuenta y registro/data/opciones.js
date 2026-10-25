@@ -1,3 +1,8 @@
+import imgOsciloscopio from '../../../assets/Osciloscopio.png';
+import imgCamara from '../../../assets/Camara_canon.png';
+import imgKit from '../../../assets/Kit.png';
+import imgMultimetro from '../../../assets/Multimetro.png';
+
 // Listas que llenan los desplegables (select)
 export const CARRERAS = [
     'Ingeniería Electrónica',
@@ -13,8 +18,8 @@ export const ALMACENES = ['Almacén H-102', 'Almacén N-005', 'Laboratorio de El
 
 // Equipos destacados de la página de inicio
 export const EQUIPOS = [
-    { id: 1, nombre: 'Osciloscopio TBS1052B', marca: 'Tektronix · medición', libres: 3, total: 5 },
-    { id: 2, nombre: 'Cámara Canon EOS 90D', marca: 'Canon · audiovisual', libres: 2, total: 4 },
-    { id: 3, nombre: 'Kit Arduino Mega', marca: 'Arduino · robótica', libres: 6, total: 6 },
-    { id: 4, nombre: 'Multímetro Fluke 117', marca: 'Fluke · medición', libres: 0, total: 3 },
+    { id: 1, nombre: 'Osciloscopio TBS1052B', marca: 'Tektronix · medición', libres: 3, total: 5, imagen: imgOsciloscopio },
+    { id: 2, nombre: 'Cámara Canon EOS 90D', marca: 'Canon · audiovisual', libres: 2, total: 4, imagen: imgCamara },
+    { id: 3, nombre: 'Kit Arduino Mega', marca: 'Arduino · robótica', libres: 6, total: 6, imagen: imgKit },
+    { id: 4, nombre: 'Multímetro Fluke 117', marca: 'Fluke · medición', libres: 0, total: 3, imagen: imgMultimetro },
 ];

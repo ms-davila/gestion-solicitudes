@@ -348,12 +348,18 @@
 .pagina-cuenta .foto-hero {
   width: 520px;
   height: 300px;
+  object-fit: cover;     
+  border-radius: 4px;
+  flex-shrink: 0;
 }
 
 .pagina-cuenta .foto-equipo {
+  display: block;
   width: 100%;
-  height: 140px;
+  aspect-ratio: 1 / 1;  
+  object-fit: cover;     
   margin-bottom: 10px;
+  border-radius: 4px;
 }
 
 .pagina-cuenta .fila-buscar {

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { EQUIPOS } from '../data/opciones.js';
+import imgAlmacen from '../../../assets/Almacen.png';
 
 const Inicio = () => {
 
@@ -32,7 +33,7 @@ const Inicio = () => {
                         <button className="boton boton-primario" onClick={handleBuscar}>Buscar</button>
                     </div>
                 </div>
-                <div className="foto foto-hero">fotografía del almacén · 520 × 300</div>
+                <img className="foto-hero" src={imgAlmacen} alt="Almacén de equipos" />
             </section>
 
             <main className="ancho">
@@ -42,7 +43,7 @@ const Inicio = () => {
                 <div className="lista-equipos">
                     {EQUIPOS.map(equipo => (
                         <article key={equipo.id}>
-                            <div className="foto foto-equipo">foto 1:1</div>
+                            <img className="foto-equipo" src={equipo.imagen} alt={equipo.nombre} />
                             <p className="nombre-equipo">{equipo.nombre}</p>
                             <p className="marca-equipo">{equipo.marca}</p>
                             <span className={equipo.libres === 0 ? 'libres libres-cero codigo' : 'libres codigo'}>
