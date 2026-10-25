@@ -1,6 +1,6 @@
 import Header from '../../components/cuenta y registro/Header/Header.jsx';
-import CrearCuenta from '../../components/CrearCuenta/CrearCuenta.jsx';
-import Footer from '../components/Footer/Footer.jsx';
+import CrearCuenta from '../../components/cuenta y registro/CrearCuenta/CrearCuenta.jsx';
+import Footer from '../../components/cuenta y registro/Footer/Footer.jsx';
 
 const CrearCuentaPage = () => {
     return (

@@ -1,6 +1,6 @@
-import Header from '../components/Header/Header.jsx';
-import Login from '../components/Login/Login.jsx';
-import Footer from '../components/Footer/Footer.jsx';
+import Header from '../../components/cuenta y registro/Inicio/Inicio.jsx';
+import Login from '../../components/cuenta y registro/Login/Login.jsx';
+import Footer from '../../components/cuenta y registro/Footer/Footer.jsx';
 
 const LoginPage = () => {
     return (

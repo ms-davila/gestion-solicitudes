@@ -1,6 +1,6 @@
-import Header from '../components/Header/Header.jsx';
-import Recuperar from '../components/Recuperar/Recuperar.jsx';
-import Footer from '../components/Footer/Footer.jsx';
+import Header from '../../components/cuenta y registro/Header/Header.jsx';
+import Recuperar from '../../components/cuenta y registro/Recuperar/Recuperar.jsx';
+import Footer from '../../components/cuenta y registro/Footer/Footer.jsx';
 
 const RecuperarPage = () => {
     return (

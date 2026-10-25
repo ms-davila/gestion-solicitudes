@@ -1,6 +1,6 @@
-import Header from '../components/Header/Header.jsx';
-import RegistroEncargado from '../components/RegistroEncargado/RegistroEncargado.jsx';
-import Footer from '../components/Footer/Footer.jsx';
+import Header from '../../components/cuenta y registro/Header/Header.jsx';
+import RegistroEncargado from '../../components/cuenta y registro/RegistroEncargado/RegistroEncargado.jsx';
+import Footer from '../../components/cuenta y registro/Footer/Footer.jsx';
 
 const RegistroEncargadoPage = () => {
     return (

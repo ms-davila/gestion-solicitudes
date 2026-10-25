@@ -5,26 +5,26 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { BrowserRouter } from 'react-router-dom'
 
 // 2. Traemos el Contexto de ella (asegúrate de que esta sea la ruta correcta)
-import { UsuarioProvider } from './context/UsuarioContext.jsx' 
+import { UsuarioProvider } from './components/cuenta y registro/context/UsuarioContext.jsx' 
 
 // 3. Importación de estilos
 import './index.css'
 // AQUÍ LLAMAS A SU ESTILO: Asegúrate de poner la ruta exacta donde guardaste su CSS
-import './styles/estilos-generales.css' 
+import './styles/cuenta y registro/cuenta y registro.css' 
 
 // 4. Tu App original
 import App from './App.jsx'
 
 // 5. Las páginas de ella para el Router
-import InicioPage from './pages/InicioPage.jsx'
-import LoginPage from './pages/LoginPage.jsx'
-import CrearCuentaPage from './pages/CrearCuentaPage.jsx'
-import RegistroEstudiantePage from './pages/RegistroEstudiantePage.jsx'
-import RegistroEncargadoPage from './pages/RegistroEncargadoPage.jsx'
-import RecuperarPage from './pages/RecuperarPage.jsx'
-import MiCuentaPage from './pages/MiCuentaPage.jsx'
-import Error403Page from './pages/Error403Page.jsx'
-import Error404Page from './pages/Error404Page.jsx'
+import InicioPage from './pages/cuenta y registro/InicioPage.jsx'
+import LoginPage from './pages/cuenta y registro/LoginPage.jsx'
+import CrearCuentaPage from './pages/cuenta y registro/CrearCuentaPage.jsx'
+import RegistroEstudiantePage from './pages/cuenta y registro/RegistroEstudiantePage.jsx'
+import RegistroEncargadoPage from './pages/cuenta y registro/RegistroEncargadoPage.jsx'
+import RecuperarPage from './pages/cuenta y registro/RecuperarPage.jsx'
+import MiCuentaPage from './pages/cuenta y registro/MiCuentaPage.jsx'
+import Error403Page from './pages/cuenta y registro/Error403Page.jsx'
+import Error404Page from './pages/cuenta y registro/Error404Page.jsx'
 
 // 6. Configuramos el Router de ella
 const router = createBrowserRouter([

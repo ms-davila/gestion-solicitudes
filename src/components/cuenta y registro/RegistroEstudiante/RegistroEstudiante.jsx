@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useUsuario } from '../../context/UsuarioContext.jsx';
-import { contrasenaValida } from '../../utils/validaciones.js';
-import { CARRERAS, CICLOS } from '../../data/opciones.js';
-import Campo from '../Campo/Campo.jsx';
-import Aviso from '../Aviso/Aviso.jsx';
+import { useUsuario } from '../context/UsuarioContext.jsx';
+import { contrasenaValida } from '../../../pages/cuenta y registro/utils/validaciones.js';
+import { CARRERAS, CICLOS } from '../../cuenta y registro/data/opciones.js';
+import Campo from '../../cuenta y registro/Campo/Campo.jsx';
+import Aviso from '../../cuenta y registro/Aviso/Aviso.jsx';
 
 const FORM_VACIO = {
     nombres: '', apellidos: '', carrera: '', ciclo: '',
