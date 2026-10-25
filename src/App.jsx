@@ -13,7 +13,9 @@ import ConstanciaPage from './pages/h4/ConstanciaPage.jsx';
 import MisReservasPage from './pages/reservas/MisReservasPage.jsx';
 import ListaEsperaPage from './pages/reservas/ListaEsperaPage.jsx';
 import InventarioPage from './pages/inventario/InventarioPage.jsx';
-
+import CatalogoPage from './pages/catalogo/CatalogoPage.jsx';
+import MisSolicitudesPage from './pages/catalogo/MisSolicitudesPage.jsx';
+import SolicitarProductoPage from './pages/catalogo/SolicitarProductoPage.jsx';
 // Cuando conviertas catalogo.html y missolicitudes.html a componentes,
 // descomenta estas líneas (las rutas deben coincidir con ScopeLayout.jsx):
 // import CatalogoPage from './pages/catalogo/CatalogoPage.jsx';
@@ -37,6 +39,10 @@ function App() {
       <Route path="/mis-reservas" element={<MisReservasPage />} />
       <Route path="/lista-espera" element={<ListaEsperaPage />} />
       <Route path="/inventario" element={<InventarioPage />} />
+
+      <Route path='/catalogo' element={<CatalogoPage />}/>
+      <Route path='/missolicitudes' element={<MisSolicitudesPage />}/>
+      <Route path='/solicitarproducto' element={<SolicitarProductoPage />}/>
 
       {/* <Route path="/catalogo" element={<CatalogoPage />} /> */}
       {/* <Route path="/mis-solicitudes" element={<MisSolicitudesPage />} /> */}
