@@ -26,7 +26,6 @@ function App() {
       
       <Route path="/inventario" element={<InventarioPage />} />
 
-      <Route path="/" element={<Navigate to="/catalogo" replace />} />
       <Route path='/catalogo' element={<CatalogoPage />}/>
       <Route path='/missolicitudes' element={<MisSolicitudesPage />}/>
       <Route path='/solicitarproducto' element={<SolicitarProductoPage />}/>
