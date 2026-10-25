@@ -1,0 +1,1007 @@
+/* Estilos aislados: solo afectan dentro de .pagina-inventario */
+.pagina-inventario {
+  --primary: #17505C;
+  --primary-dark: #0F3A43;
+  --primary-soft: #E3EEF0;
+  --bg: #F5F7F8;
+  --surface: #FFFFFF;
+  --border: #D8E0E2;
+  --text: #12211F;
+  --text-muted: #5E7073;
+  --success: #1E7F4D;
+  --warning: #B7791F;
+  --info: #3B6FA8;
+  --danger: #B4322B;
+  --fuente: "Barlow", sans-serif;
+  --mono: "Roboto Mono", monospace;
+}
+
+.pagina-inventario *,
+.pagina-inventario *::before,
+.pagina-inventario *::after {
+  box-sizing: border-box;
+}
+
+.pagina-inventario {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 40px;
+  margin: 0;
+  font-family: var(--fuente);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.pagina-inventario a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.pagina-inventario ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pagina-inventario h1,
+.pagina-inventario p {
+  margin: 0;
+}
+
+.pagina-inventario header {
+  position: relative;
+  height: 72px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky ;
+  top: 0;
+  z-index: 3;
+}
+
+.pagina-inventario .logo {
+  position: absolute;
+  top: 22px;
+  left: 24px;
+  width: 28px;
+  height: 28px;
+  background: var(--primary-dark);
+  border-radius: 4px;
+}
+
+.pagina-inventario .nombre-sitio {
+  position: absolute;
+  top: 20px;
+  left: 64px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+}
+
+.pagina-inventario .buscador {
+  position: absolute;
+  top: 16px;
+  left: 35%;
+  width: 31%;
+}
+
+.pagina-inventario .buscador input {
+  width: 100%;
+  height: 40px;
+  padding: 0 14px;
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.pagina-inventario .buscador input:focus {
+  background: var(--surface);
+  border-color: var(--primary);
+}
+
+.pagina-inventario .derecha {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  line-height: 40px;
+}
+
+.pagina-inventario .avatar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background: var(--primary-dark);
+  border-radius: 4px;
+}
+
+.pagina-inventario .pendientes {
+  display: inline-block;
+  margin-right: 52px;
+  height: 40px;
+  padding: 0 14px;
+  font-weight: 500;
+  background: var(--primary-soft);
+  border-radius: 4px;
+}
+
+.pagina-inventario header a:hover {
+  color: var(--primary);
+}
+
+.pagina-inventario nav {
+  position: fixed;
+  top: 72px;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: 240px;
+  padding: 28px 12px;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+}
+
+.pagina-inventario nav p {
+  margin-bottom: 8px;
+  padding: 0 12px;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.pagina-inventario nav li a {
+  display: block;
+  height: 40px;
+  padding: 0 12px;
+  line-height: 40px;
+  border-radius: 4px;
+}
+
+.pagina-inventario nav li a:hover {
+  background: var(--bg);
+}
+
+.pagina-inventario nav hr {
+  margin: 20px 12px;
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+
+.pagina-inventario main {
+  margin-left: 240px;
+  padding: 32px 24px 48px 24px;
+}
+
+.pagina-inventario .titulo {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.pagina-inventario h1 {
+  font-size: 1.75rem;
+  line-height: 2rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+}
+
+.pagina-inventario .subtitulo {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.pagina-inventario .boton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 40px;
+  padding: 0 20px;
+  line-height: 40px;
+  font-weight: 500;
+  color: #FFF;
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+.pagina-inventario .boton:hover {
+  background: var(--primary-dark);
+}
+
+.pagina-inventario .filtros {
+  margin-bottom: 16px;
+}
+
+.pagina-inventario .filtros select,
+.pagina-inventario .filtros input {
+  display: inline-block;
+  width: 24%;
+  height: 42px;
+  margin-right: 1%;
+  padding: 0 14px;
+  font-family: var(--fuente);
+  font-size: 0.9375rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.pagina-inventario .filtros input {
+  width: 50%;
+  margin-right: 0;
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+}
+
+.pagina-inventario .filtros select:focus,
+.pagina-inventario .filtros input:focus {
+  border-color: var(--primary);
+}
+
+.pagina-inventario .tarjeta {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.pagina-inventario table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.pagina-inventario th {
+  height: 44px;
+  padding: 0 16px;
+  text-align: left;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.pagina-inventario td {
+  height: 74px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.pagina-inventario tr:last-child td {
+  border-bottom: 0;
+}
+
+.pagina-inventario tbody tr:hover {
+  background: var(--bg);
+}
+
+.pagina-inventario .c-foto {
+  width: 7%;
+}
+
+.pagina-inventario .c-equipo {
+  width: 19%;
+}
+
+.pagina-inventario .c-marca {
+  width: 18%;
+}
+
+.pagina-inventario .c-categoria {
+  width: 11%;
+}
+
+.pagina-inventario .c-unidades {
+  width: 26%;
+}
+
+.pagina-inventario .foto {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+}
+
+.pagina-inventario .equipo {
+  font-weight: 500;
+}
+
+.pagina-inventario .gris {
+  color: var(--text-muted);
+}
+
+.pagina-inventario .unidades {
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+}
+
+.pagina-inventario .libre {
+  color: var(--success);
+}
+
+.pagina-inventario .prestada {
+  color: var(--info);
+}
+
+.pagina-inventario .mant {
+  color: var(--warning);
+}
+
+.pagina-inventario .baja {
+  color: var(--text-muted);
+}
+
+.pagina-inventario .punto {
+  margin: 0 6px;
+  color: var(--text-muted);
+}
+
+.pagina-inventario .acciones {
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+.pagina-inventario .acciones a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.pagina-inventario .pie-tabla {
+  position: relative;
+  height: 60px;
+  padding: 0 16px;
+  line-height: 60px;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+}
+
+.pagina-inventario .paginas {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  line-height: 32px;
+}
+
+.pagina-inventario .paginas a {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.pagina-inventario .paginas a.actual {
+  color: #FFF;
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+.pagina-inventario footer {
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  padding: 0 24px;
+  line-height: 40px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #FFF;
+  background: var(--text);
+}
+
+.pagina-inventario .pie-derecha {
+  position: absolute;
+  top: 0;
+  right: 24px;
+  font-weight: 400;
+  color: #C9D8DB;
+}
+
+.pagina-inventario .pie-derecha a,
+.pagina-inventario .pie-derecha span {
+  margin-left: 24px;
+}
+
+.pagina-inventario .pie-derecha a:hover {
+  text-decoration: underline;
+}
+
+.pagina-inventario .migas {
+  margin-bottom: 4px;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.pagina-inventario .migas a:hover {
+  text-decoration: underline;
+}
+
+.pagina-inventario .columnas {
+  position: relative;
+  min-height: 640px;
+}
+
+.pagina-inventario .izquierda {
+  width: 62%;
+}
+
+.pagina-inventario .derecha-form {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 36%;
+}
+
+.pagina-inventario .caja {
+  margin-bottom: 24px;
+  padding: 20px 24px 24px 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.pagina-inventario .seccion {
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+}
+
+.pagina-inventario .campo {
+  margin-bottom: 16px;
+}
+
+.pagina-inventario .fila-campos {
+  margin-bottom: 16px;
+}
+
+.pagina-inventario .col-grande {
+  display: inline-block;
+  width: 60%;
+  margin-right: 2%;
+}
+
+.pagina-inventario .col-chica {
+  display: inline-block;
+  width: 38%;
+}
+
+.pagina-inventario .col-mitad {
+  display: inline-block;
+  width: 49%;
+}
+
+.pagina-inventario .col-mitad.segunda {
+  margin-left: 2%;
+}
+
+.pagina-inventario label {
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pagina-inventario .caja input,
+.pagina-inventario .caja select,
+.pagina-inventario .caja textarea {
+  width: 100%;
+  height: 40px;
+  padding: 0 12px;
+  font-family: var(--fuente);
+  font-size: 0.9375rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.pagina-inventario .caja textarea {
+  height: 96px;
+  padding: 10px 12px;
+  resize: none;
+}
+
+.pagina-inventario .caja input:focus,
+.pagina-inventario .caja select:focus,
+.pagina-inventario .caja textarea:focus {
+  border-color: var(--primary);
+}
+
+.pagina-inventario .caja input.codigo {
+  font-family: var(--mono);
+  font-size: 0.875rem;
+}
+
+.pagina-inventario .ayuda {
+  margin-top: 6px;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.pagina-inventario .agregar {
+  position: relative;
+}
+
+.pagina-inventario .agregar input {
+  border: 0;
+}
+
+.pagina-inventario .agregar .boton-sec {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.pagina-inventario .fotos {
+  height: 100px;
+}
+
+/* botones del formulario */
+
+.pagina-inventario .botones {
+  text-align: right;
+}
+
+.pagina-inventario .botones a,
+.pagina-inventario .botones button {
+  display: inline-block;
+  height: 40px;
+  margin-left: 8px;
+  padding: 0 12px;
+  line-height: 38px;
+  font-family: var(--fuente);
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+}
+
+.pagina-inventario .boton-sec {
+  display: inline-block;
+  height: 40px;
+  padding: 0 20px;
+  line-height: 38px;
+  font-family: var(--fuente);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--primary);
+  background: var(--surface);
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+}
+
+.pagina-inventario .botones .cancelar {
+  padding: 0;
+  color: var(--primary);
+  text-decoration: underline;
+  border-color: transparent;
+}
+
+.pagina-inventario .botones .sec {
+  color: var(--primary);
+  background: var(--surface);
+}
+
+.pagina-inventario .botones .principal {
+  color: #FFF;
+  background: var(--primary);
+}
+
+.pagina-inventario .botones .principal:hover {
+  background: var(--primary-dark);
+}
+
+/* ===== Detalle del equipo ===== */
+
+.pagina-inventario .ficha {
+  position: relative;
+  height: 64px;
+  margin-bottom: 24px;
+}
+
+.pagina-inventario .ficha-foto {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 64px;
+  height: 64px;
+}
+
+.pagina-inventario .ficha-texto {
+  margin-left: 80px;
+}
+
+.pagina-inventario .ficha-botones {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.pagina-inventario .ficha-botones a {
+  margin-left: 8px;
+}
+
+.pagina-inventario .boton-pri {
+  display: inline-block;
+  height: 40px;
+  padding: 0 20px;
+  line-height: 38px;
+  font-family: var(--fuente);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #FFF;
+  background: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+}
+
+.pagina-inventario .boton-pri:hover {
+  background: var(--primary-dark);
+}
+
+.pagina-inventario .pestanas {
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.pagina-inventario .pestanas a {
+  display: inline-block;
+  height: 38px;
+  margin-right: 24px;
+  line-height: 36px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.pagina-inventario .pestanas a.activa {
+  color: var(--text);
+  border-bottom: 2px solid var(--primary-dark);
+}
+
+.pagina-inventario .tabla-izq {
+  width: 59%;
+}
+
+.pagina-inventario .tabla-u th,
+.pagina-inventario .tabla-u td {
+  padding: 12px 10px;
+}
+
+.pagina-inventario .tabla-u th {
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+}
+
+.pagina-inventario .tabla-u td {
+  height: 56px;
+}
+
+.pagina-inventario .codigo-u {
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.pagina-inventario .vacio {
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.pagina-inventario .etiqueta {
+  display: inline-block;
+  white-space: nowrap;
+  padding: 0 8px;
+  line-height: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid;
+  border-radius: 4px;
+}
+
+.pagina-inventario .et-disponible {
+  color: var(--success); background: #E8F3EC;
+}
+
+.pagina-inventario .et-prestada {
+  color: var(--info); background: #E9F0F8;
+}
+
+.pagina-inventario .et-mant {
+  color: var(--warning); background: #FBF3DC;
+}
+
+.pagina-inventario .panel-cond {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 39%;
+  padding: 20px;
+}
+
+.pagina-inventario .titulo-panel {
+  margin: 0 0 16px 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.pagina-inventario .cond-der {
+  margin-top: 8px;
+}
+
+.pagina-inventario .caja .entrada-dias {
+  display: inline-block;
+  width: 70px;
+  margin-right: 8px;
+}
+
+.pagina-inventario .texto-dias {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.pagina-inventario .fila-interruptor {
+  position: relative;
+  min-height: 24px;
+  margin-bottom: 12px;
+  padding-left: 48px;
+  font-size: 0.8125rem;
+  line-height: 20px;
+}
+
+.pagina-inventario .interruptor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 20px;
+  padding: 0;
+  background: var(--border);
+  border: 0;
+  border-radius: 10px;
+}
+
+.pagina-inventario .interruptor span {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background: #FFF;
+  border-radius: 50%;
+}
+
+.pagina-inventario .interruptor.encendido {
+  background: var(--primary-dark);
+}
+
+.pagina-inventario .interruptor.encendido span {
+  left: 18px;
+}
+
+.pagina-inventario .con-prefijo {
+  position: relative;
+}
+
+.pagina-inventario .con-prefijo span {
+  position: absolute;
+  top: 0;
+  left: 12px;
+  line-height: 40px;
+  font-family: var(--mono);
+  font-size: 0.875rem;
+}
+
+.pagina-inventario .caja .con-prefijo input {
+  width: 130px;
+  padding-left: 34px;
+}
+
+.pagina-inventario .etiqueta-mono {
+  margin-bottom: 4px;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pagina-inventario .vista-previa {
+  padding: 12px;
+  font-size: 0.8125rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.pagina-inventario .vista-previa p {
+  margin-bottom: 6px;
+}
+
+.pagina-inventario .mono {
+  font-family: var(--mono);
+}
+
+.pagina-inventario .panel-cond .botones {
+  margin-top: 16px;
+}
+
+.pagina-inventario .msg-ok {
+  margin-top: 8px;
+  text-align: right;
+  font-size: 0.8125rem;
+  color: var(--success);
+}
+
+/* ===== Módulo JS: estilos añadidos ===== */
+
+.pagina-inventario .et-baja {
+  color: var(--text-muted); background: var(--bg);
+}
+
+.pagina-inventario img.foto {
+  object-fit: cover; border-radius: 4px;
+}
+
+.pagina-inventario .estado-vacio {
+  padding: 40px 0; text-align: center; color: var(--text-muted);
+}
+
+.pagina-inventario .estado-vacio strong {
+  display: block; color: var(--text); font-size: 1.125rem;
+}
+
+.pagina-inventario .estado-vacio p {
+  margin: 4px 0 16px 0;
+}
+
+.pagina-inventario .sugerencias {
+  position: absolute; top: 44px; left: 0; width: 100%; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; z-index: 5;
+}
+
+.pagina-inventario .sugerencias a,
+.pagina-inventario .sugerencias p {
+  display: block; padding: 8px 14px; font-size: 0.8125rem; border-bottom: 1px solid var(--border);
+}
+
+.pagina-inventario .sugerencias a:hover {
+  background: var(--primary-soft);
+}
+
+.pagina-inventario .sugerencias a:last-child,
+.pagina-inventario .sugerencias p:last-child {
+  border-bottom: 0;
+}
+
+.pagina-inventario .caja input.error,
+.pagina-inventario .caja select.error,
+.pagina-inventario .caja textarea.error {
+  border-color: var(--danger);
+}
+
+.pagina-inventario .mensaje-error {
+  margin-top: 4px; font-size: 0.8125rem; color: var(--danger);
+}
+
+.pagina-inventario .alerta {
+  margin-bottom: 16px; padding: 10px 12px; font-size: 0.8125rem; color: var(--danger); background: #FBEDEC; border: 1px solid var(--danger); border-left: 4px solid var(--danger); border-radius: 4px;
+}
+
+.pagina-inventario .aviso-borrador {
+  margin-bottom: 16px; padding: 10px 12px; font-size: 0.8125rem; background: var(--primary-soft); border-radius: 4px;
+}
+
+.pagina-inventario .aviso-borrador a {
+  margin-left: 12px; font-weight: 500; text-decoration: underline;
+}
+
+.pagina-inventario .accesorio {
+  position: relative; height: 40px; margin-bottom: 8px; padding: 0 12px; line-height: 38px; border: 1px solid var(--border); border-radius: 4px;
+}
+
+.pagina-inventario .accesorio a {
+  position: absolute; top: 0; right: 12px; font-size: 0.8125rem; font-weight: 500; color: var(--danger);
+}
+
+.pagina-inventario .agregar input {
+  border: 1px solid var(--border); padding-right: 110px;
+}
+
+.pagina-inventario .vista-foto {
+  display: block; width: 100px; height: 100px; margin-bottom: 12px; object-fit: cover; border: 1px solid var(--border); border-radius: 4px;
+}
+
+.pagina-inventario .caja-cond {
+  max-width: 560px;
+}
+
+.pagina-inventario .boton-sec:hover {
+  background: var(--primary-soft);
+}
+
+.pagina-inventario .btn-peligro {
+  display: inline-block; height: 40px; padding: 0 20px; line-height: 38px; font-family: var(--fuente); font-size: 0.9375rem; font-weight: 500; color: #FFF; background: var(--danger); border: 1px solid var(--danger); border-radius: 4px;
+}
+
+.pagina-inventario button.boton-sec,
+.pagina-inventario button.boton-pri,
+.pagina-inventario button.btn-peligro {
+  cursor: pointer;
+}
+
+.pagina-inventario .overlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15,58,67,0.5); z-index: 20;
+}
+
+.pagina-inventario .modal {
+  position: absolute; top: 12%; left: 50%; width: 460px; margin-left: -230px; padding: 24px; background: var(--surface); border-radius: 4px; box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+}
+
+.pagina-inventario .modal h2 {
+  margin: 0 0 16px 0; font-size: 1.25rem; font-weight: 600;
+}
+
+.pagina-inventario .modal .botones {
+  margin-top: 24px;
+}
+
+.pagina-inventario .modal select,
+.pagina-inventario .modal input,
+.pagina-inventario .modal textarea {
+  width: 100%; height: 40px; padding: 0 12px; font-family: var(--fuente); font-size: 0.9375rem; border: 1px solid var(--border); border-radius: 4px;
+}
+
+.pagina-inventario .modal textarea {
+  height: 72px; padding: 10px 12px; resize: none;
+}
+
+.pagina-inventario .modal input.error {
+  border-color: var(--danger);
+}
+
+.pagina-inventario .ficha-dato {
+  margin-bottom: 8px; font-size: 0.875rem;
+}
+
+.pagina-inventario .ficha-dato span {
+  display: inline-block; width: 130px; color: var(--text-muted);
+}
+
+.pagina-inventario #avisos {
+  position: fixed; top: 84px; right: 24px; z-index: 30;
+}
+
+.pagina-inventario .aviso {
+  width: 320px; margin-bottom: 8px; padding: 12px 16px; font-size: 0.875rem; background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--success); border-radius: 4px;
+}
+
+.pagina-inventario .aviso.error {
+  border-left-color: var(--danger);
+}
+
+.pagina-inventario .pie-derecha button {
+  margin-left: 24px; padding: 0; font-family: var(--fuente); font-size: 0.8125rem; color: #C9D8DB; background: none; border: 0; text-decoration: underline; cursor: pointer;
+}
+
+.pagina-inventario .ficha-foto img {
+  width: 64px; height: 64px; object-fit: cover; border-radius: 4px;
+}

@@ -1,7 +1,1 @@
-@import url('/legacy/css/styles.css');
-
-#root {
-  min-height: 100vh;
-}
-
-
+@import "./legacy.css";

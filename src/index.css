@@ -1,30 +1,17 @@
-/* src/index.css — reset mínimo para que no interfiera con tu diseño */
-:root {
-  --color-principal: #17505C;
-  --color-oscuro: #0F3A43;
-  --color-fondo: #F5F7F8;
-  --color-borde: #D8E0E2;
-  --color-texto: #12211F;
-  --color-secundario: #5E7073;
-  --color-exito: #1E7F4D;
-  --color-alerta: #B7791F;
-  --color-error: #B4322B;
-}
-*,
-*::before,
-*::after {
+/* Solo reglas realmente globales. Nada de header/main/nav/footer aquí. */
+*, *::before, *::after {
   box-sizing: border-box;
 }
 
-body {
+html, body {
   margin: 0;
-  font-family: 'Barlow', sans-serif;
-
+  padding: 0;
 }
 
-button,
-input,
-select,
-textarea {
-  font-family: inherit;
+body {
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
 }

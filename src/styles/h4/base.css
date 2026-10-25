@@ -1,8 +1,9 @@
+/* Estilos aislados: solo afectan dentro de .pagina-encargado */
 /* =========================================================
    base.css · variables, reset y tipografía (compartido)
    ========================================================= */
 
-:root {
+.pagina-encargado {
   /* Paleta del sistema de diseño */
   --primary: #17505C;
   --primary-dark: #0F3A43;
@@ -17,16 +18,13 @@
   --warning: #B7791F;
   --danger: #B4322B;
   --info: #3B6FA8;
-
   /* Tonos suaves para fondos de avisos y badges */
   --success-soft: #E2F2E9;
   --warning-soft: #F8EFD9;
   --danger-soft: #F7E4E2;
   --info-soft: #E3ECF6;
-
   /* Forma */
   --radio: 4px;
-
   /* Espaciado en múltiplos de 4 px */
   --sp-1: 4px;
   --sp-2: 8px;
@@ -39,11 +37,14 @@
 }
 
 /* Reset mínimo */
-*, *::before, *::after {
+
+.pagina-encargado *,
+.pagina-encargado *::before,
+.pagina-encargado *::after {
   box-sizing: border-box;
 }
 
-body {
+.pagina-encargado {
   margin: 0;
   font-family: 'Barlow', sans-serif;
   font-size: 15px;
@@ -53,61 +54,70 @@ body {
   background: var(--bg);
 }
 
-h1, h2, h3, p, dl, dd, ul, fieldset {
+.pagina-encargado h1,
+.pagina-encargado h2,
+.pagina-encargado h3,
+.pagina-encargado p,
+.pagina-encargado dl,
+.pagina-encargado dd,
+.pagina-encargado ul,
+.pagina-encargado fieldset {
   margin: 0;
 }
 
-ul {
+.pagina-encargado ul {
   padding: 0;
   list-style: none;
 }
 
-fieldset {
+.pagina-encargado fieldset {
   padding: 0;
   border: 0;
   min-width: 0;
 }
 
-legend {
+.pagina-encargado legend {
   padding: 0;
 }
 
-a {
+.pagina-encargado a {
   color: var(--primary);
 }
 
-:focus-visible {
+.pagina-encargado :focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
 }
 
 /* Tipografía */
-.titulo-pantalla {
+
+.pagina-encargado .titulo-pantalla {
   font-size: 28px;
   line-height: 32px;
   font-weight: 600;
 }
 
-.titulo-seccion {
+.pagina-encargado .titulo-seccion {
   font-size: 20px;
   line-height: 28px;
   font-weight: 600;
 }
 
-.subtitulo {
+.pagina-encargado .subtitulo {
   font-size: 16px;
   line-height: 24px;
   font-weight: 500;
 }
 
-.texto-auxiliar {
+.pagina-encargado .texto-auxiliar {
   font-size: 13px;
   line-height: 18px;
   color: var(--text-muted);
 }
 
 /* Códigos y fechas siempre en monoespaciada */
-.codigo {
+
+.pagina-encargado .codigo {
   font-family: 'Roboto Mono', monospace;
   font-weight: 400;
 }

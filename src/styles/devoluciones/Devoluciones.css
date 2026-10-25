@@ -589,4 +589,622 @@ body {
   border: none;
   border-top: 1px solid #D8E0E2;
   margin: 15px 10px;
+}/* Estilos aislados: solo afectan dentro de .pagina-devoluciones */
+/* Historia 5 — Devoluciones */
+
+.pagina-devoluciones * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.pagina-devoluciones {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Barlow', sans-serif;
+  font-size: 15px;
+  color: #12211F;
+  background: #F5F7F8;
+}
+
+.pagina-devoluciones .codigo {
+  font-family: 'Roboto Mono', monospace;
+}
+
+/* CABECERA */
+
+.pagina-devoluciones .cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  height: 64px;
+  padding: 0 20px;
+  background: white;
+  border-bottom: 1px solid #D8E0E2;
+}
+
+.pagina-devoluciones .cabecera-izquierda {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pagina-devoluciones .cabecera-centro {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.pagina-devoluciones .buscador {
+  width: 100%;
+  max-width: 700px;
+  height: 40px;
+  padding: 0 12px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 13px;
+  background: #F5F7F8;
+  border: 1px solid #D8E0E2;
+  border-radius: 4px;
+}
+
+.pagina-devoluciones .cabecera-derecha {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.pagina-devoluciones .pendientes {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 12px;
+  font-size: 13px;
+  background: #E3EEF0;
+  border-radius: 4px;
+}
+
+.pagina-devoluciones .contador-pendientes {
+  padding: 2px 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: white;
+  background: #17505C;
+  border-radius: 4px;
+}
+
+.pagina-devoluciones .avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  font-size: 13px;
+  font-weight: 600;
+  color: white;
+  background: #17505C;
+  border-radius: 4px;
+}
+
+/* CUERPO */
+
+.pagina-devoluciones .cuerpo {
+  flex: 1;
+  display: flex;
+}
+
+/* CONTENIDO */
+
+.pagina-devoluciones .contenido {
+  flex: 1;
+  max-width: 1600px;
+  padding: 30px 20px;
+}
+
+.pagina-devoluciones .titulo-pantalla {
+  font-size: 28px;
+  font-weight: 600;
+  color: #0F3A43;
+}
+
+.pagina-devoluciones .titulo-seccion {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.pagina-devoluciones .texto-ayuda {
+  margin-bottom: 20px;
+  font-size: 13px;
+  color: #5E7073;
+}
+
+/* las dos tarjetas (5.1 y 5.2) una al lado de la otra */
+
+.pagina-devoluciones .columnas {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.pagina-devoluciones .columnas .tarjeta {
+  flex: 1;
+}
+
+.pagina-devoluciones .tarjeta {
+  padding: 20px;
+  margin-bottom: 20px;
+  background: white;
+  border: 1px solid #D8E0E2;
+  border-radius: 4px;
+}
+
+/* ETIQUETAS Y CAMPOS */
+
+.pagina-devoluciones .etiqueta-campo,
+.pagina-devoluciones .subtitulo-seccion {
+  padding: 6px 0;
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #5E7073;
+}
+
+.pagina-devoluciones .subtitulo-seccion {
+  margin-top: 15px;
+}
+
+.pagina-devoluciones .linea {
+  border: none;
+  border-top: 1px solid #D8E0E2;
+  margin: 8px 0;
+}
+
+.pagina-devoluciones .campo {
+  width: 100%;
+  padding: 8px 12px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 15px;
+  border: 1px solid #D8E0E2;
+  border-radius: 4px;
+}
+
+.pagina-devoluciones .campo.codigo {
+  font-family: 'Roboto Mono', monospace;
+}
+
+.pagina-devoluciones .area-texto {
+  height: 110px;
+  resize: none;
+}
+
+/* BOTONES */
+
+.pagina-devoluciones .boton {
+  height: 40px;
+  padding: 0 20px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.pagina-devoluciones .boton-primario {
+  color: white;
+  background: #17505C;
+  border: 1px solid #17505C;
+}
+
+.pagina-devoluciones .boton-secundario {
+  color: #17505C;
+  background: white;
+  border: 1px solid #17505C;
+}
+
+.pagina-devoluciones .botones-fila {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+/* TARJETA 1 */
+
+.pagina-devoluciones .fila-buscar {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.pagina-devoluciones .datos-prestamo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 15px;
+  margin-top: 15px;
+  background: #F5F7F8;
+  border: 1px solid #D8E0E2;
+  border-radius: 4px;
+}
+
+.pagina-devoluciones .dato {
+  width: 45%;
+}
+
+.pagina-devoluciones .dato span {
+  display: block;
+}
+
+.pagina-devoluciones .accesorio {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 44px;
+  padding: 0 14px;
+  margin-top: 8px;
+  border: 1px solid #D8E0E2;
+  border-radius: 4px;
+}
+
+/* cuando el check está desmarcado (accesorio faltante), la fila se pone roja */
+
+.pagina-devoluciones .accesorio:has(input:not(:checked)) {
+  background: #FBEDEC;
+  border-color: #B4322B;
+}
+
+.pagina-devoluciones .accesorio-nombre {
+  flex: 1;
+}
+
+.pagina-devoluciones .texto-faltante {
+  font-size: 13px;
+  font-weight: 600;
+  color: #B4322B;
+}
+
+.pagina-devoluciones .fila-estado {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 15px;
+}
+
+.pagina-devoluciones .opciones-estado {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.pagina-devoluciones .opcion {
+  height: 40px;
+  padding: 0 14px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 14px;
+  background: white;
+  border: 1px solid #D8E0E2;
+  border-radius: 4px;
+}
+
+.pagina-devoluciones .opcion-activa-roja {
+  font-weight: 600;
+  color: white;
+  background: #B4322B;
+  border-color: #B4322B;
+}
+
+.pagina-devoluciones .grupo-fecha {
+  width: 180px;
+}
+
+/* ALERTAS */
+
+.pagina-devoluciones .alerta {
+  margin-top: 15px;
+  padding: 12px 15px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.pagina-devoluciones .alerta-roja {
+  color: #B4322B;
+  background: #FBEDEC;
+  border: 1px solid #B4322B;
+}
+
+.pagina-devoluciones .alerta-amarilla {
+  color: #12211F;
+  background: #FBF3E0;
+  border: 1px solid #B7791F;
+}
+
+.pagina-devoluciones .alerta-verde {
+  color: #1E7F4D;
+  background: #E8F4EE;
+  border: 1px solid #1E7F4D;
+}
+
+/* ACCESORIOS FALTANTES + FOTO */
+
+.pagina-devoluciones .fila-faltantes {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.pagina-devoluciones .columna-faltantes,
+.pagina-devoluciones .columna-foto {
+  flex: 1;
+}
+
+.pagina-devoluciones .faltante {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 44px;
+  padding: 0 14px;
+  margin-top: 8px;
+  background: white;
+  border: 1px solid #D8E0E2;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* cuando el check está marcado, la tarjeta se pone roja */
+
+.pagina-devoluciones .faltante:has(input:checked) {
+  background: #FBEDEC;
+  border-color: #B4322B;
+}
+
+/* la imagen ocupa todo el recuadro sin deformarse */
+
+.pagina-devoluciones .foto-dano img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* recorta sin deformar; usa "contain" si prefieres verla completa */
+  object-position: center;
+  display: block;
+}
+
+/* INTERRUPTOR "Derivar a mantenimiento" */
+
+.pagina-devoluciones .derivacion {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* escondemos el checkbox de verdad y mostramos el interruptor */
+
+.pagina-devoluciones .derivacion input {
+  display: none;
+}
+
+.pagina-devoluciones .interruptor {
+  position: relative;
+  width: 40px;
+  height: 22px;
+  background: #D8E0E2;
+  border-radius: 4px;
+}
+
+/* la "perilla" blanca */
+
+.pagina-devoluciones .interruptor::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 2px;
+}
+
+/* encendido: fondo azul petróleo y la perilla se mueve a la derecha */
+
+.pagina-devoluciones .derivacion input:checked + .interruptor {
+  background: #17505C;
+}
+
+.pagina-devoluciones .derivacion input:checked + .interruptor::after {
+  left: 21px;
+}
+
+/* PIE DE PÁGINA */
+
+.pagina-devoluciones .pie {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  font-size: 13px;
+  color: white;
+  background: #0F3A43;
+}
+
+.pagina-devoluciones .pie-derecha {
+  display: flex;
+  gap: 20px;
+}
+
+/* ===== AGREGADOS DE LA ÚLTIMA VERSIÓN ===== */
+
+.pagina-devoluciones #mensaje {
+  margin-bottom: 20px;
+}
+
+/* accesorio marcado = presente, así que ocultamos la palabra "faltante" */
+
+.pagina-devoluciones .accesorio input:checked ~ .texto-faltante {
+  display: none;
+}
+
+/* botón "Sin novedades" activo */
+
+.pagina-devoluciones .opcion-activa-verde {
+  font-weight: 600;
+  color: white;
+  background: #1E7F4D;
+  border-color: #1E7F4D;
+}
+
+/* alertas con borde grueso a la izquierda (como en los modales) */
+
+.pagina-devoluciones .alerta-borde {
+  border-left-width: 4px;
+}
+
+/* MODALES */
+
+.pagina-devoluciones .modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background: rgba(18, 33, 31, 0.5);
+  z-index: 10;
+}
+
+/* el JavaScript agrega esta clase para mostrar el modal */
+
+.pagina-devoluciones .modal.abierto {
+  display: flex;
+}
+
+.pagina-devoluciones .modal-caja {
+  width: 100%;
+  max-width: 480px;
+  padding: 24px;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.pagina-devoluciones .modal-subtitulo {
+  margin: 4px 0 20px;
+  font-size: 13px;
+  color: #5E7073;
+}
+
+.pagina-devoluciones .fila-fechas {
+  display: flex;
+  gap: 15px;
+}
+
+.pagina-devoluciones .fila-fechas > div {
+  flex: 1;
+}
+
+.pagina-devoluciones .campo-bloqueado {
+  color: #5E7073;
+  background: #F5F7F8;
+}
+
+.pagina-devoluciones .texto-error {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #B4322B;
+}
+
+.pagina-devoluciones .boton-ancho {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.pagina-devoluciones .boton-deshabilitado {
+  color: #5E7073;
+  background: #F5F7F8;
+  border: 1px solid #D8E0E2;
+  cursor: not-allowed;
+}
+
+/* clase para esconder cualquier elemento: el JavaScript la agrega o la quita */
+
+.pagina-devoluciones .oculto {
+  display: none;
+}
+
+/* 1. El contenedor de la izquierda mantiene la alineación */
+
+.pagina-devoluciones .cabecera-izquierda {
+  display: flex;
+  align-items: center;
+  /* Ya no necesitas el gap: 10px, pero no hace daño si lo dejas */
+}
+
+/* 2. El estilo del título (fuente, tamaño, color) */
+
+.pagina-devoluciones .nombre-sistema {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0F3A43;
+  font-family: 'Barlow', sans-serif; /* Por si acaso, aunque ya viene del body */
+}
+
+/* título de la pantalla + botón "Renovar préstamo" a la derecha */
+
+/* ===== MENÚ LATERAL ===== */
+
+.pagina-devoluciones .menu-lateral {
+  width: 240px;
+  flex-shrink: 0;
+  padding: 20px 10px;
+  background: white;
+  border-right: 1px solid #D8E0E2;
+}
+
+.pagina-devoluciones .menu-titulo {
+  padding: 0 10px;
+  margin: 10px 0 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #5E7073;
+}
+
+.pagina-devoluciones .menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 4px;
+  font-size: 15px;
+  color: #12211F;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+/* página actual: fondo azul claro y texto en negrita */
+
+.pagina-devoluciones .menu-item-activo {
+  font-weight: 600;
+  color: #0F3A43;
+  background: #E3EEF0;
+}
+
+/* contadores con cajita de color: azul (solicitudes) y rojo (vencidos) */
+
+.pagina-devoluciones .menu-contador-rojo {
+  padding: 2px 8px;
+  font-weight: 600;
+  color: white;
+  border-radius: 4px;
+}
+
+.pagina-devoluciones .menu-linea {
+  border: none;
+  border-top: 1px solid #D8E0E2;
+  margin: 15px 10px;
 }
