@@ -15,6 +15,21 @@ const USUARIO_PRUEBA = {
     motivoDeuda: 'por 3 días de retraso en PRE-2026-0291',
 };
 
+// Encargado de prueba para poder entrar al panel (Historia 2 en adelante)
+const ENCARGADO_PRUEBA = {
+    rol: 'encargado',
+    nombres: 'Elena Sofía',
+    apellidos: 'Rivas Talledo',
+    correo: 'erivas@ulima.edu.pe',
+    clave: 'Hola1234',
+    almacen: 'Almacén H-102',
+    anexo: '3120',
+    estado: 'Aprobado',
+    deuda: 0,
+};
+
+const USUARIOS_BASE = [USUARIO_PRUEBA, ENCARGADO_PRUEBA];
+
 const UsuarioContext = createContext(null);
 
 export const UsuarioProvider = ({ children }) => {
@@ -23,12 +38,14 @@ export const UsuarioProvider = ({ children }) => {
         try {
             const guardado = JSON.parse(localStorage.getItem('usuarios'));
             if (Array.isArray(guardado) && guardado.length > 0) {
-                return guardado;
+                // Se agregan los usuarios de prueba si aún no existen en el almacenamiento
+                const faltantes = USUARIOS_BASE.filter(b => !guardado.some(u => u.correo === b.correo));
+                return [...guardado, ...faltantes];
             }
         } catch (e) {
             console.error(e);
         }
-        return [USUARIO_PRUEBA];
+        return USUARIOS_BASE;
     });
 
     const [sesion, setSesion] = useState(
@@ -44,6 +61,9 @@ export const UsuarioProvider = ({ children }) => {
     const existeCorreo = (correo) => usuarios.some(u => u.correo === correo);
 
     const iniciarSesion = (correo, recordar) => {
+        // Se limpia cualquier sesión anterior para que no gane la del estudiante
+        localStorage.removeItem('sesion');
+        sessionStorage.removeItem('sesion');
         if (recordar) {
             localStorage.setItem('sesion', correo);
         } else {

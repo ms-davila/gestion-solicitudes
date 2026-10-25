@@ -1,34 +1,17 @@
 import { Fragment } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
+import { MENU, esActivo } from '../../rutas.js';
 import "../../styles/h4/base.css";
 import "../../styles/h4/layout.css";
 import "../../styles/h4/componentes.css";
 import "../../styles/h4/historia4.css";
+import useIdentidad from '../../components/useIdentidad.js';
+import BotonSalir from '../../components/BotonSalir.jsx';
 
 
-const SECCIONES = [
-    {
-        titulo: 'Operación',
-        enlaces: [
-            { texto: 'Inventario', contador: 42 },
-            { texto: 'Solicitudes', to: '/bandeja', tambien: ['/entrega', '/constancia'], contador: 12 },
-            { texto: 'Préstamos vigentes', to: '/vigentes', contador: 8 },
-            { texto: 'Vencidos', to: '/vigentes', contador: 2, alerta: true },
-            { texto: 'Devoluciones', contador: '—' },
-        ],
-    },
-    {
-        titulo: 'Complementarios',
-        enlaces: [
-            { texto: 'Reservas', contador: 5 },
-            { texto: 'Lista de espera', contador: 6 },
-            { texto: 'Tablero' },
-            { texto: 'Usuarios', contador: 15 },
-        ],
-    },
-];
 
 export default function LayoutEncargado() {
+    const { nombreCorto, iniciales } = useIdentidad();
     const { pathname } = useLocation();
 
     return (
@@ -52,20 +35,21 @@ export default function LayoutEncargado() {
                 </Link>
 
                 <div className="header__usuario">
-                    <span className="header__usuario-nombre">Elena Rivas · H-102</span>
-                    <span className="avatar">ER</span>
+                    <span className="header__usuario-nombre">{nombreCorto} · H-102</span>
+                    <span className="avatar">{iniciales}</span>
+                    <BotonSalir />
                 </div>
             </header>
 
             <div className="app">
                 <aside className="sidebar">
                     <nav aria-label="Navegación del encargado">
-                        {SECCIONES.map((seccion) => (
+                        {MENU.map((seccion) => (
                             <Fragment key={seccion.titulo}>
                                 <h2 className="sidebar__titulo">{seccion.titulo}</h2>
                                 <ul className="sidebar__lista">
                                     {seccion.enlaces.map((e) => {
-                                        const activo = !e.alerta && (e.to === pathname || e.tambien?.includes(pathname));
+                                        const activo = esActivo(e, pathname);
                                         return (
                                             <li key={e.texto}>
                                                 <Link

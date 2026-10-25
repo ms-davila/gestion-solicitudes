@@ -1,6 +1,8 @@
 import { useState, useMemo, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/catalogo/missolicitudes.css";
+import useIdentidad from "../useIdentidad.js";
+import BotonSalir from "../BotonSalir.jsx";
 
 // =============================================================================
 // DATASET INICIAL DE SOLICITUDES
@@ -134,6 +136,7 @@ function normalizarAccion(accion) {
 }
 
 function MisSolicitudes() {
+  const { rol, nombreCorto, paginaCuenta } = useIdentidad();
   // Lista de solicitudes con persistencia en localStorage
   const [solicitudes, setSolicitudes] = useState(() => {
     try {
@@ -327,8 +330,15 @@ function MisSolicitudes() {
             />
           </form>
           <div className="perfil">
-            <h3>Nombre Apellido</h3>
-            <div className="pfp"></div>
+            {rol ? (
+              <>
+                <h3>{nombreCorto}</h3>
+                <Link to={paginaCuenta} className="pfp" title="Mi cuenta" />
+                <BotonSalir />
+              </>
+            ) : (
+              <Link to="/login" className="rapi_mov">Iniciar sesión</Link>
+            )}
           </div>
         </div>
       </header>

@@ -1,6 +1,8 @@
 import { useState, useMemo, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../../styles/catalogo/catalogo.css";
+import useIdentidad from "../useIdentidad.js";
+import BotonSalir from "../BotonSalir.jsx";
 
 // =============================================================================
 // DATASET DE PRODUCTOS (CATÁLOGO DE INVENTARIO)
@@ -237,6 +239,7 @@ function coincideCategoria(catProducto, valFiltro) {
 }
 
 function Catalogo() {
+  const { rol, nombreCorto, paginaCuenta } = useIdentidad();
   const navigate = useNavigate();
 
   // Estados de filtros temporales en el Aside
@@ -454,8 +457,15 @@ function Catalogo() {
             />
           </form>
           <div className="perfil">
-            <h3>Nombre Apellido</h3>
-            <div className="pfp"></div>
+            {rol ? (
+              <>
+                <h3>{nombreCorto}</h3>
+                <Link to={paginaCuenta} className="pfp" title="Mi cuenta" />
+                <BotonSalir />
+              </>
+            ) : (
+              <Link to="/login" className="rapi_mov">Iniciar sesión</Link>
+            )}
           </div>
         </div>
       </header>

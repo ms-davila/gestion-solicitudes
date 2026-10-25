@@ -2,8 +2,12 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/reservas/MisReservas.css";
 import ModalCancelacion from "./ModalCancelacion.jsx";
+import NavSuperior from "../NavSuperior.jsx";
+import useIdentidad from "../useIdentidad.js";
+import BotonSalir from "../BotonSalir.jsx";
 
 function MisReservas() {
+  const { nombreCorto, iniciales, paginaCuenta } = useIdentidad();
 
   // Obtener reservas guardadas
   const [reservas, setReservas] = useState(() => {
@@ -63,17 +67,13 @@ function MisReservas() {
         </div>
 
         <nav className="mis-nav">
-          <a href="#">Catálogo</a>
-          <a href="#">Mis solicitudes</a>
-          <Link to="/mis-reservas" className="mis-activo">
-            Mis reservas
-          </Link>
-          <Link to="/calendario">Calendario</Link>
+          <NavSuperior claseActivo="mis-activo" />
         </nav>
 
         <div className="mis-perfil">
-          <span>Natalia Rebatta</span>
-          <div className="mis-avatar">NR</div>
+          <span>{nombreCorto}</span>
+          <Link to={paginaCuenta} className="mis-avatar">{iniciales}</Link>
+          <BotonSalir />
         </div>
       </header>
 

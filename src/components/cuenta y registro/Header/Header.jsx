@@ -1,5 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useUsuario } from '../context/UsuarioContext.jsx';
+import { menuSuperior, inicioPorRol } from '../../../rutas.js';
 
 const Header = () => {
 
@@ -8,8 +9,8 @@ const Header = () => {
 
     const handleSalir = (e) => {
         e.preventDefault();  
-        logout();
         navigate('/');
+        setTimeout(logout, 100);
     };
 
     let nombre = '';
@@ -20,10 +21,9 @@ const Header = () => {
         nombre = usuarioSesion.nombres.split(' ')[0];
         apellido = usuarioSesion.apellidos.split(' ')[0];
         iniciales = (nombre.charAt(0) + apellido.charAt(0)).toUpperCase();
-        if (usuarioSesion.rol === 'estudiante') {
-            paginaCuenta = '/mi-cuenta';
-        }
+        paginaCuenta = inicioPorRol(usuarioSesion.rol);
     }
+    const menu = menuSuperior(usuarioSesion?.rol);
 
     return (
         <header>
@@ -36,10 +36,9 @@ const Header = () => {
 
             <nav>
                 <ul>
-                    <li><a href="#">Catálogo</a></li>
-                    <li><a href="#">Mis solicitudes</a></li>
-                    <li><a href="#">Mis reservas</a></li>
-                    <li><a href="#">Calendario</a></li>
+                    {menu.map(e => (
+                        <li key={e.texto}><Link to={e.to}>{e.texto}</Link></li>
+                    ))}
                 </ul>
             </nav>
 

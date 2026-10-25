@@ -72,7 +72,7 @@ const RegistroEncargado = () => {
             clase: 'alerta-verde',
             contenido: <><b>✓ Cuenta creada.</b> Quedó en estado «Pendiente de aprobación» hasta que el jefe de laboratorio la apruebe.</>,
         });
-        setTimeout(() => navigate('/'), 2000);
+        setTimeout(() => navigate('/inventario'), 2000);
     };
 
     return (

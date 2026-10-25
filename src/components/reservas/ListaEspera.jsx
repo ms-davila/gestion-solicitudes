@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/reservas/ListaEspera.css";
+import NavSuperior from "../NavSuperior.jsx";
+import useIdentidad from "../useIdentidad.js";
+import BotonSalir from "../BotonSalir.jsx";
 
 function ListaEspera() {
+  const { nombreCorto, iniciales, paginaCuenta } = useIdentidad();
 
   const [reservas] = useState(() => {
     const guardadas = localStorage.getItem("reservasH6");
@@ -44,16 +48,13 @@ function ListaEspera() {
         </div>
 
         <nav className="espera-nav">
-          <Link to="/calendario">Calendario</Link>
-          <Link to="/mis-reservas">Mis reservas</Link>
-          <Link to="/lista-espera" className="espera-activo">
-            Lista de espera
-          </Link>
+          <NavSuperior claseActivo="espera-activo" />
         </nav>
 
         <div className="espera-perfil">
-          <span>Natalia Rebatta</span>
-          <div className="espera-avatar">NR</div>
+          <span>{nombreCorto}</span>
+          <Link to={paginaCuenta} className="espera-avatar">{iniciales}</Link>
+          <BotonSalir />
         </div>
       </header>
 

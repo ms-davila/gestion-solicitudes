@@ -18,6 +18,7 @@ import RecuperarPage from './pages/cuenta y registro/RecuperarPage.jsx'
 import MiCuentaPage from './pages/cuenta y registro/MiCuentaPage.jsx'
 import Error403Page from './pages/cuenta y registro/Error403Page.jsx'
 import Error404Page from './pages/cuenta y registro/Error404Page.jsx'
+import RutaProtegida from './components/RutaProtegida.jsx'
 
 
 // ScopeLayout envuelve cada pantalla con su clase (pagina-cuenta, pagina-catalogo...).
@@ -33,7 +34,10 @@ const router = createBrowserRouter([
       { path: '/registro-estudiante', element: <RegistroEstudiantePage /> },
       { path: '/registro-encargado', element: <RegistroEncargadoPage /> },
       { path: '/recuperar', element: <RecuperarPage /> },
-      { path: '/mi-cuenta', element: <MiCuentaPage /> },
+      {
+        element: <RutaProtegida roles={['estudiante']} />,
+        children: [{ path: '/mi-cuenta', element: <MiCuentaPage /> }],
+      },
       { path: '/403', element: <Error403Page /> },
       { path: '/404', element: <Error404Page /> },
       { path: '*', element: <App /> },

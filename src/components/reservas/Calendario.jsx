@@ -2,6 +2,9 @@ import { useState } from "react";
 import "../../styles/reservas/Calendario.css";
 import ModalReserva from "./ModalReserva.jsx";
 import { Link } from "react-router-dom";
+import NavSuperior from "../NavSuperior.jsx";
+import useIdentidad from "../useIdentidad.js";
+import BotonSalir from "../BotonSalir.jsx";
 
 // Datos simulados de los equipos
 const equipos = [
@@ -37,6 +40,7 @@ const prestamos = [
 const diasSemana = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
 
 function Calendario() {
+  const { nombreCorto, iniciales, paginaCuenta } = useIdentidad();
 
   // Hook para controlar el mes que se muestra
   const [fechaActual, setFechaActual] = useState(new Date(2026, 9, 1));
@@ -276,17 +280,13 @@ function Calendario() {
         </div>
 
         <nav className="cal-nav">
-          <a href="#">Catálogo</a>
-          <a href="#">Mis solicitudes</a>
-          <Link to="/mis-reservas">Mis reservas</Link>
-          <a href="/calendario" className="cal-activo">
-            Calendario
-          </a>
+          <NavSuperior claseActivo="cal-activo" />
         </nav>
 
         <div className="cal-perfil">
-          <span>Natalia Rebatta</span>
-          <div className="cal-avatar">NR</div>
+          <span>{nombreCorto}</span>
+          <Link to={paginaCuenta} className="cal-avatar">{iniciales}</Link>
+          <BotonSalir />
         </div>
       </header>
 

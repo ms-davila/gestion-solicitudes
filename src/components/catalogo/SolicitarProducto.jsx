@@ -1,6 +1,8 @@
 import { useState, useMemo, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "../../styles/catalogo/solicitarproducto.css";
+import useIdentidad from "../useIdentidad.js";
+import BotonSalir from "../BotonSalir.jsx";
 
 // =============================================================================
 // UTILIDADES PARA CÁLCULO DE FECHAS
@@ -50,6 +52,7 @@ const DEFAULT_PRODUCTO = {
 };
 
 function SolicitarProducto({ duracionMaxima = 7, productoInicial = null }) {
+  const { rol, nombreCorto, paginaCuenta } = useIdentidad();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -184,8 +187,15 @@ function SolicitarProducto({ duracionMaxima = 7, productoInicial = null }) {
         </ul>
         <div className="derecha_div">
           <div className="perfil">
-            <h3>Nombre Apellido</h3>
-            <div className="pfp"></div>
+            {rol ? (
+              <>
+                <h3>{nombreCorto}</h3>
+                <Link to={paginaCuenta} className="pfp" title="Mi cuenta" />
+                <BotonSalir />
+              </>
+            ) : (
+              <Link to="/login" className="rapi_mov">Iniciar sesión</Link>
+            )}
           </div>
         </div>
       </header>

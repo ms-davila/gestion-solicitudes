@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useUsuario } from '../context/UsuarioContext.jsx';
+import { inicioPorRol } from '../../../rutas.js';
 import Campo from '../Campo/Campo.jsx';
 import Aviso from '../Aviso/Aviso.jsx';
 
@@ -43,10 +44,8 @@ const Login = () => {
 
         setErrores({});
         setIngresando(true);
-        let destino = '/';
-        if (usuario.rol === 'estudiante') {
-            destino = '/mi-cuenta';
-        }
+        // estudiante -> /mi-cuenta · encargado -> /inventario
+        const destino = inicioPorRol(usuario.rol);
 
         let espera = 800;
         if (usuario.deuda > 0) {

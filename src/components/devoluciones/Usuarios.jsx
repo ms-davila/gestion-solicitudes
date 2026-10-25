@@ -1,8 +1,11 @@
-import { Link } from "react-router-dom";
+import MenuLateral from "../MenuLateral.jsx";
 import "../../styles/devoluciones/Devoluciones.css";
 import "../../styles/devoluciones/Usuarios.css";
+import useIdentidad from "../useIdentidad.js";
+import BotonSalir from "../BotonSalir.jsx";
 
 function Usuarios() {
+  const { iniciales } = useIdentidad();
   return (
     <>
       {/* CABECERA */}
@@ -26,29 +29,15 @@ function Usuarios() {
             <span>Solicitudes pendientes</span>
             <span className="contador-pendientes codigo">12</span>
           </div>
-          <div className="avatar">ER</div>
+          <div className="avatar">{iniciales}</div>
+          <BotonSalir />
         </div>
       </header>
 
       {/* CUERPO */}
       <div className="cuerpo">
         {/* MENÚ LATERAL */}
-        <nav className="menu-lateral">
-          <p className="menu-titulo">OPERACIÓN</p>
-          <a className="menu-item" href="#"><span>Inventario</span><span className="menu-contador">42</span></a>
-          <a className="menu-item" href="#"><span>Solicitudes</span><span className="menu-contador menu-contador-azul">12</span></a>
-          <a className="menu-item" href="#"><span>Préstamos vigentes</span><span className="menu-contador">8</span></a>
-          <a className="menu-item" href="#"><span>Vencidos</span><span className="menu-contador menu-contador-rojo">2</span></a>
-          <Link className="menu-item" to="/devoluciones"><span>Devoluciones</span><span className="menu-contador">—</span></Link>
-
-          <hr className="menu-linea" />
-
-          <p className="menu-titulo">COMPLEMENTARIOS</p>
-          <a className="menu-item" href="#"><span>Reservas</span><span className="menu-contador">5</span></a>
-          <a className="menu-item" href="#"><span>Lista de espera</span><span className="menu-contador">6</span></a>
-          <a className="menu-item" href="#"><span>Tablero</span></a>
-          <Link className="menu-item menu-item-activo" to="/devoluciones/usuarios"><span>Usuarios</span><span className="menu-contador">15</span></Link>
-        </nav>
+        <MenuLateral conContadores />
 
         {/* CONTENIDO */}
         <main className="contenido">

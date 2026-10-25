@@ -1,8 +1,11 @@
-import { Link } from "react-router-dom";
+import MenuLateral from "../MenuLateral.jsx";
 import "../../styles/devoluciones/Devoluciones.css";
 import fotoUsb from "../../assets/USB.jpg";
+import useIdentidad from "../useIdentidad.js";
+import BotonSalir from "../BotonSalir.jsx";
 
 function Devoluciones() {
+  const { iniciales } = useIdentidad();
   return (
     <div>
 
@@ -21,7 +24,8 @@ function Devoluciones() {
             <span>Solicitudes pendientes</span>
             <span className="contador-pendientes codigo">12</span>
           </div>
-          <div className="avatar">ER</div>
+          <div className="avatar">{iniciales}</div>
+          <BotonSalir />
         </div>
       </header>
 
@@ -29,22 +33,7 @@ function Devoluciones() {
       <div className="cuerpo">
 
         {/* MENÚ LATERAL: la página actual (Devoluciones) va resaltada */}
-          <nav className="menu-lateral">
-            <p className="menu-titulo">OPERACIÓN</p>
-            <a className="menu-item" href="#"><span>Inventario</span></a>
-            <a className="menu-item" href="#"><span>Solicitudes</span></a>
-            <a className="menu-item" href="#"><span>Préstamos vigentes</span></a>
-            <a className="menu-item" href="#"><span>Vencidos</span></a>
-            <Link className="menu-item menu-item-activo" to="/devoluciones"><span>Devoluciones</span></Link>
-
-            <hr className="menu-linea" />
-
-            <p className="menu-titulo">COMPLEMENTARIOS</p>
-            <a className="menu-item" href="#"><span>Reservas</span></a>
-            <a className="menu-item" href="#"><span>Lista de espera</span></a>
-            <a className="menu-item" href="#"><span>Tablero</span></a>
-            <Link className="menu-item" to="/devoluciones/usuarios"><span>Usuarios</span></Link>
-          </nav>
+          <MenuLateral />
         {/* CONTENIDO */}
         <main className="contenido">
           <h1 className="titulo-pantalla">Registrar devolución</h1>

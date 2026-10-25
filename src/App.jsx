@@ -1,4 +1,5 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import RutaProtegida from './components/RutaProtegida.jsx';
 
 import Devoluciones from './components/devoluciones/Devoluciones.jsx';
 import Usuarios from './components/devoluciones/Usuarios.jsx';
@@ -24,28 +25,40 @@ import SolicitarProductoPage from './pages/catalogo/SolicitarProductoPage.jsx';
 function App() {
   return (
     <Routes>
-      <Route path="/devoluciones" element={<Devoluciones />} />
-      <Route path="/devoluciones/usuarios" element={<Usuarios />} />
-
-      <Route path="/calendario" element={<CalendarioPage />} />
-
-      <Route element={<LayoutEncargado />}>
-        <Route path="/bandeja" element={<BandejaPage />} />
-        <Route path="/entrega" element={<EntregaPage />} />
-        <Route path="/constancia" element={<ConstanciaPage />} />
-        <Route path="/vigentes" element={<VigentesPage />} />
+      {/* VISITANTE y ESTUDIANTE: catálogo en modo lectura */}
+      <Route element={<RutaProtegida roles={['publico']} />}>
+        <Route path="/catalogo" element={<CatalogoPage />} />
       </Route>
 
-      <Route path="/mis-reservas" element={<MisReservasPage />} />
-      <Route path="/lista-espera" element={<ListaEsperaPage />} />
-      <Route path="/inventario" element={<InventarioPage />} />
+      {/* SOLO ESTUDIANTE */}
+      <Route element={<RutaProtegida roles={['estudiante']} />}>
+        <Route path="/missolicitudes" element={<MisSolicitudesPage />} />
+        <Route path="/solicitarproducto" element={<SolicitarProductoPage />} />
+      </Route>
 
-      <Route path='/catalogo' element={<CatalogoPage />}/>
-      <Route path='/missolicitudes' element={<MisSolicitudesPage />}/>
-      <Route path='/solicitarproducto' element={<SolicitarProductoPage />}/>
+      {/* ESTUDIANTE y ENCARGADO (comparten pantalla de reservas) */}
+      <Route element={<RutaProtegida roles={['estudiante', 'encargado']} />}>
+        <Route path="/calendario" element={<CalendarioPage />} />
+        <Route path="/mis-reservas" element={<MisReservasPage />} />
+      </Route>
 
-      {/* <Route path="/catalogo" element={<CatalogoPage />} /> */}
-      {/* <Route path="/mis-solicitudes" element={<MisSolicitudesPage />} /> */}
+      {/* SOLO ENCARGADO DE ALMACÉN */}
+      <Route element={<RutaProtegida roles={['encargado']} />}>
+        <Route path="/inventario" element={<InventarioPage />} />
+        <Route path="/devoluciones" element={<Devoluciones />} />
+        <Route path="/devoluciones/usuarios" element={<Usuarios />} />
+        <Route path="/lista-espera" element={<ListaEsperaPage />} />
+
+        <Route element={<LayoutEncargado />}>
+          <Route path="/bandeja" element={<BandejaPage />} />
+          <Route path="/entrega" element={<EntregaPage />} />
+          <Route path="/constancia" element={<ConstanciaPage />} />
+          <Route path="/vigentes" element={<VigentesPage />} />
+        </Route>
+      </Route>
+
+      {/* Cualquier otra ruta -> 404 */}
+      <Route path="*" element={<Navigate to="/404" replace />} />
     </Routes>
   );
 }

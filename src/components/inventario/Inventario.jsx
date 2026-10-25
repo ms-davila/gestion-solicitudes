@@ -1,6 +1,10 @@
-import { useEffect } from 'react';
+import { Fragment, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 import '../../styles/inventario/inventario.css';
+import { MENU, esActivo } from '../../rutas.js';
+import useIdentidad from '../useIdentidad.js';
+import BotonSalir from '../BotonSalir.jsx';
 
 const LEGACY_SCRIPTS = [
   '/legacy/js/data.js',
@@ -9,33 +13,37 @@ const LEGACY_SCRIPTS = [
   '/legacy/js/app.js',
 ];
 
-function loadClassicScript(src) {
-  return new Promise((resolve, reject) => {
-    const existing = document.querySelector(`script[data-inventory-script="${src}"]`);
-    if (existing?.dataset.loaded === 'true') return resolve();
-    if (existing) {
-      existing.addEventListener('load', resolve, { once: true });
-      existing.addEventListener('error', reject, { once: true });
-      return;
-    }
-    const script = document.createElement('script');
-    script.src = src;
-    script.async = false;
-    script.dataset.inventoryScript = src;
-    script.onload = () => { script.dataset.loaded = 'true'; resolve(); };
-    script.onerror = () => reject(new Error(`No se pudo cargar ${src}`));
-    document.body.appendChild(script);
-  });
-}
-
+// Los scripts viejos guardan elementos del DOM y registran listeners en `document`.
+// Para poder salir y volver a /inventario desde el menú sin que quede vacío:
+//  1) se ejecutan dentro de una función (así se pueden correr de nuevo sin chocar con sus `const`),
+//  2) se anotan sus listeners de `document` y se quitan al salir de la pantalla.
 export default function Inventario() {
+  const { nombreCorto, iniciales } = useIdentidad();
+  const { pathname } = useLocation();
+
   useEffect(() => {
-    let cancelled = false;
+    let cancelado = false;
+    const original = document.addEventListener;
+    const registrados = [];
+
     (async () => {
       try {
-        for (const src of LEGACY_SCRIPTS) {
-          if (cancelled) return;
-          await loadClassicScript(src);
+        const textos = await Promise.all(
+          LEGACY_SCRIPTS.map(async (src) => {
+            const r = await fetch(src);
+            if (!r.ok) throw new Error(`No se pudo cargar ${src}`);
+            return r.text();
+          }),
+        );
+        if (cancelado) return;
+        document.addEventListener = function (tipo, fn, opciones) {
+          registrados.push([tipo, fn, opciones]);
+          return original.call(this, tipo, fn, opciones);
+        };
+        try {
+          new Function(textos.join('\n;\n'))();
+        } finally {
+          document.addEventListener = original;
         }
       } catch (error) {
         console.error(error);
@@ -43,7 +51,12 @@ export default function Inventario() {
         if (node) node.textContent = 'No se pudo iniciar el módulo de inventario. Revisa la consola.';
       }
     })();
-    return () => { cancelled = true; };
+
+    return () => {
+      cancelado = true;
+      document.addEventListener = original;
+      registrados.forEach(([tipo, fn, opciones]) => document.removeEventListener(tipo, fn, opciones));
+    };
   }, []);
 
   return (
@@ -58,28 +71,37 @@ export default function Inventario() {
           <div className="sugerencias" id="sugerencias" hidden />
         </form>
         <div className="derecha">
-          <a className="pendientes" href="#" data-fuera="1">Solicitudes pendientes</a>
-          <span className="avatar" />
+          <Link className="pendientes" to="/bandeja">Solicitudes pendientes</Link>
+          <span style={{ fontSize: 13 }}>{nombreCorto}</span>
+          <span className="avatar">{iniciales}</span>
+          <BotonSalir />
         </div>
       </header>
 
       <nav>
-        <p>Operación</p>
-        <ul>
-          <li><a className="activo" href="#" data-accion="inventario">Inventario</a></li>
-          <li><a href="#" data-fuera="1">Solicitudes</a></li>
-          <li><a href="#" data-fuera="1">Préstamos vigentes</a></li>
-          <li><a href="#" data-fuera="1">Vencidos</a></li>
-          <li><a href="#" data-fuera="1">Devoluciones</a></li>
-        </ul>
-        <hr />
-        <p>Complementarios</p>
-        <ul>
-          <li><a href="#" data-fuera="1">Reservas</a></li>
-          <li><a href="#" data-fuera="1">Lista de espera</a></li>
-          <li><a href="#" data-fuera="1">Tablero</a></li>
-          <li><a href="#" data-fuera="1">Usuarios</a></li>
-        </ul>
+        {MENU.map((seccion, i) => (
+          <Fragment key={seccion.titulo}>
+            {i > 0 && <hr />}
+            <p>{seccion.titulo}</p>
+            <ul>
+              {seccion.enlaces.map((e) => (
+                <li key={e.texto}>
+                  {e.to ? (
+                    <Link
+                      to={e.to}
+                      className={esActivo(e, pathname) ? 'activo' : undefined}
+                      {...(e.to === '/inventario' ? { 'data-accion': 'inventario' } : {})}
+                    >
+                      {e.texto}
+                    </Link>
+                  ) : (
+                    <a href="#" onClick={(ev) => ev.preventDefault()}>{e.texto}</a>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </Fragment>
+        ))}
       </nav>
 
       <main id="vista" />
