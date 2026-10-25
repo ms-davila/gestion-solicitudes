@@ -9,204 +9,104 @@ import BotonSalir from "../BotonSalir.jsx";
 // =============================================================================
 const CATALOGO_PRODUCTOS = [
   {
-    id: "INV-MED-0001",
-    foto: "",
-    nombre: "Osciloscopio Digital 100MHz 4 Canales",
+    id: "INV-OSC-0042",
+    foto: "/public/imagenes/osciloscopio.webp",
+    nombre: "Osciloscopio TBS1052B",
     categoria: "Medición",
     marca: "Tektronix",
     modelo: "TBS1052B",
-    disponible: 4,
-    existente: 6
-  },
-  {
-    id: "INV-ROB-0002",
-    foto: "",
-    nombre: "Brazo Robótico Educativo 6DOF",
-    categoria: "Robótica",
-    marca: "Dobot",
-    modelo: "Magician",
-    disponible: 2,
-    existente: 4
-  },
-  {
-    id: "INV-COM-0003",
-    foto: "",
-    nombre: "Laptop Workstation i7 32GB RAM",
-    categoria: "Cómputo",
-    marca: "Dell",
-    modelo: "Precision 5570",
-    disponible: 5,
-    existente: 8
-  },
-  {
-    id: "INV-ROB-0004",
-    foto: "",
-    nombre: "Kit de Desarrollo Arduino Uno R3",
-    categoria: "Robótica",
-    marca: "Arduino",
-    modelo: "Starter Kit V2",
-    disponible: 10,
-    existente: 12
-  },
-  {
-    id: "INV-MED-0005",
-    foto: "",
-    nombre: "Multímetro Digital True-RMS",
-    categoria: "Medición",
-    marca: "Fluke",
-    modelo: "115",
-    disponible: 8,
-    existente: 10
-  },
-  {
-    id: "INV-RED-0006",
-    foto: "",
-    nombre: "Switch Gestionable Gigabit 24 Puertos",
-    categoria: "Redes",
-    marca: "Cisco",
-    modelo: "Catalyst 2960-X",
     disponible: 3,
     existente: 5
   },
   {
-    id: "INV-AUD-0007",
-    foto: "",
-    nombre: "Cámara Réflex Digital 4K",
+    id: "INV-CAM-0009",
+    foto: "/public/imagenes/camara.avif",
+    nombre: "Cámara Canon EOS 90D",
     categoria: "Audiovisual",
-    marca: "Sony",
-    modelo: "Alpha a6400",
+    marca: "Canon",
+    modelo: "EOS 90D",
+    disponible: 2,
+    existente: 4
+  },
+  {
+    id: "INV-ARD-0013",
+    foto: "/public/imagenes/arduino.jpg",
+    nombre: "Kit de robótica Arduino Mega",
+    categoria: "Robótica",
+    marca: "Arduino",
+    modelo: "Mega 2560",
+    disponible: 6,
+    existente: 6
+  },
+  {
+    id: "INV-TAB-0003",
+    foto: "/public/imagenes/tableta.webp",
+    nombre: "Tableta gráfica Wacom Intuos",
+    categoria: "Cómputo",
+    marca: "Wacom",
+    modelo: "CTL-4100",
+    disponible: 1,
+    existente: 3
+  },
+  {
+    id: "INV-MUL-0022",
+    foto: "/public/imagenes/multimetro.webp",
+    nombre: "Multímetro Fluke 117",
+    categoria: "Medición",
+    marca: "Fluke",
+    modelo: "117",
+    disponible: 0,
+    existente: 3
+  },
+  {
+    id: "INV-RED-0001",
+    foto: "/public/imagenes/analisador.webp",
+    nombre: "Analizador de redes portátil",
+    categoria: "Redes",
+    marca: "NetAlly",
+    modelo: "LinkRunner",
     disponible: 2,
     existente: 3
   },
   {
-    id: "INV-AUD-0008",
-    foto: "",
-    nombre: "Proyector Láser Interactivo Full HD",
+    id: "INV-TRI-0006",
+    foto: "/public/imagenes/tripode.webp",
+    nombre: "Trípode profesional Manfrotto",
+    categoria: "Audiovisual",
+    marca: "Manfrotto",
+    modelo: "MT055",
+    disponible: 4,
+    existente: 5
+  },
+  {
+    id: "INV-FUE-0031",
+    foto: "/public/imagenes/fuente.jpg",
+    nombre: "Fuente de poder regulable",
+    categoria: "Lab. de física",
+    marca: "Korad",
+    modelo: "KA3005P",
+    disponible: 3,
+    existente: 4
+  },
+  {
+    id: "INV-LAP-0050",
+    foto: "/public/imagenes/laptop.webp",
+    nombre: "Laptop Dell Latitude 5420",
+    categoria: "Cómputo",
+    marca: "Dell",
+    modelo: "Latitude 5420",
+    disponible: 5,
+    existente: 5
+  },
+  {
+    id: "INV-PRO-0060",
+    foto: "/public/imagenes/proyector.jpg",
+    nombre: "Proyector Epson PowerLite X49",
     categoria: "Audiovisual",
     marca: "Epson",
-    modelo: "PowerLite L530U",
+    modelo: "PowerLite X49",
     disponible: 1,
-    existente: 2
-  },
-  {
-    id: "INV-MED-0009",
-    foto: "",
-    nombre: "Generador de Funciones Arbitrarias 25MHz",
-    categoria: "Medición",
-    marca: "Rigol",
-    modelo: "DG1022Z",
-    disponible: 3,
     existente: 4
-  },
-  {
-    id: "INV-FIS-0010",
-    foto: "",
-    nombre: "Pista de Aire para Experimentos de Dinámica",
-    categoria: "Laboratorio de Física",
-    marca: "PASCO",
-    modelo: "ME-9493",
-    disponible: 4,
-    existente: 6
-  },
-  {
-    id: "INV-RED-0011",
-    foto: "",
-    nombre: "Router Inalámbrico Wi-Fi 6 AX5400",
-    categoria: "Redes",
-    marca: "TP-Link",
-    modelo: "Archer AX73",
-    disponible: 5,
-    existente: 5
-  },
-  {
-    id: "INV-ROB-0012",
-    foto: "",
-    nombre: "Estación de Soldadura Digital ESD",
-    categoria: "Robótica",
-    marca: "Weller",
-    modelo: "WE1010",
-    disponible: 6,
-    existente: 8
-  },
-  {
-    id: "INV-AUD-0013",
-    foto: "",
-    nombre: "Micrófono Inalámbrico de Solapa Dual",
-    categoria: "Audiovisual",
-    marca: "Rode",
-    modelo: "Wireless GO II",
-    disponible: 4,
-    existente: 4
-  },
-  {
-    id: "INV-FIS-0014",
-    foto: "",
-    nombre: "Péndulo Físico Demostrativo",
-    categoria: "Laboratorio de Física",
-    marca: "Phywe",
-    modelo: "Pendulum 02",
-    disponible: 1,
-    existente: 1
-  },
-  {
-    id: "INV-COM-0015",
-    foto: "",
-    nombre: "Mini PC Workstation Core i7 12va Gen",
-    categoria: "Cómputo",
-    marca: "Intel",
-    modelo: "NUC 12 Pro",
-    disponible: 6,
-    existente: 6
-  },
-  {
-    id: "INV-MED-0016",
-    foto: "",
-    nombre: "Analizador de Espectro RF 1.5GHz",
-    categoria: "Medición",
-    marca: "Siglent",
-    modelo: "SSA3021X",
-    disponible: 0,
-    existente: 2
-  },
-  {
-    id: "INV-ROB-0017",
-    foto: "",
-    nombre: "Robot Móvil Autónomo con LiDAR y ROS2",
-    categoria: "Robótica",
-    marca: "TurtleBot",
-    modelo: "TurtleBot 4",
-    disponible: 0,
-    existente: 2
-  },
-  {
-    id: "INV-RED-0018",
-    foto: "",
-    nombre: "Punto de Acceso PoE Wi-Fi 6 Mesh",
-    categoria: "Redes",
-    marca: "Ubiquiti",
-    modelo: "UniFi U6-Mesh",
-    disponible: 3,
-    existente: 4
-  },
-  {
-    id: "INV-FIS-0019",
-    foto: "",
-    nombre: "Kit de Sensores Inalámbricos de Fuerza y Movimiento",
-    categoria: "Laboratorio de Física",
-    marca: "PASCO",
-    modelo: "Wireless Sensor Kit",
-    disponible: 5,
-    existente: 5
-  },
-  {
-    id: "INV-COM-0020",
-    foto: "",
-    nombre: "Tableta Gráfica Digitalizadora Profesional",
-    categoria: "Cómputo",
-    marca: "Wacom",
-    modelo: "Intuos Pro M",
-    disponible: 4,
-    existente: 5
   }
 ];
 
