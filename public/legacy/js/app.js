@@ -2,6 +2,7 @@ const $ = (s, r = document) => r.querySelector(s);
 const esc = (t) => String(t == null ? '' : t).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
 let db = Almacen.cargar();
+
 let vista = { tipo: 'inventario' };
 let filtros = { categoria: '', estado: '', codigo: '' };
 let pagina = 1;
@@ -19,7 +20,42 @@ function aviso(texto, tipo) {
 }
 
 const etiqueta = (estado) => `<span class="etiqueta et-${estado}">${ESTADOS[estado]}</span>`;
-const foto = (e) => (e.foto ? `<img class="foto" src="${esc(e.foto)}" alt="">` : '<span class="foto"></span>');
+
+
+const foto = (e) => {
+  const nombre = (e.nombre || '').toLowerCase();
+
+  let imagen = '/imagenes/analisador.webp';
+
+  if (nombre.includes('osciloscopio')) {
+    imagen = '/imagenes/osciloscopio.webp';
+  } else if (nombre.includes('multímetro')) {
+    imagen = '/imagenes/multimetro.webp';
+  } else if (nombre.includes('cámara')) {
+    imagen = '/imagenes/camara.avif';
+  } else if (nombre.includes('arduino') || nombre.includes('kit')) {
+    imagen = '/imagenes/arduino.jpg';
+  } else if (nombre.includes('generador')) {
+    imagen = '/imagenes/analisador.webp';
+  } else if (nombre.includes('fuente')) {
+    imagen = '/imagenes/fuente.jpg';
+  } else if (nombre.includes('profesional')) {
+    imagen = '/imagenes/tripode.webp';
+  } else if (nombre.includes('gráfica')) {
+    imagen = '/imagenes/tableta.webp';
+  } else if (nombre.includes('5420')) {
+    imagen = '/imagenes/laptop.webp';
+  } else if (nombre.includes('epson')) {
+    imagen = '/imagenes/proyector.jpg';
+  }
+
+  return `<img
+    class="foto"
+    src="${imagen}"
+    alt="${esc(e.nombre || 'Equipo')}"
+    onerror="this.onerror=null;this.src='/imagenes/analisador.png'"
+  >`;
+};
 
 function textoResumen(r) {
   const p = [];

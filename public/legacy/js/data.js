@@ -12,6 +12,9 @@ const MODELOS_DEMO = [
   ['Analizador de redes portátil', 'NetAlly', 'LinkRunner', 'Redes', 'RED', 1, 'ddb', 'Verificador de cableado y enlaces Ethernet.', ['Estuche rígido', 'Cargador']],
   ['Trípode profesional Manfrotto', 'Manfrotto', 'MT055', 'Audiovisual', 'TRI', 6, 'ddddp', 'Trípode profesional de aluminio.', ['Bolsa de transporte']],
   ['Fuente de poder regulable', 'Korad', 'KA3005P', 'Lab. de física', 'FUE', 31, 'dddm', 'Fuente de poder regulable de 30 V y 5 A.', ['Cables de salida']],
+  ['Laptop Dell Latitude 5420', 'Dell', 'Latitude 5420', 'Cómputo', 'LAP', 50, 'ddddd', 'Laptop para prácticas de laboratorio y desarrollo de software.', ['Cargador', 'Mouse inalámbrico', 'Maletín']],
+
+  ['Proyector Epson PowerLite X49', 'Epson', 'PowerLite X49', 'Audiovisual', 'PRO', 60, 'dddp', 'Proyector multimedia utilizado para clases, exposiciones y presentaciones.', ['Control remoto', 'Cable HDMI', 'Cable de alimentación']]
 ];
 
 function crearDemo() {
