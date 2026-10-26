@@ -1,11 +1,11 @@
-/* Estilos aislados: solo afectan dentro de .pagina-encargado */
-/* =========================================================
-   componentes.css · piezas reutilizables (compartido)
-   ========================================================= */
+/* ==========================================
+   H4 - APROBACIÓN Y ENTREGA
+   COMPONENTES.CSS
+   ========================================== */
 
-/* ---------- Botones ---------- */
+/* BOTONES */
 
-.pagina-encargado .btn {
+.pagina .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -13,8 +13,8 @@
   padding: 0 var(--sp-4);
   border: 1px solid transparent;
   border-radius: var(--radio);
-  font-family: inherit;
-  font-size: 15px;
+  font-family: var(--font-principal);
+  font-size: var(--font-cuerpo);
   line-height: 22px;
   font-weight: 500;
   text-decoration: none;
@@ -22,131 +22,132 @@
   cursor: pointer;
 }
 
-.pagina-encargado .btn--primary {
+.pagina .btn--primary {
   background: var(--primary);
   border-color: var(--primary);
-  color: #fff;
+  color: var(--surface);
 }
 
-.pagina-encargado .btn--primary:hover {
+.pagina .btn--primary:hover {
   background: var(--primary-dark);
   border-color: var(--primary-dark);
 }
 
-.pagina-encargado .btn--secondary {
+.pagina .btn--secondary {
   background: var(--surface);
   border-color: var(--primary);
   color: var(--primary);
 }
 
-.pagina-encargado .btn--secondary:hover {
+.pagina .btn--secondary:hover {
   background: var(--primary-soft);
 }
 
-.pagina-encargado .btn--tertiary {
+.pagina .btn--tertiary {
   background: transparent;
   color: var(--primary);
 }
 
-.pagina-encargado .btn--tertiary:hover {
+.pagina .btn--tertiary:hover {
   background: var(--primary-soft);
 }
 
-.pagina-encargado .btn--destructive {
+.pagina .btn--destructive {
   background: var(--surface);
   border-color: var(--danger);
   color: var(--danger);
 }
 
-.pagina-encargado .btn--destructive:hover {
+.pagina .btn--destructive:hover {
   background: var(--danger);
-  color: #fff;
+  color: var(--surface);
 }
 
-.pagina-encargado .btn[disabled],
-.pagina-encargado .btn.is-disabled {
+.pagina .btn:disabled,
+.pagina .btn.is-disabled {
   background: var(--bg);
   border-color: var(--border);
   color: var(--text-muted);
   cursor: not-allowed;
 }
 
-/* ---------- Badges (siempre color + texto) ---------- */
+/* ETIQUETAS DE ESTADO */
 
-.pagina-encargado .badge {
+.pagina .badge {
   display: inline-block;
   padding: 2px var(--sp-2);
   border: 1px solid transparent;
   border-radius: var(--radio);
-  font-size: 13px;
+  font-size: var(--font-auxiliar);
   line-height: 18px;
   font-weight: 500;
   white-space: nowrap;
 }
 
-.pagina-encargado .badge--enviada {
-  background: var(--info-soft);    border-color: var(--info);    color: var(--info);
+.pagina .badge--enviada {
+  background: var(--info-soft);
+  border-color: var(--info);
+  color: var(--info);
 }
 
-.pagina-encargado .badge--aprobada {
-  background: var(--success-soft); border-color: var(--success); color: var(--success);
+.pagina .badge--aprobada,
+.pagina .badge--disponible {
+  background: var(--success-soft);
+  border-color: var(--success);
+  color: var(--success);
 }
 
-.pagina-encargado .badge--rechazada {
-  background: var(--danger-soft);  border-color: var(--danger);  color: var(--danger);
+.pagina .badge--rechazada,
+.pagina .badge--deuda {
+  background: var(--danger-soft);
+  border-color: var(--danger);
+  color: var(--danger);
 }
 
-.pagina-encargado .badge--disponible {
-  background: var(--success-soft); border-color: var(--success); color: var(--success);
-}
+/* INDICADORES DE VENCIMIENTO */
 
-.pagina-encargado .badge--deuda {
-  background: var(--danger-soft);  border-color: var(--danger);  color: var(--danger);
-}
-
-/* ---------- Indicadores de vencimiento ---------- */
-
-.pagina-encargado .indicador {
+.pagina .indicador {
   display: inline-block;
   padding: 2px var(--sp-2);
   border-radius: var(--radio);
-  font-family: 'Roboto Mono', monospace;
-  font-size: 13px;
+  font-family: var(--font-codigo);
+  font-size: var(--font-auxiliar);
   line-height: 18px;
   font-weight: 500;
   white-space: nowrap;
 }
 
-/* Vencido: siempre #B4322B */
-
-.pagina-encargado .indicador--vencido {
-  background: var(--danger); color: #fff;
+.pagina .indicador--vencido {
+  background: var(--danger);
+  color: var(--surface);
 }
 
-/* Amarillo de señalización: vencimientos */
-
-.pagina-encargado .indicador--hoy {
-  background: var(--accent); color: var(--text);
+.pagina .indicador--hoy {
+  background: var(--accent);
+  color: var(--text);
 }
 
-.pagina-encargado .indicador--pronto {
-  background: var(--warning-soft); color: var(--warning);
+.pagina .indicador--pronto {
+  background: var(--warning-soft);
+  color: var(--warning);
 }
 
-.pagina-encargado .indicador--normal {
-  background: var(--bg); color: var(--text-muted); border: 1px solid var(--border);
+.pagina .indicador--normal {
+  background: var(--bg);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
 }
 
-/* ---------- Campos de formulario ---------- */
+/* CAMPOS DE FORMULARIO */
 
-.pagina-encargado .campo {
+.pagina .campo {
   display: flex;
   flex-direction: column;
   gap: var(--sp-1);
 }
 
-.pagina-encargado .campo__etiqueta {
-  font-size: 12px;
+.pagina .campo__etiqueta {
+  font-size: var(--font-etiqueta);
   line-height: 16px;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -154,7 +155,7 @@
   color: var(--text-muted);
 }
 
-.pagina-encargado .campo__input {
+.pagina .campo__input {
   width: 100%;
   min-height: 40px;
   padding: var(--sp-2) var(--sp-3);
@@ -162,38 +163,38 @@
   border-radius: var(--radio);
   background: var(--surface);
   color: var(--text);
-  font-family: inherit;
-  font-size: 15px;
+  font-family: var(--font-principal);
+  font-size: var(--font-cuerpo);
   line-height: 22px;
 }
 
-.pagina-encargado .campo__input:focus {
+.pagina .campo__input:focus {
   border-color: var(--primary);
   outline: 2px solid var(--primary-soft);
 }
 
-.pagina-encargado textarea.campo__input {
+.pagina textarea.campo__input {
   resize: vertical;
 }
 
-.pagina-encargado .campo__ayuda {
-  font-size: 13px;
+.pagina .campo__ayuda {
+  font-size: var(--font-auxiliar);
   line-height: 18px;
   color: var(--text-muted);
 }
 
-.pagina-encargado .campo-grupo {
+.pagina .campo-grupo {
   display: grid;
   gap: var(--sp-2);
 }
 
-.pagina-encargado .campo-grupo > legend {
+.pagina .campo-grupo > legend {
   margin-bottom: var(--sp-2);
 }
 
-/* ---------- Avisos ---------- */
+/* AVISOS */
 
-.pagina-encargado .aviso {
+.pagina .aviso {
   margin: var(--sp-4) 0;
   padding: var(--sp-3) var(--sp-4);
   border: 1px solid var(--border);
@@ -202,21 +203,21 @@
   background: var(--surface);
 }
 
-.pagina-encargado .aviso--danger {
+.pagina .aviso--danger {
   background: var(--danger-soft);
   border-color: var(--danger);
   color: var(--danger);
 }
 
-.pagina-encargado .aviso--warning {
+.pagina .aviso--warning {
   background: var(--warning-soft);
   border-color: var(--warning);
   color: var(--warning);
 }
 
-/* ---------- Tabla ---------- */
+/* TABLAS */
 
-.pagina-encargado .tabla-contenedor {
+.pagina .tabla-contenedor {
   max-height: 640px;
   overflow: auto;
   border: 1px solid var(--border);
@@ -224,25 +225,25 @@
   background: var(--surface);
 }
 
-.pagina-encargado .tabla {
+.pagina .tabla {
   width: 100%;
   border-collapse: collapse;
 }
 
-.pagina-encargado .tabla th,
-.pagina-encargado .tabla td {
+.pagina .tabla th,
+.pagina .tabla td {
   padding: var(--sp-3) var(--sp-4);
   border-bottom: 1px solid var(--border);
   text-align: left;
   vertical-align: middle;
 }
 
-.pagina-encargado .tabla th {
-  position: sticky;      /* cabecera fija */
+.pagina .tabla th {
+  position: sticky;
   top: 0;
   z-index: 1;
   background: var(--bg);
-  font-size: 12px;
+  font-size: var(--font-etiqueta);
   line-height: 16px;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -250,38 +251,38 @@
   color: var(--text-muted);
 }
 
-.pagina-encargado .tabla tbody tr:last-child td {
+.pagina .tabla tbody tr:last-child td {
   border-bottom: 0;
 }
 
-.pagina-encargado .tabla__principal {
+.pagina .tabla__principal {
   display: block;
   font-weight: 500;
 }
 
-.pagina-encargado .tabla__acciones {
+.pagina .tabla__acciones {
   white-space: nowrap;
 }
 
-.pagina-encargado .tabla__acciones .btn + .btn {
+.pagina .tabla__acciones .btn + .btn {
   margin-left: var(--sp-2);
 }
 
-/* ---------- Paginación ---------- */
+/* PAGINACIÓN */
 
-.pagina-encargado .paginacion {
+.pagina .paginacion {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-top: var(--sp-4);
 }
 
-.pagina-encargado .paginacion__lista {
+.pagina .paginacion__lista {
   display: flex;
   gap: var(--sp-1);
 }
 
-.pagina-encargado .paginacion__enlace {
+.pagina .paginacion__enlace {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -294,30 +295,30 @@
   text-decoration: none;
 }
 
-.pagina-encargado .paginacion__enlace.is-active {
+.pagina .paginacion__enlace.is-active {
   background: var(--primary);
   border-color: var(--primary);
-  color: #fff;
+  color: var(--surface);
 }
 
-/* ---------- Modal (única pieza con sombra) ---------- */
+/* MODALES */
 
-.pagina-encargado .modal {
+.pagina .modal {
   display: flex;
   position: fixed;
   inset: 0;
-  z-index: 100;
+  z-index: 1000;
   align-items: center;
   justify-content: center;
 }
 
-.pagina-encargado .modal__fondo {
+.pagina .modal__fondo {
   position: absolute;
   inset: 0;
   background: rgba(18, 33, 31, 0.5);
 }
 
-.pagina-encargado .modal__caja {
+.pagina .modal__caja {
   position: relative;
   width: 560px;
   max-width: calc(100% - 32px);
@@ -329,22 +330,39 @@
   box-shadow: 0 12px 32px rgba(18, 33, 31, 0.24);
 }
 
-.pagina-encargado .modal__titulo {
-  font-size: 20px;
+.pagina .modal__titulo {
+  font-size: var(--font-seccion);
   line-height: 28px;
   font-weight: 600;
   margin-bottom: var(--sp-1);
 }
 
-.pagina-encargado .modal__caja form {
+.pagina .modal__caja form {
   display: grid;
   gap: var(--sp-4);
   margin-top: var(--sp-4);
 }
 
-.pagina-encargado .modal__acciones {
+.pagina .modal__acciones {
   display: flex;
   justify-content: flex-end;
   gap: var(--sp-3);
   margin-top: var(--sp-4);
+}
+
+/* ADAPTACIÓN */
+
+@media (max-width: 900px) {
+  .pagina .tabla-contenedor {
+    overflow-x: auto;
+  }
+
+  .pagina .tabla {
+    min-width: 760px;
+  }
+
+  .pagina .paginacion {
+    flex-wrap: wrap;
+    gap: var(--sp-3);
+  }
 }

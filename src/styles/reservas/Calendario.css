@@ -1,69 +1,27 @@
-/* Calendario de ocupación */
+
+/* ==========================================
+   HU-6 - CALENDARIO DE RESERVAS
+   ========================================== */
 
 .cal-page {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: #F5F7F8;
-  font-family: 'Barlow', sans-serif;
-  color: #12211F;
+  background: var(--bg);
+  font-family: var(--font-principal);
+  font-size: var(--font-cuerpo);
+  color: var(--text);
 }
 
-.cal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 30px;
-  background: white;
-  border-bottom: 1px solid #D8E0E2;
-}
-
-.cal-logo, .cal-perfil, .cal-nav {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.cal-logo h2 {
-  font-size: 18px;
-  color: #0F3A43;
-}
-
-.cal-logo-cuadro {
-  width: 28px;
-  height: 28px;
-  background: #17505C;
-  border-radius: 4px;
-}
-
-.cal-nav a {
-  color: #5E7073;
-  text-decoration: none;
-}
-
-.cal-nav .cal-activo {
-  color: #17505C;
-  font-weight: 600;
-  text-decoration: underline;
-}
-
-.cal-avatar {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #17505C;
-  color: white;
-  border-radius: 4px;
-}
+/* CONTENIDO PRINCIPAL */
 
 .cal-main {
   flex: 1;
   width: 100%;
   max-width: 1600px;
-  margin: auto;
+  margin: 0 auto;
   padding: 30px 24px;
+  box-sizing: border-box;
 }
 
 .cal-encabezado {
@@ -75,12 +33,14 @@
 }
 
 .cal-encabezado h1 {
-  color: #0F3A43;
-  font-size: 28px;
+  margin: 0;
+  color: var(--primary-dark);
+  font-size: var(--font-titulo);
+  font-weight: 600;
 }
 
 .cal-encabezado p {
-  color: #5E7073;
+  color: var(--text-muted);
 }
 
 .cal-controles {
@@ -93,23 +53,43 @@
 .cal-controles button {
   height: 40px;
   padding: 0 12px;
-  background: white;
-  border: 1px solid #D8E0E2;
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 4px;
+  color: var(--text);
+  font-family: var(--font-principal);
+  font-size: var(--font-cuerpo);
   cursor: pointer;
+}
+
+.cal-controles select:focus-visible,
+.cal-controles button:focus-visible {
+  outline: 2px solid var(--info);
+  outline-offset: 2px;
 }
 
 .cal-mes {
   min-width: 130px;
   text-align: center;
   text-transform: capitalize;
+  font-weight: 600;
+}
+
+/* DISTRIBUCIÓN DEL CALENDARIO Y PANEL */
+
+.cal-distribucion {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 20px;
+  align-items: start;
 }
 
 .cal-tarjeta {
   padding: 20px;
-  background: white;
-  border: 1px solid #D8E0E2;
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 4px;
+  min-width: 0;
 }
 
 .cal-dias-semana,
@@ -123,133 +103,159 @@
   text-align: center;
   margin-bottom: 10px;
   font-weight: 600;
-  color: #5E7073;
+  color: var(--text-muted);
 }
 
 .cal-dias-semana div {
   padding: 12px;
 }
 
+/* CASILLAS DEL CALENDARIO */
+
 .cal-dia {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
   min-height: 110px;
   padding: 12px;
-  border: 1px solid #D8E0E2;
-  border-radius: 4px;
-}
-
-.cal-vacio {
-  background: #F5F7F8;
-}
-
-.cal-numero {
-  font-weight: 600;
-}
-
-.cal-footer {
-  display: flex;
-  justify-content: space-between;
-  padding: 18px 30px;
-  color: white;
-  background: #0F3A43;
-  font-size: 13px;
-}
-
-/* Selección de fechas */
-.cal-dia {
   text-align: left;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-family: var(--font-principal);
+  color: var(--text);
   cursor: pointer;
-  font-family: inherit;
-  color: #12211F;
 }
 
 .cal-dia:hover:not(:disabled) {
-  background-color: #E3EEF0;
+  background-color: var(--primary-soft);
 }
 
 .cal-dia.cal-seleccionado {
-  background-color: #E3EEF0;
-  border: 2px solid #17505C;
+  background-color: var(--primary-soft);
+  border: 2px solid var(--primary);
 }
 
 .cal-dia.cal-vacio {
+  background: var(--bg);
   cursor: default;
   border-color: transparent;
 }
 
-
-/* Distribución del calendario y el panel */
-.cal-distribucion {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 300px;
-  gap: 20px;
-  align-items: start;
+.cal-numero {
+  font-family: var(--font-codigo);
+  font-weight: 600;
 }
 
-/* Panel lateral */
+/* ESTADOS DE DISPONIBILIDAD */
+
+.cal-disponibilidad {
+  display: inline-block;
+  padding: 5px 8px;
+  background-color: #E8F4EE;
+  color: var(--success);
+  border-radius: 4px;
+  font-size: var(--font-etiqueta);
+  font-weight: 600;
+}
+
+.cal-disponibilidad.cal-sin-cupo {
+  background-color: #FBEDEC;
+  color: var(--danger);
+}
+
+.cal-estados {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.cal-reservadas,
+.cal-prestadas {
+  padding: 4px 7px;
+  border-radius: 4px;
+  font-size: var(--font-etiqueta);
+  font-weight: 600;
+}
+
+.cal-reservadas {
+  background-color: #FFF3DC;
+  color: var(--warning);
+}
+
+.cal-prestadas {
+  background-color: var(--primary-soft);
+  color: var(--primary);
+}
+
+/* PANEL LATERAL */
+
 .cal-panel {
   padding: 22px;
-  background-color: white;
-  border: 1px solid #D8E0E2;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 4px;
 }
 
 .cal-panel h3 {
   margin: 0 0 20px;
-  color: #5E7073;
-  font-size: 13px;
+  color: var(--text-muted);
+  font-size: var(--font-auxiliar);
+  font-weight: 600;
   letter-spacing: 1px;
 }
 
 .cal-panel p {
-  color: #5E7073;
+  color: var(--text-muted);
   font-size: 14px;
 }
 
 .cal-panel .cal-fechas {
-  color: #0F3A43;
+  color: var(--primary-dark);
   font-size: 18px;
+  font-weight: 600;
+  font-family: var(--font-codigo);
+}
+
+.cal-panel .cal-rango-disponible {
+  padding: 10px;
+  background-color: #E8F4EE;
+  color: var(--success);
+  border-radius: 4px;
   font-weight: 600;
 }
 
-/* Botón para reservar */
+/* BOTÓN PARA RESERVAR */
+
 .cal-boton-reservar {
   width: 100%;
   min-height: 40px;
   margin-top: 20px;
   padding: 10px;
-  background-color: #17505C;
-  color: white;
+  background-color: var(--primary);
+  color: var(--surface);
   border: none;
   border-radius: 4px;
-  font-family: inherit;
+  font-family: var(--font-principal);
+  font-size: var(--font-cuerpo);
   font-weight: 600;
   cursor: pointer;
 }
 
 .cal-boton-reservar:hover:not(:disabled) {
-  background-color: #0F3A43;
+  background-color: var(--primary-dark);
 }
 
 .cal-boton-reservar:disabled {
-  background-color: #D8E0E2;
-  color: #5E7073;
+  background-color: var(--border);
+  color: var(--text-muted);
   cursor: not-allowed;
 }
 
-/* Adaptar a pantallas pequeñas */
-@media (max-width: 850px) {
-  .cal-distribucion {
-    grid-template-columns: 1fr;
-  }
+/* MODAL DE CONFIRMACIÓN */
 
-  .cal-encabezado,
-  .cal-header {
-    flex-wrap: wrap;
-  }
-}
-
-
-/* Ventana de confirmación */
 .cal-modal-fondo {
   position: fixed;
   inset: 0;
@@ -261,12 +267,14 @@
 }
 
 .cal-modal {
-  background-color: white;
+  background-color: var(--surface);
   width: 440px;
   max-width: 90%;
   padding: 24px;
   border-radius: 4px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  font-family: var(--font-principal);
+  color: var(--text);
 }
 
 .cal-modal-titulo {
@@ -277,8 +285,9 @@
 
 .cal-modal-titulo h2 {
   margin: 0;
-  color: #0F3A43;
-  font-size: 22px;
+  color: var(--primary-dark);
+  font-size: var(--font-seccion);
+  font-weight: 600;
 }
 
 .cal-modal-titulo button {
@@ -286,19 +295,19 @@
   border: none;
   font-size: 26px;
   cursor: pointer;
-  color: #5E7073;
+  color: var(--text-muted);
 }
 
 .cal-modal > p {
-  color: #5E7073;
+  color: var(--text-muted);
   font-size: 14px;
 }
 
 .cal-modal-detalle {
-  background-color: #F5F7F8;
+  background-color: var(--bg);
   padding: 16px;
   margin: 20px 0;
-  border: 1px solid #D8E0E2;
+  border: 1px solid var(--border);
   border-radius: 4px;
 }
 
@@ -317,126 +326,80 @@
   padding: 10px 18px;
   min-height: 40px;
   border-radius: 4px;
+  font-family: var(--font-principal);
   font-weight: 600;
   cursor: pointer;
 }
 
 .cal-modal-cancelar {
-  background-color: white;
-  color: #17505C;
-  border: 1px solid #D8E0E2;
+  background-color: var(--surface);
+  color: var(--primary);
+  border: 1px solid var(--border);
 }
 
 .cal-modal-confirmar {
-  background-color: #17505C;
-  color: white;
+  background-color: var(--primary);
+  color: var(--surface);
   border: none;
 }
 
 .cal-modal-confirmar:hover {
-  background-color: #0F3A43;
+  background-color: var(--primary-dark);
 }
 
 .cal-mensaje {
   padding: 12px;
   margin-top: 16px;
   background-color: #E8F4EE;
-  border: 1px solid #1E7F4D;
-  color: #1E7F4D;
+  border: 1px solid var(--success);
+  color: var(--success);
   border-radius: 4px;
 }
 
-/* Disponibilidad de equipos */
-.cal-dia {
+/* PIE DE PÁGINA */
+
+.cal-footer {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  justify-content: space-between;
   gap: 12px;
+  padding: 18px 30px;
+  color: var(--surface);
+  background: var(--primary-dark);
+  font-size: var(--font-auxiliar);
 }
 
-.cal-disponibilidad {
-  display: inline-block;
-  padding: 5px 8px;
-  background-color: #E8F4EE;
-  color: #1E7F4D;
-  border-radius: 4px;
-  font-size: 12px;
-  font-weight: 600;
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+  .cal-distribucion {
+    grid-template-columns: minmax(0, 1fr) 260px;
+  }
+
+  .cal-dia {
+    padding: 8px;
+    min-height: 95px;
+  }
 }
 
-/* Días sin disponibilidad */
-.cal-disponibilidad.cal-sin-cupo {
-  background-color: #FBEDEC;
-  color: #B4322B;
-}
+@media (max-width: 850px) {
+  .cal-distribucion {
+    grid-template-columns: 1fr;
+  }
 
-/* Disponibilidad del rango seleccionado */
-.cal-panel .cal-rango-disponible {
-  padding: 10px;
-  background-color: #E8F4EE;
-  color: #1E7F4D;
-  border-radius: 4px;
-  font-weight: 600;
-}
+  .cal-encabezado {
+    flex-wrap: wrap;
+  }
 
-/* Estados de ocupación */
-.cal-estados {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 5px;
-}
+  .cal-cuadricula,
+  .cal-dias-semana {
+    min-width: 650px;
+  }
 
-.cal-reservadas,
-.cal-prestadas {
-  padding: 4px 7px;
-  border-radius: 4px;
-  font-size: 12px;
-  font-weight: 600;
-}
+  .cal-tarjeta {
+    overflow-x: auto;
+  }
 
-.cal-reservadas {
-  background-color: #FFF3DC;
-  color: #B7791F;
-}
-
-.cal-prestadas {
-  background-color: #E3EEF0;
-  color: #17505C;
-}
-
-.cal-disponibilidad {
-  background-color: #E8F4EE;
-  color: #1E7F4D;
-}
-
-/* Estados de ocupación */
-.cal-estados {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 5px;
-}
-
-.cal-reservadas,
-.cal-prestadas {
-  padding: 4px 7px;
-  border-radius: 4px;
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.cal-reservadas {
-  background-color: #FFF3DC;
-  color: #B7791F;
-}
-
-.cal-prestadas {
-  background-color: #E3EEF0;
-  color: #17505C;
-}
-
-.cal-disponibilidad {
-  background-color: #E8F4EE;
-  color: #1E7F4D;
+  .cal-footer {
+    flex-wrap: wrap;
+  }
 }

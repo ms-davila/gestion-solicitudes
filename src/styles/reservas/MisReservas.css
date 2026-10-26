@@ -1,70 +1,19 @@
-/* Mis reservas */
+
+/* ==========================================
+   HU-6 - MIS RESERVAS
+   ========================================== */
+
 .mis-page {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #F5F7F8;
-  color: #12211F;
-  font-family: 'Barlow', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-principal);
+  font-size: var(--font-cuerpo);
 }
 
-.mis-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 16px 30px;
-  background-color: white;
-  border-bottom: 1px solid #D8E0E2;
-}
-
-.mis-logo,
-.mis-nav,
-.mis-perfil {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.mis-logo-cuadro {
-  width: 28px;
-  height: 28px;
-  background-color: #17505C;
-  border-radius: 4px;
-}
-
-.mis-logo h2 {
-  margin: 0;
-  font-size: 18px;
-  color: #0F3A43;
-}
-
-.mis-nav a {
-  color: #5E7073;
-  text-decoration: none;
-  font-size: 15px;
-}
-
-.mis-nav .mis-activo {
-  color: #17505C;
-  font-weight: 600;
-  text-decoration: underline;
-}
-
-.mis-perfil {
-  font-size: 14px;
-}
-
-.mis-avatar {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #17505C;
-  color: white;
-  border-radius: 4px;
-}
+/* CONTENIDO PRINCIPAL */
 
 .mis-main {
   flex: 1;
@@ -72,6 +21,7 @@
   max-width: 1600px;
   margin: 0 auto;
   padding: 30px 24px;
+  box-sizing: border-box;
 }
 
 .mis-encabezado {
@@ -84,31 +34,43 @@
 
 .mis-encabezado h1 {
   margin: 0 0 6px;
-  color: #0F3A43;
-  font-size: 28px;
+  color: var(--primary-dark);
+  font-size: var(--font-titulo);
+  font-weight: 600;
 }
 
 .mis-encabezado p {
   margin: 0;
-  color: #5E7073;
+  color: var(--text-muted);
 }
 
+/* BOTÓN NUEVA RESERVA */
+
 .mis-nueva {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
   padding: 12px 18px;
-  color: white;
-  background-color: #17505C;
+  color: var(--surface);
+  background-color: var(--primary);
   border-radius: 4px;
   text-decoration: none;
+  font-family: var(--font-principal);
+  font-size: var(--font-cuerpo);
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .mis-nueva:hover {
-  background-color: #0F3A43;
+  background-color: var(--primary-dark);
 }
 
+/* CONTENEDOR DE LA TABLA */
+
 .mis-tarjeta {
-  background-color: white;
-  border: 1px solid #D8E0E2;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 4px;
 }
 
@@ -122,15 +84,26 @@
 .mis-filtros label {
   font-size: 14px;
   font-weight: 600;
+  color: var(--text);
 }
 
 .mis-filtros select {
   height: 40px;
   padding: 0 12px;
-  border: 1px solid #D8E0E2;
+  border: 1px solid var(--border);
   border-radius: 4px;
-  background-color: white;
+  background-color: var(--surface);
+  color: var(--text);
+  font-family: var(--font-principal);
+  font-size: var(--font-cuerpo);
 }
+
+.mis-filtros select:focus-visible {
+  outline: 2px solid var(--info);
+  outline-offset: 2px;
+}
+
+/* TABLA */
 
 .mis-tabla-contenedor {
   overflow-x: auto;
@@ -144,51 +117,60 @@
 
 .mis-tabla th {
   padding: 16px;
-  background-color: #E3EEF0;
-  color: #0F3A43;
-  font-size: 13px;
+  background-color: var(--primary-soft);
+  color: var(--primary-dark);
+  font-size: var(--font-auxiliar);
+  font-weight: 600;
 }
 
 .mis-tabla td {
   padding: 16px;
-  border-top: 1px solid #D8E0E2;
+  border-top: 1px solid var(--border);
   font-size: 14px;
+  color: var(--text);
 }
+
+/* ESTADOS DE RESERVA */
 
 .mis-estado {
   display: inline-block;
   padding: 6px 10px;
   border-radius: 4px;
-  font-size: 12px;
+  font-size: var(--font-etiqueta);
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .mis-confirmada {
   background-color: #E8F4EE;
-  color: #1E7F4D;
+  color: var(--success);
 }
 
 .mis-en-espera {
   background-color: #FFF3DC;
-  color: #B7791F;
+  color: var(--warning);
 }
 
 .mis-completada {
-  background-color: #E3EEF0;
-  color: #17505C;
+  background-color: var(--primary-soft);
+  color: var(--primary);
 }
 
 .mis-cancelada {
   background-color: #FBEDEC;
-  color: #B4322B;
+  color: var(--danger);
 }
 
+/* ACCIONES */
+
 .mis-cancelar {
-  background-color: white;
-  border: 1px solid #B4322B;
-  color: #B4322B;
+  background-color: var(--surface);
+  border: 1px solid var(--danger);
+  color: var(--danger);
   padding: 9px 12px;
   border-radius: 4px;
+  font-family: var(--font-principal);
+  font-weight: 600;
   cursor: pointer;
 }
 
@@ -197,37 +179,17 @@
 }
 
 .mis-sin-accion {
-  color: #5E7073;
+  color: var(--text-muted);
 }
 
 .mis-vacio {
   padding: 40px !important;
   text-align: center;
-  color: #5E7073;
+  color: var(--text-muted);
 }
 
-.mis-footer {
-  display: flex;
-  justify-content: space-between;
-  padding: 18px 30px;
-  background-color: #0F3A43;
-  color: white;
-  font-size: 13px;
-}
+/* MODAL DE CANCELACIÓN */
 
-@media (max-width: 850px) {
-  .mis-header,
-  .mis-encabezado {
-    flex-wrap: wrap;
-  }
-
-  .mis-filtros {
-    flex-wrap: wrap;
-  }
-}
-
-
-/* Modal de cancelación */
 .mis-modal-fondo {
   position: fixed;
   inset: 0;
@@ -242,27 +204,30 @@
   width: 440px;
   max-width: 90%;
   padding: 24px;
-  background-color: white;
+  background-color: var(--surface);
   border-radius: 4px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  font-family: var(--font-principal);
+  color: var(--text);
 }
 
 .mis-modal h2 {
   margin: 0 0 12px;
-  color: #0F3A43;
-  font-size: 22px;
+  color: var(--primary-dark);
+  font-size: var(--font-seccion);
+  font-weight: 600;
 }
 
 .mis-modal > p {
-  color: #5E7073;
+  color: var(--text-muted);
   font-size: 14px;
 }
 
 .mis-modal-detalle {
   margin: 20px 0;
   padding: 16px;
-  background-color: #F5F7F8;
-  border: 1px solid #D8E0E2;
+  background-color: var(--bg);
+  border: 1px solid var(--border);
   border-radius: 4px;
 }
 
@@ -281,20 +246,20 @@
   min-height: 40px;
   padding: 10px 16px;
   border-radius: 4px;
-  font-family: inherit;
+  font-family: var(--font-principal);
   font-weight: 600;
   cursor: pointer;
 }
 
 .mis-modal-volver {
-  background-color: white;
-  color: #17505C;
-  border: 1px solid #D8E0E2;
+  background-color: var(--surface);
+  color: var(--primary);
+  border: 1px solid var(--border);
 }
 
 .mis-modal-confirmar {
-  background-color: #B4322B;
-  color: white;
+  background-color: var(--danger);
+  color: var(--surface);
   border: none;
 }
 
@@ -302,11 +267,45 @@
   background-color: #922620;
 }
 
+/* MENSAJE DE CONFIRMACIÓN */
+
 .mis-mensaje {
   margin-top: 16px;
   padding: 12px;
   background-color: #E8F4EE;
-  border: 1px solid #1E7F4D;
+  border: 1px solid var(--success);
   border-radius: 4px;
-  color: #1E7F4D;
+  color: var(--success);
+}
+
+/* PIE DE PÁGINA */
+
+.mis-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 30px;
+  background-color: var(--primary-dark);
+  color: var(--surface);
+  font-size: var(--font-auxiliar);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+  .mis-encabezado {
+    flex-wrap: wrap;
+  }
+
+  .mis-filtros {
+    flex-wrap: wrap;
+  }
+
+  .mis-tabla {
+    min-width: 700px;
+  }
+
+  .mis-footer {
+    flex-wrap: wrap;
+  }
 }

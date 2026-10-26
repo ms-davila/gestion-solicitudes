@@ -1,19 +1,13 @@
 /* Estilos aislados: solo afectan dentro de .pagina-inventario */
+/* Inventario: tipografías compartidas */
 .pagina-inventario {
-  --primary: #17505C;
-  --primary-dark: #0F3A43;
-  --primary-soft: #E3EEF0;
-  --bg: #F5F7F8;
-  --surface: #FFFFFF;
-  --border: #D8E0E2;
-  --text: #12211F;
-  --text-muted: #5E7073;
-  --success: #1E7F4D;
-  --warning: #B7791F;
-  --info: #3B6FA8;
-  --danger: #B4322B;
-  --fuente: "Barlow", sans-serif;
-  --mono: "Roboto Mono", monospace;
+  font-family: var(--font-principal);
+  color: var(--text);
+  background-color: var(--bg);
+
+  /* Compatibilidad con estilos antiguos */
+  --fuente: var(--font-principal);
+  --mono: var(--font-codigo);
 }
 
 .pagina-inventario *,
@@ -50,12 +44,11 @@
   margin: 0;
 }
 
-.pagina-inventario header {
-  position: relative;
-  height: 72px;
+.pagina-inventario header:not(.header-encargado) {
+  position: sticky;
+  min-height: 72px;
   background: var(--surface);
   border-bottom: 1px solid var(--border);
-  position: sticky ;
   top: 0;
   z-index: 3;
 }
@@ -79,11 +72,16 @@
   color: var(--primary-dark);
 }
 
-.pagina-inventario .buscador {
-  position: absolute;
-  top: 16px;
-  left: 35%;
-  width: 31%;
+.pagina-inventario .header-encargado .buscador {
+  position: relative;
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .pagina-inventario .buscador input {
@@ -133,7 +131,7 @@
   color: var(--primary);
 }
 
-.pagina-inventario nav {
+.pagina-inventario > nav {
   position: fixed;
   top: 72px;
   bottom: 0;

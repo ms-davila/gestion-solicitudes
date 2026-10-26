@@ -1,13 +1,8 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import "../../styles/reservas/ListaEspera.css";
-import NavSuperior from "../NavSuperior.jsx";
-import useIdentidad from "../useIdentidad.js";
-import BotonSalir from "../BotonSalir.jsx";
+import HeaderEstudiante from "../compartidos/HeaderEstudiante.jsx";
 
 function ListaEspera() {
-  const { nombreCorto, iniciales, paginaCuenta } = useIdentidad();
-
   const [reservas] = useState(() => {
     const guardadas = localStorage.getItem("reservasH6");
     return guardadas ? JSON.parse(guardadas) : [];
@@ -41,22 +36,7 @@ function ListaEspera() {
   return (
     <div className="espera-page">
 
-      <header className="espera-header">
-        <div className="espera-logo">
-          <div className="espera-logo-cuadro"></div>
-          <h2>Almacén de Equipos</h2>
-        </div>
-
-        <nav className="espera-nav">
-          <NavSuperior claseActivo="espera-activo" />
-        </nav>
-
-        <div className="espera-perfil">
-          <span>{nombreCorto}</span>
-          <Link to={paginaCuenta} className="espera-avatar">{iniciales}</Link>
-          <BotonSalir />
-        </div>
-      </header>
+      <HeaderEstudiante variante="encargado" />
 
       <main className="espera-main">
 

@@ -1,137 +1,184 @@
-/* Historia 5 — Historial del estudiante (5.4) y aviso de deuda (5.5)
-   Esta hoja SOLO tiene lo propio de esta pantalla.
-   La cabecera, el menú lateral, los botones, las alertas y el pie
-   vienen de devoluciones.css (por eso el HTML carga las dos hojas). */
+/* ==========================================
+   HU-5: USUARIOS - HISTORIAL DEL ESTUDIANTE
+   Complementa Devoluciones.css
+   ========================================== */
 
-/* RUTA: "Usuarios / Estudiantes / ..." */
-.ruta {
+/* RUTA DE NAVEGACIÓN */
+
+.pagina-devoluciones .ruta {
   margin-bottom: 6px;
-  font-size: 13px;
-  color: #5E7073;
+  font-size: var(--font-auxiliar);
+  color: var(--text-muted);
 }
 
-/* ENCABEZADO: nombre a la izquierda y botones a la derecha */
-.fila-encabezado {
+/* ENCABEZADO DEL ESTUDIANTE */
+
+.pagina-devoluciones .fila-encabezado {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 20px;
 }
 
-.datos-estudiante {
-  font-size: 13px;
-  color: #5E7073;
+.pagina-devoluciones .datos-estudiante {
+  font-size: var(--font-auxiliar);
+  color: var(--text-muted);
 }
 
-.botones-encabezado {
+.pagina-devoluciones .botones-encabezado {
   display: flex;
   gap: 10px;
 }
 
-/* botón destructivo (rojo) */
-.boton-destructivo {
-  color: white;
-  background: #B4322B;
-  border: 1px solid #B4322B;
+/* BOTÓN DESTRUCTIVO */
+
+.pagina-devoluciones .boton-destructivo {
+  color: var(--surface);
+  background: var(--danger);
+  border: 1px solid var(--danger);
 }
 
-/* AVISO DE DEUDA: texto oscuro (la alerta roja normal lo pone rojo) */
-.aviso-deuda {
+.pagina-devoluciones .boton-destructivo:hover {
+  background: #922821;
+}
+
+/* AVISO DE DEUDA */
+
+.pagina-devoluciones .aviso-deuda {
   margin-top: 20px;
-  color: #12211F;
+  color: var(--text);
 }
 
 /* TARJETAS DE RESUMEN */
-.usr-tarjetas-resumen {
+
+.pagina-devoluciones .tarjetas-resumen {
   display: flex;
   gap: 20px;
   margin: 20px 0;
 }
 
-.usr-resumen {
+.pagina-devoluciones .resumen {
   flex: 1;
+  min-width: 0;
   padding: 16px;
-  background: white;
-  border: 1px solid #D8E0E2;
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 4px;
 }
 
-.usr-resumen-numero {
+.pagina-devoluciones .resumen-numero {
   display: block;
-  font-size: 28px;
+  font-size: var(--font-titulo);
   font-weight: 600;
+  color: var(--text);
 }
 
-.numero-rojo {
-  color: #B4322B;
+.pagina-devoluciones .numero-rojo {
+  color: var(--danger);
 }
 
-.numero-ambar {
-  color: #B7791F;
+.pagina-devoluciones .numero-ambar {
+  color: var(--warning);
 }
 
-/* "Con deuda": semáforo con color y texto */
-.etiqueta-estado {
+/* ETIQUETA DE DEUDA */
+
+.pagina-devoluciones .etiqueta-estado {
   display: inline-block;
   padding: 4px 10px;
   margin-top: 6px;
-  font-size: 13px;
+  font-size: var(--font-auxiliar);
   font-weight: 600;
-  color: #B4322B;
+  color: var(--danger);
   background: #FBEDEC;
-  border: 1px solid #B4322B;
+  border: 1px solid var(--danger);
   border-radius: 4px;
 }
 
 /* TABLA DEL HISTORIAL */
-.usr-contenedor-tabla {
-  overflow: hidden;
-  background: white;
-  border: 1px solid #D8E0E2;
+
+.pagina-devoluciones .contenedor-tabla {
+  overflow-x: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 4px;
 }
 
-.usr-tabla {
+.pagina-devoluciones .tabla {
   width: 100%;
   border-collapse: collapse;
 }
 
-.usr-tabla th {
+.pagina-devoluciones .tabla th {
   padding: 12px 16px;
   text-align: left;
-  font-size: 12px;
+  font-size: var(--font-etiqueta);
   font-weight: 600;
-  color: #5E7073;
-  background: #F5F7F8;
-  border-bottom: 1px solid #D8E0E2;
+  color: var(--text-muted);
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
 }
 
-.usr-tabla td {
+.pagina-devoluciones .tabla td {
   padding: 14px 16px;
   font-size: 14px;
-  border-bottom: 1px solid #D8E0E2;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
 }
 
-/* la última fila no necesita línea abajo */
-.usr-tabla tr:last-child td {
+.pagina-devoluciones .tabla tr:last-child td {
   border-bottom: none;
 }
 
-/* insignia "3 d" de días de retraso */
-.insignia-roja {
+/* INSIGNIA DE DÍAS DE RETRASO */
+
+.pagina-devoluciones .insignia-roja {
+  display: inline-block;
   padding: 3px 10px;
-  font-size: 12px;
+  font-size: var(--font-etiqueta);
   font-weight: 600;
-  color: white;
-  background: #B4322B;
+  color: var(--surface);
+  background: var(--danger);
   border-radius: 4px;
 }
 
-.texto-rojo {
+/* COLORES DE TEXTOS */
+
+.pagina-devoluciones .texto-rojo {
   font-weight: 600;
-  color: #B4322B;
+  color: var(--danger);
 }
 
-.texto-gris {
-  color: #5E7073;
+.pagina-devoluciones .texto-gris {
+  color: var(--text-muted);
+}
+
+/* ADAPTACIÓN A PANTALLAS MENORES */
+
+@media (max-width: 900px) {
+  .pagina-devoluciones .tarjetas-resumen {
+    flex-wrap: wrap;
+  }
+
+  .pagina-devoluciones .resumen {
+    flex: 1 1 calc(50% - 10px);
+  }
+
+  .pagina-devoluciones .fila-encabezado {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 600px) {
+  .pagina-devoluciones .tarjetas-resumen {
+    flex-direction: column;
+  }
+
+  .pagina-devoluciones .botones-encabezado {
+    flex-wrap: wrap;
+  }
+
+  .pagina-devoluciones .tabla {
+    min-width: 650px;
+  }
 }

@@ -2,9 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/reservas/MisReservas.css";
 import ModalCancelacion from "./ModalCancelacion.jsx";
-import NavSuperior from "../NavSuperior.jsx";
 import useIdentidad from "../useIdentidad.js";
-import BotonSalir from "../BotonSalir.jsx";
+import HeaderEstudiante from "../compartidos/HeaderEstudiante.jsx";
 
 function MisReservas() {
   const { nombreCorto, iniciales, paginaCuenta } = useIdentidad();
@@ -60,22 +59,7 @@ function MisReservas() {
   return (
     <div className="mis-page">
 
-      <header className="mis-header">
-        <div className="mis-logo">
-          <div className="mis-logo-cuadro"></div>
-          <h2>Almacén de Equipos</h2>
-        </div>
-
-        <nav className="mis-nav">
-          <NavSuperior claseActivo="mis-activo" />
-        </nav>
-
-        <div className="mis-perfil">
-          <span>{nombreCorto}</span>
-          <Link to={paginaCuenta} className="mis-avatar">{iniciales}</Link>
-          <BotonSalir />
-        </div>
-      </header>
+      <HeaderEstudiante />
 
       <main className="mis-main">
 

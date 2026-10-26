@@ -1,4 +1,4 @@
-import useIdentidad from './useIdentidad.js';
+import useIdentidad from '../useIdentidad.js';
 
 // Enlace "Salir" discreto para las cabeceras que no tienen uno.
 export default function BotonSalir({ style }) {

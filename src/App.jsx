@@ -1,22 +1,24 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import RutaProtegida from './components/RutaProtegida.jsx';
+import RutaProtegida from './components/compartidos/RutaProtegida.jsx';
 
 import Devoluciones from './components/devoluciones/Devoluciones.jsx';
 import Usuarios from './components/devoluciones/Usuarios.jsx';
 
 import CalendarioPage from './pages/reservas/CalendarioPage.jsx';
 
-import LayoutEncargado from './pages/h4/LayoutEncargado.jsx';
-import BandejaPage from './pages/h4/BandejaPage.jsx';
-import EntregaPage from './pages/h4/EntregaPage.jsx';
-import VigentesPage from './pages/h4/VigentesPage.jsx';
-import ConstanciaPage from './pages/h4/ConstanciaPage.jsx';
+import LayoutEncargado from './pages/aprobacion y entrega/LayoutEncargado.jsx';
+import BandejaPage from './pages/aprobacion y entrega/BandejaPage.jsx';
+import EntregaPage from './pages/aprobacion y entrega/EntregaPage.jsx';
+import ConstanciaPage from './pages/aprobacion y entrega/ConstanciaPage.jsx';
+import VigentesPage from './pages/aprobacion y entrega/VigentesPage.jsx';
+
 import MisReservasPage from './pages/reservas/MisReservasPage.jsx';
 import ListaEsperaPage from './pages/reservas/ListaEsperaPage.jsx';
 import InventarioPage from './pages/inventario/InventarioPage.jsx';
 import CatalogoPage from './pages/catalogo/CatalogoPage.jsx';
 import MisSolicitudesPage from './pages/catalogo/MisSolicitudesPage.jsx';
 import SolicitarProductoPage from './pages/catalogo/SolicitarProductoPage.jsx';
+
 // Cuando conviertas catalogo.html y missolicitudes.html a componentes,
 // descomenta estas líneas (las rutas deben coincidir con ScopeLayout.jsx):
 // import CatalogoPage from './pages/catalogo/CatalogoPage.jsx';

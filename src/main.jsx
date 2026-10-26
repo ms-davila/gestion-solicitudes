@@ -7,7 +7,7 @@ import { UsuarioProvider } from './components/cuenta y registro/context/UsuarioC
 import './index.css'
 
 import App from './App.jsx'
-import ScopeLayout from './components/ScopeLayout.jsx'
+import ScopeLayout from "./components/compartidos/ScopeLayout.jsx";
 
 import InicioPage from './pages/cuenta y registro/InicioPage.jsx'
 import LoginPage from './pages/cuenta y registro/LoginPage.jsx'
@@ -18,7 +18,7 @@ import RecuperarPage from './pages/cuenta y registro/RecuperarPage.jsx'
 import MiCuentaPage from './pages/cuenta y registro/MiCuentaPage.jsx'
 import Error403Page from './pages/cuenta y registro/Error403Page.jsx'
 import Error404Page from './pages/cuenta y registro/Error404Page.jsx'
-import RutaProtegida from './components/RutaProtegida.jsx'
+import RutaProtegida from './components/compartidos/RutaProtegida.jsx'
 
 
 // ScopeLayout envuelve cada pantalla con su clase (pagina-cuenta, pagina-catalogo...).

@@ -1,0 +1,156 @@
+/* CABECERA PRINCIPAL */
+.res-header-global {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  min-height: 72px;
+  padding: 12px 28px;
+  box-sizing: border-box;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-principal);
+  position: relative;
+  z-index: 10;
+}
+
+/* LOGO DEL SISTEMA */
+.res-header-global .res-global-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--primary);
+  font-size: var(--font-seccion);
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.res-global-cuadro {
+  width: 24px;
+  height: 24px;
+  background: var(--primary);
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+/* NAVEGACIÓN SUPERIOR */
+.res-header-global .res-global-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.res-header-global .res-global-nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: var(--font-cuerpo);
+  font-weight: 400;
+  white-space: nowrap;
+  padding: 8px 0;
+  border-bottom: 2px solid transparent;
+}
+
+.res-header-global .res-global-nav a:hover,
+.res-header-global .res-global-nav a.res-global-activo {
+  color: var(--primary);
+  font-weight: 600;
+  border-bottom-color: var(--primary);
+}
+
+/* BUSCADOR */
+.res-header-global .res-global-busqueda {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  width: 280px;
+  min-width: 180px;
+  margin-left: auto;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface);
+  flex-shrink: 1;
+}
+
+.res-header-global .res-global-busqueda span {
+  color: var(--text-muted);
+  font-size: 20px;
+}
+
+.res-header-global .res-global-busqueda input {
+  width: 100%;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-principal);
+  font-size: var(--font-auxiliar);
+  color: var(--text);
+}
+
+.res-header-global .res-global-busqueda input::placeholder {
+  color: var(--text-muted);
+}
+
+/* PERFIL DEL USUARIO */
+.res-header-global .res-global-perfil {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  white-space: nowrap;
+  font-family: var(--font-principal);
+  font-size: var(--font-cuerpo);
+  color: var(--text);
+  flex-shrink: 0;
+}
+
+.res-header-global .res-global-nombre {
+  font-weight: 500;
+}
+
+/* AVATAR */
+.res-header-global .res-global-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--surface);
+  font-family: var(--font-principal);
+  font-size: var(--font-auxiliar);
+  text-decoration: none;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.res-header-global .res-global-avatar:hover {
+  background: var(--primary-dark);
+}
+
+/* ACCESIBILIDAD */
+.res-header-global a:focus-visible,
+.res-header-global input:focus-visible {
+  outline: 2px solid var(--info);
+  outline-offset: 3px;
+}
+
+/* PANTALLAS MÁS ESTRECHAS */
+@media (max-width: 1200px) {
+  .res-header-global {
+    gap: 14px;
+    padding: 12px 20px;
+  }
+
+  .res-header-global .res-global-nav {
+    gap: 12px;
+  }
+
+  .res-header-global .res-global-busqueda {
+    width: 220px;
+    min-width: 150px;
+  }
+}

@@ -1,4 +1,3 @@
-/* Solo reglas realmente globales. Nada de header/main/nav/footer aquí. */
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -14,4 +13,55 @@ body {
 
 #root {
   min-height: 100vh;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap');
+
+
+/* COLORES OFICIALES*/
+:root {
+  --primary: #17505C;
+  --primary-dark: #0F3A43;
+  --primary-soft: #E3EEF0;
+  --accent: #D9A404;
+
+  --bg: #F5F7F8;
+  --surface: #FFFFFF;
+  --border: #D8E0E2;
+
+  --text: #12211F;
+  --text-muted: #5E7073;
+
+  --success: #1E7F4D;
+  --warning: #B7791F;
+  --danger: #B4322B;
+  --info: #3B6FA8;
+}
+
+/* TIPOGRAFÍAS COMPARTIDAS */
+
+:root {
+  --font-principal: 'Barlow', sans-serif;
+  --font-codigo: 'Roboto Mono', monospace;
+
+  --font-titulo: 28px;
+  --font-seccion: 20px;
+  --font-subtitulo: 16px;
+  --font-cuerpo: 15px;
+  --font-auxiliar: 13px;
+  --font-etiqueta: 12px;
+}
+
+body {
+  font-family: var(--font-principal);
+  font-size: var(--font-cuerpo);
+  color: var(--text);
+  background: var(--bg);
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
 }
