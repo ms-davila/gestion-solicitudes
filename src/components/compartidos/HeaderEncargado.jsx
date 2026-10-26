@@ -29,9 +29,7 @@ export default function HeaderEncargado({
           Almacén de Equipos
         </Link>
 
-        <span className="header-encargado__panel">
-          PANEL DEL ENCARGADO
-        </span>
+        
       </div>
 
       <div className="header-encargado__busqueda">

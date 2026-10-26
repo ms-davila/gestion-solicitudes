@@ -1,13 +1,11 @@
 .pagina {
-  /* Colores oficiales definidos en index.css */
-
-  /* Colores secundarios de los estados */
+  
   --success-soft: #E2F2E9;
   --warning-soft: #F8EFD9;
   --danger-soft: #F7E4E2;
   --info-soft: #E3ECF6;
 
-  /* Radio y espaciado */
+  
   --radio: 4px;
 
   --sp-1: 4px;
