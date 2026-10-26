@@ -18,34 +18,6 @@ Aplicación web para la gestión de préstamos de equipos de laboratorio. Incluy
 - CSS
 - React Router
 
-## Instalación y ejecución
-
-1. Clonar el repositorio:
-
-   ```bash
-   git clone https://github.com/ms-davila/gestion-solicitudes.git
-   ```
-
-2. Ingresar a la carpeta del proyecto:
-
-   ```bash
-   cd gestion-solicitudes
-   ```
-
-3. Instalar las dependencias:
-
-   ```bash
-   npm install
-   ```
-
-4. Ejecutar la aplicación:
-
-   ```bash
-   npm run dev
-   ```
-
-5. Abrir la dirección que indique Vite en la terminal.
-
 ## Funcionalidades
 
 - Registro e inicio de sesión.
