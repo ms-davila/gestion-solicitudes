@@ -58,6 +58,7 @@ function SolicitarProducto({ duracionMaxima = 7, productoInicial = null }) {
 
   // Producto recibido por navegación o valor predeterminado
   const producto = location.state?.producto || productoInicial || DEFAULT_PRODUCTO;
+  const reservaOrigen = location.state?.reserva || null;
 
   // Requisito 1: Fechas y duración máxima (Y configurable vía prop o desde JS)
   const [duracionMaximaY, setDuracionMaximaY] = useState(() => {
@@ -85,8 +86,13 @@ function SolicitarProducto({ duracionMaxima = 7, productoInicial = null }) {
     };
   }, [duracionMaximaY]);
 
-  const [fechaInicio, setFechaInicio] = useState("2026-09-16");
-  const [fechaDevolucion, setFechaDevolucion] = useState("2026-09-21");
+  const [fechaInicio, setFechaInicio] = useState(
+    reservaOrigen?.inicio || "2026-09-16"
+  );
+
+  const [fechaDevolucion, setFechaDevolucion] = useState(
+    reservaOrigen?.fin || "2026-09-21"
+  );
 
   // Campos adicionales del formulario
   const [curso, setCurso] = useState(
@@ -125,33 +131,130 @@ function SolicitarProducto({ duracionMaxima = 7, productoInicial = null }) {
   }, [diasX, duracionMaximaY, aceptoCondiciones]);
 
   // Manejo de envío
-  const handleEnviar = (e) => {
+    const handleEnviar = (e) => {
     e.preventDefault();
+
     if (botonBloqueado) return;
 
-    // Crear la nueva solicitud
+    let reservasActuales = [];
+
+    if (reservaOrigen) {
+      try {
+        const datos = JSON.parse(
+          localStorage.getItem("reservasH6") || "[]"
+        );
+
+        reservasActuales = Array.isArray(datos) ? datos : [];
+      } catch {
+        alert("No se pudieron verificar los datos de la reserva.");
+        return;
+      }
+
+      const reservaValida = reservasActuales.find(
+        (reserva) =>
+          reserva.id === reservaOrigen.id &&
+          reserva.estado === "Confirmada" &&
+          !reserva.solicitudId &&
+          reserva.estudianteCorreo ===
+            (sessionStorage.getItem("sesion") ||
+              localStorage.getItem("sesion")) &&
+          reserva.inicio === fechaInicio &&
+          reserva.fin === fechaDevolucion
+      );
+
+      if (!reservaValida) {
+        alert(
+          "Esta reserva ya fue utilizada, fue cancelada o sus datos cambiaron."
+        );
+        return;
+      }
+
+      const [anio, mes, dia] = reservaValida.inicio
+        .split("-")
+        .map(Number);
+
+      const fechaReservaUTC = Date.UTC(anio, mes - 1, dia);
+      const hoy = new Date();
+      const hoyUTC = Date.UTC(
+        hoy.getFullYear(),
+        hoy.getMonth(),
+        hoy.getDate()
+      );
+
+      const diasRestantes = Math.round(
+        (fechaReservaUTC - hoyUTC) / 86400000
+      );
+
+      if (diasRestantes < 0 || diasRestantes > 2) {
+        alert(
+          "Puedes solicitar el préstamo desde 2 días antes del inicio de la reserva."
+        );
+        return;
+      }
+    }
+
+    const idSolicitud = Date.now();
+
     const nuevaSolicitud = {
-      id: Date.now(),
+      id: idSolicitud,
       nombreEquipo: `${producto.nombre} ${producto.modelo || ""}`.trim(),
       curso: curso.split(" - ")[0] || curso,
       fechas: `${formatearFechaLegible(fechaInicio)} → ${formatearFechaLegible(fechaDevolucion)}`,
       unidadAsignada: "Pendiente de asignar",
       estado: "enviada",
-      accion: "retirar solicitud"
+      accion: "retirar solicitud",
+      reservaId: reservaOrigen?.id || null,
+      estudianteCorreo:
+        sessionStorage.getItem("sesion") ||
+        localStorage.getItem("sesion") ||
+        null,
     };
 
-    // Guardar en localStorage para MisSolicitudes
     try {
-      const guardadas = JSON.parse(localStorage.getItem("solicitudes_catalogo") || "null");
-      const listaActual = guardadas || [];
-      localStorage.setItem("solicitudes_catalogo", JSON.stringify([nuevaSolicitud, ...listaActual]));
-    } catch (err) {
-      console.error("Error al guardar solicitud:", err);
-    }
+      const datos = JSON.parse(
+        localStorage.getItem("solicitudes_catalogo") || "[]"
+      );
 
-    alert("¡Solicitud de préstamo enviada exitosamente!");
-    navigate("/missolicitudes");
+      const solicitudesActuales = Array.isArray(datos)
+        ? datos
+        : [];
+
+      if (
+        reservaOrigen &&
+        solicitudesActuales.some(
+          (solicitud) => solicitud.reservaId === reservaOrigen.id
+        )
+      ) {
+        alert("Ya existe una solicitud para esta reserva.");
+        return;
+      }
+
+      localStorage.setItem(
+        "solicitudes_catalogo",
+        JSON.stringify([nuevaSolicitud, ...solicitudesActuales])
+      );
+
+      if (reservaOrigen) {
+        const nuevasReservas = reservasActuales.map((reserva) =>
+          reserva.id === reservaOrigen.id
+            ? { ...reserva, solicitudId: idSolicitud }
+            : reserva
+        );
+
+        localStorage.setItem(
+          "reservasH6",
+          JSON.stringify(nuevasReservas)
+        );
+      }
+
+      alert("¡Solicitud de préstamo enviada exitosamente!");
+      navigate("/missolicitudes");
+    } catch (error) {
+      console.error("Error al registrar la solicitud:", error);
+      alert("No se pudo registrar la solicitud.");
+    }
   };
+
 
   const fechaDevolucionTexto = formatearFechaLegible(fechaDevolucion) || "XX/YY/ZZZZ";
 

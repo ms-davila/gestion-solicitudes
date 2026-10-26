@@ -1,5 +1,11 @@
-function ModalReserva({ equipo, fechaInicio, fechaFin, cerrar, confirmar }) {
-
+function ModalReserva({
+  equipo,
+  estudiante,
+  fechaInicio,
+  fechaFin,
+  cerrar,
+  confirmar,
+}) {
   function formatearFecha(fecha) {
     return fecha.toLocaleDateString("es-PE");
   }
@@ -7,20 +13,38 @@ function ModalReserva({ equipo, fechaInicio, fechaFin, cerrar, confirmar }) {
   return (
     <div className="cal-modal-fondo">
       <div className="cal-modal">
-
         <div className="cal-modal-titulo">
           <h2>Confirmar reserva</h2>
-          <button type="button" onClick={cerrar}>×</button>
+          <button
+            type="button"
+            onClick={cerrar}
+            aria-label="Cerrar"
+          >
+            ×
+          </button>
         </div>
 
         <p>Revisa los datos antes de confirmar tu reserva.</p>
 
         <div className="cal-modal-detalle">
-          <p><strong>Estudiante:</strong> Natalia Rebatta</p>
-          <p><strong>Equipo:</strong> {equipo.nombre}</p>
-          <p><strong>Fecha de inicio:</strong> {formatearFecha(fechaInicio)}</p>
-          <p><strong>Fecha de fin:</strong> {formatearFecha(fechaFin)}</p>
-          <p><strong>Unidades solicitadas:</strong> 1</p>
+          <p>
+            <strong>Estudiante:</strong>{" "}
+            {estudiante || "Sin sesión"}
+          </p>
+          <p>
+            <strong>Equipo:</strong> {equipo.nombre}
+          </p>
+          <p>
+            <strong>Fecha de inicio:</strong>{" "}
+            {formatearFecha(fechaInicio)}
+          </p>
+          <p>
+            <strong>Fecha de fin:</strong>{" "}
+            {formatearFecha(fechaFin)}
+          </p>
+          <p>
+            <strong>Unidades solicitadas:</strong> 1
+          </p>
         </div>
 
         <div className="cal-modal-botones">
@@ -40,7 +64,6 @@ function ModalReserva({ equipo, fechaInicio, fechaFin, cerrar, confirmar }) {
             Confirmar reserva
           </button>
         </div>
-
       </div>
     </div>
   );
