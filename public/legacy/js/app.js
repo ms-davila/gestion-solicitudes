@@ -3,6 +3,20 @@ const esc = (t) => String(t == null ? '' : t).replace(/[&<>"']/g, (c) => ({ '&':
 
 let db = Almacen.cargar();
 
+// Incorpora a la base guardada los equipos nuevos de data.js (sin borrar nada).
+// db.demoIds recuerda cuáles equipos de demo ya se agregaron, así uno que
+// elimines a mano no vuelve a aparecer.
+(function completarDemo() {
+  const demo = crearDemo();
+  if (!db.demoIds) db.demoIds = db.equipos.map((e) => e.id);
+  demo.equipos.forEach((e) => {
+    if (db.demoIds.includes(e.id)) return;
+    db.equipos.push(e);
+    demo.unidades.filter((u) => u.equipoId === e.id).forEach((u) => db.unidades.push(u));
+    db.demoIds.push(e.id);
+  });
+  Almacen.guardar(db);
+})();
 let vista = { tipo: 'inventario' };
 let filtros = { categoria: '', estado: '', codigo: '' };
 let pagina = 1;
@@ -20,42 +34,26 @@ function aviso(texto, tipo) {
 }
 
 const etiqueta = (estado) => `<span class="etiqueta et-${estado}">${ESTADOS[estado]}</span>`;
-
-
-const foto = (e) => {
+const urlFoto = (e) => {
+  if (e.foto) return e.foto;
   const nombre = (e.nombre || '').toLowerCase();
-
-  let imagen = '/imagenes/analisador.webp';
-
-  if (nombre.includes('osciloscopio')) {
-    imagen = '/imagenes/osciloscopio.webp';
-  } else if (nombre.includes('multímetro')) {
-    imagen = '/imagenes/multimetro.webp';
-  } else if (nombre.includes('cámara')) {
-    imagen = '/imagenes/camara.avif';
-  } else if (nombre.includes('arduino') || nombre.includes('kit')) {
-    imagen = '/imagenes/arduino.jpg';
-  } else if (nombre.includes('generador')) {
-    imagen = '/imagenes/analisador.webp';
-  } else if (nombre.includes('fuente')) {
-    imagen = '/imagenes/fuente.jpg';
-  } else if (nombre.includes('profesional')) {
-    imagen = '/imagenes/tripode.webp';
-  } else if (nombre.includes('gráfica')) {
-    imagen = '/imagenes/tableta.webp';
-  } else if (nombre.includes('5420')) {
-    imagen = '/imagenes/laptop.webp';
-  } else if (nombre.includes('epson')) {
-    imagen = '/imagenes/proyector.jpg';
-  }
-
-  return `<img
-    class="foto"
-    src="${imagen}"
-    alt="${esc(e.nombre || 'Equipo')}"
-    onerror="this.onerror=null;this.src='/imagenes/analisador.png'"
-  >`;
+  const reglas = [
+    ['osciloscopio', '/imagenes/osciloscopio.webp'],
+    ['multímetro', '/imagenes/multimetro.webp'],
+    ['cámara', '/imagenes/camara.avif'],
+    ['arduino', '/imagenes/arduino.jpg'],
+    ['kit', '/imagenes/arduino.jpg'],
+    ['fuente', '/imagenes/fuente.jpg'],
+    ['profesional', '/imagenes/tripode.webp'],
+    ['gráfica', '/imagenes/tableta.webp'],
+    ['5420', '/imagenes/laptop.webp'],
+    ['epson', '/imagenes/proyector.jpg'],
+  ];
+  const r = reglas.find(([palabra]) => nombre.includes(palabra));
+  return r ? r[1] : '/imagenes/analisador.webp';
 };
+
+const foto = (e) => `<img class="foto" src="${esc(urlFoto(e))}" alt="${esc(e.nombre || 'Equipo')}" onerror="this.onerror=null;this.src='/imagenes/analisador.webp'">`;
 
 function textoResumen(r) {
   const p = [];
@@ -145,7 +143,7 @@ function vDetalle() {
     .map(([k, t]) => `<a href="#" class="${tab === k ? 'activa' : ''}" data-accion="tab" data-tab="${k}">${t}</a>`).join('');
   const cuerpo = tab === 'unidades' ? tUnidades(us) : tab === 'condiciones' ? tCondiciones(e) : tHistorial(e);
   return `<p class="migas"><a href="#" data-accion="inventario">Inventario</a> / ${esc(e.categoria)} / ${esc(e.nombre)}</p>
-    <div class="ficha"><div class="ficha-foto">${e.foto ? `<img src="${esc(e.foto)}" alt="">` : ''}</div>
+    <div class="ficha"><div class="ficha-foto"><img src="${esc(urlFoto(e))}" alt="${esc(e.nombre)}" onerror="this.onerror=null;this.src='/imagenes/analisador.webp'"></div>
       <div class="ficha-texto"><h1>${esc(e.nombre)}</h1><p class="subtitulo">${esc(e.marca)} · ${esc(e.modelo)} · ${us.length} unidades registradas · Almacén H-102</p></div>
       <div class="ficha-botones"><a class="boton-sec" href="#" data-accion="editar" data-id="${e.id}">Editar equipo</a><a class="boton-pri" href="#" data-accion="nueva-unidad">Nueva unidad</a></div></div>
     <div class="pestanas">${tabs}</div>${cuerpo}`;
