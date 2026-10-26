@@ -1,0 +1,331 @@
+.header-encargado {
+  display: grid;
+  grid-template-columns:
+    max-content
+    minmax(180px, 1fr)
+    max-content
+    max-content;
+  align-items: center;
+  column-gap: 24px;
+
+  width: 100%;
+  min-width: 0;
+  min-height: 72px;
+  padding: 12px 28px;
+  margin: 0;
+
+  position: relative;
+  z-index: 10;
+
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  font-family: var(--font-principal);
+  box-sizing: border-box;
+}
+
+.header-encargado *,
+.header-encargado *::before,
+.header-encargado *::after {
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   LOGO Y NOMBRE
+   ========================================== */
+
+.header-encargado .header-encargado__marca {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  margin: 0;
+}
+
+.header-encargado .header-encargado__logo {
+  display: block;
+  position: static;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  background-color: var(--primary-dark);
+  border-radius: 4px;
+}
+
+.header-encargado a.header-encargado__nombre {
+  color: var(--primary-dark);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 24px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.header-encargado .header-encargado__panel {
+  padding: 5px 9px;
+  background-color: #F8EFD9;
+  border: 1px solid var(--warning);
+  border-radius: 4px;
+  color: var(--warning);
+  font-size: var(--font-etiqueta);
+  font-weight: 600;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+/* ==========================================
+   BUSCADOR
+   ========================================== */
+
+.header-encargado .header-encargado__busqueda {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-width: 0;
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/*
+  Esta regla también corrige el formulario
+  .buscador antiguo de Inventario.
+*/
+
+.header-encargado .header-encargado__busqueda form,
+.pagina-inventario .header-encargado
+.header-encargado__busqueda form.buscador {
+  display: block;
+  position: relative;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  left: auto;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  height: auto;
+
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+/* INPUT COMPARTIDO */
+
+.header-encargado .header-encargado__busqueda input,
+.pagina-inventario .header-encargado
+.header-encargado__busqueda form.buscador input {
+  display: block;
+  position: static;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  height: 40px;
+
+  margin: 0;
+  padding: 0 12px;
+
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+
+  color: var(--text);
+  font-family: var(--font-codigo);
+  font-size: var(--font-auxiliar);
+  font-weight: 400;
+  line-height: normal;
+}
+
+.header-encargado .header-encargado__busqueda input:focus {
+  outline: 2px solid var(--primary-soft);
+  border-color: var(--primary);
+}
+
+/* SUGERENCIAS DEL BUSCADOR DE INVENTARIO */
+
+.header-encargado .header-encargado__busqueda .sugerencias {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+
+  width: 100%;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  z-index: 30;
+}
+
+.header-encargado .header-encargado__busqueda .sugerencias[hidden] {
+  display: none;
+}
+
+/* ==========================================
+   SOLICITUDES PENDIENTES
+   ========================================== */
+
+.header-encargado a.header-encargado__pendientes {
+  display: inline-flex;
+  position: static;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  min-height: 40px;
+  width: auto;
+  margin: 0;
+  padding: 6px 12px;
+
+  background-color: var(--primary-soft);
+  border-radius: 4px;
+
+  color: var(--primary);
+  font-size: var(--font-auxiliar);
+  font-weight: 400;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.header-encargado .header-encargado__contador {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 24px;
+  height: 24px;
+  padding: 0 6px;
+
+  background-color: var(--primary-dark);
+  border-radius: 4px;
+
+  color: var(--surface);
+  font-family: var(--font-codigo);
+  font-size: var(--font-auxiliar);
+  font-weight: 600;
+}
+
+/* ==========================================
+   PERFIL DEL ENCARGADO
+   ========================================== */
+
+.header-encargado .header-encargado__usuario {
+  display: flex;
+  position: static;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+
+  width: auto;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.header-encargado .header-encargado__usuario-nombre {
+  color: var(--primary-dark);
+  font-size: var(--font-auxiliar);
+  font-weight: 600;
+}
+
+.header-encargado .header-encargado__avatar {
+  display: inline-flex;
+  position: static;
+  justify-content: center;
+  align-items: center;
+
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+
+  background-color: var(--primary-dark);
+  border-radius: 50%;
+
+  color: var(--surface);
+  font-size: var(--font-auxiliar);
+  font-weight: 600;
+}
+
+.header-encargado .header-encargado__usuario a,
+.header-encargado .header-encargado__usuario button {
+  font-family: var(--font-principal);
+  font-size: var(--font-auxiliar);
+}
+
+/* ACCESIBILIDAD */
+
+.header-encargado a:focus-visible,
+.header-encargado button:focus-visible {
+  outline: 2px solid var(--info);
+  outline-offset: 3px;
+}
+
+/* ==========================================
+   PANTALLAS MEDIANAS
+   ========================================== */
+
+@media (max-width: 1450px) {
+  .header-encargado {
+    column-gap: 14px;
+    padding: 12px 20px;
+  }
+
+  .header-encargado .header-encargado__marca {
+    gap: 8px;
+  }
+
+  .header-encargado a.header-encargado__nombre {
+    font-size: 18px;
+  }
+}
+
+/* PANTALLAS ESTRECHAS */
+
+@media (max-width: 1150px) {
+  .header-encargado {
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    row-gap: 12px;
+  }
+
+  .header-encargado .header-encargado__busqueda {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    max-width: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .header-encargado {
+    grid-template-columns: 1fr auto;
+  }
+
+  .header-encargado .header-encargado__marca {
+    flex-wrap: wrap;
+  }
+
+  .header-encargado .header-encargado__pendientes {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    justify-self: start;
+  }
+
+  .header-encargado .header-encargado__usuario {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .header-encargado .header-encargado__usuario-nombre {
+    display: none;
+  }
+}
+
+/* Botón Salir: mismo aspecto en todas las historias */
+.header-encargado .header-encargado__usuario a {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

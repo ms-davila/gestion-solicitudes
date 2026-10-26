@@ -1,16 +1,89 @@
-# React + Vite
+# Almacén de Equipos
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Tema 7 — Préstamos de equipos
 
-Currently, two official plugins are available:
+**Curso:** Programación Web  
+**Sección:** 652  
+**Docente:** Juan Carlos Eduardo Romaina Acevedo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Descripción
 
-## React Compiler
+Aplicación web para la gestión de préstamos de equipos de laboratorio. Incluye interfaces para estudiantes y encargados de almacén.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tecnologías utilizadas
 
-## Expanding the ESLint configuration
+- React
+- Vite
+- JavaScript
+- CSS
+- React Router
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Instalación y ejecución
+
+1. Clonar el repositorio:
+
+   ```bash
+   git clone https://github.com/ms-davila/gestion-solicitudes.git
+   ```
+
+2. Ingresar a la carpeta del proyecto:
+
+   ```bash
+   cd gestion-solicitudes
+   ```
+
+3. Instalar las dependencias:
+
+   ```bash
+   npm install
+   ```
+
+4. Ejecutar la aplicación:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Abrir la dirección que indique Vite en la terminal.
+
+## Funcionalidades
+
+- Registro e inicio de sesión.
+- Catálogo de equipos y solicitudes.
+- Gestión de inventario.
+- Aprobación y entrega de equipos.
+- Devoluciones y consulta de usuarios.
+- Reservas y lista de espera.
+
+## Estructura del proyecto
+
+```text
+public/
+src/
+├── assets/
+├── components/
+│   ├── aprobacion y entrega/
+│   ├── catalogo/
+│   ├── compartidos/
+│   ├── cuenta y registro/
+│   ├── devoluciones/
+│   ├── inventario/
+│   └── reservas/
+├── pages/
+├── styles/
+├── App.jsx
+├── index.css
+├── main.jsx
+└── rutas.js
+```
+
+## Integrantes
+
+| Apellidos y nombres | Código |
+|---|---|
+| Valeria Noemi Carpio Palacios | 20244899 |
+| Mia Sunmy Davila Felix | 20246279 |
+| Alonso Gabriel Canales Cardenas | 20240611 |
+| Arteaga Hanco Mayte Fernanda | 20240267 |
+| Gomez Carner Jimena Alexandra | Pendiente |
+| Yamile Natalia Rebatta Campos | 20245828 |

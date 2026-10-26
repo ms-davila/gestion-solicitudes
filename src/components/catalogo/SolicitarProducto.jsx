@@ -2,7 +2,7 @@ import { useState, useMemo, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "../../styles/catalogo/solicitarproducto.css";
 import useIdentidad from "../useIdentidad.js";
-import BotonSalir from "../BotonSalir.jsx";
+import BotonSalir from "../compartidos/BotonSalir.jsx";
 
 // =============================================================================
 // UTILIDADES PARA CÁLCULO DE FECHAS

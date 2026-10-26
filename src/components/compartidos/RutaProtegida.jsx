@@ -1,5 +1,5 @@
 import { Navigate, Outlet } from 'react-router-dom';
-import { useUsuario } from './cuenta y registro/context/UsuarioContext.jsx';
+import { useUsuario } from '../cuenta y registro/context/UsuarioContext.jsx';
 
 // Protege un grupo de rutas según el rol de la sesión.
 //   <Route element={<RutaProtegida roles={['encargado']} />}> ...rutas... </Route>

@@ -1,6 +1,6 @@
-import { Link, useLocation } from 'react-router-dom';
-import { menuSuperior } from '../rutas.js';
-import useIdentidad from './useIdentidad.js';
+import { Link, useLocation } from "react-router-dom";
+import { menuSuperior } from "../../rutas.js";
+import useIdentidad from "../useIdentidad.js";
 
 // Enlaces del menú superior según el rol (estudiante / encargado / visitante).
 // Se usa dentro del <nav> propio de cada pantalla para no tocar sus estilos.

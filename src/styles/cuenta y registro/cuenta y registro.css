@@ -1,50 +1,46 @@
-/* Estilos aislados: solo afectan dentro de .pagina-cuenta */
-.pagina-cuenta {
-  --primario: #17505C;
-  --primario-oscuro: #0F3A43;
-  --suave: #E3EEF0;
-  --borde: #D8E0E2;
-  --gris: #5E7073;
-  --rojo: #B4322B;
-  --verde: #1E7F4D;
-  --amarillo: #B7791F;
-}
 
-.pagina-cuenta * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* ==========================================
+   CUENTA Y REGISTRO - HU1
+   Colores y tipografías compartidos
+   ========================================== */
 
-.pagina-cuenta {
-  background-color: white;
-  color: #12211F;
-  font-family: 'Barlow', sans-serif;
-  font-size: 15px;
-}
+/* CONTENEDOR PRINCIPAL */
 
 .pagina-cuenta {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-principal);
+  font-size: var(--font-cuerpo);
+}
+
+.pagina-cuenta * {
+  box-sizing: border-box;
 }
 
 .pagina-cuenta a {
-  color: var(--primario);
+  color: var(--primary);
 }
 
 .pagina-cuenta .codigo {
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--font-codigo);
 }
 
-.pagina-cuenta header {
+/* ==========================================
+   CABECERA ORIGINAL
+   No afecta al HeaderEstudiante compartido
+   ========================================== */
+
+.pagina-cuenta header:not(.res-header-global) {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 64px;
   padding: 0 20px;
-  background-color: white;
-  border-bottom: 1px solid var(--borde);
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
 }
 
 .pagina-cuenta .cabecera-izquierda {
@@ -63,14 +59,14 @@
 .pagina-cuenta .logo {
   width: 24px;
   height: 24px;
-  background-color: var(--primario);
+  background-color: var(--primary);
   border-radius: 4px;
 }
 
 .pagina-cuenta .nombre-sistema {
   font-size: 18px;
   font-weight: 600;
-  color: var(--primario-oscuro);
+  color: var(--primary-dark);
 }
 
 .pagina-cuenta nav ul {
@@ -83,12 +79,12 @@
 }
 
 .pagina-cuenta nav ul li a {
-  color: #12211F;
+  color: var(--text);
   text-decoration: none;
 }
 
 .pagina-cuenta nav ul li a:hover {
-  color: var(--primario);
+  color: var(--primary);
   text-decoration: underline;
 }
 
@@ -104,11 +100,15 @@
   line-height: 36px;
   text-align: center;
   font-weight: 600;
-  color: white;
-  background-color: var(--primario);
+  color: var(--surface);
+  background-color: var(--primary);
   border-radius: 4px;
   text-decoration: none;
 }
+
+/* ==========================================
+   CONTENIDO PRINCIPAL
+   ========================================== */
 
 .pagina-cuenta main {
   flex: 1;
@@ -123,29 +123,36 @@
 }
 
 .pagina-cuenta h1 {
-  font-size: 26px;
-  color: var(--primario-oscuro);
+  font-size: var(--font-titulo);
+  font-weight: 600;
+  color: var(--primary-dark);
 }
 
 .pagina-cuenta h2 {
-  font-size: 20px;
+  font-size: var(--font-seccion);
+  font-weight: 600;
+  color: var(--text);
 }
 
 .pagina-cuenta .texto-ayuda {
   margin-bottom: 20px;
-  font-size: 13px;
-  color: var(--gris);
+  font-size: var(--font-auxiliar);
+  color: var(--text-muted);
 }
 
 .pagina-cuenta .texto-centro {
   text-align: center;
 }
 
+/* ==========================================
+   TARJETAS
+   ========================================== */
+
 .pagina-cuenta .tarjeta {
   padding: 20px;
   margin-bottom: 20px;
-  background-color: white;
-  border: 1px solid var(--borde);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 4px;
 }
 
@@ -155,24 +162,28 @@
   margin-right: auto;
 }
 
+/* ==========================================
+   FORMULARIOS
+   ========================================== */
+
 .pagina-cuenta .etiqueta-campo {
   display: block;
-  font-size: 12px;
+  font-size: var(--font-etiqueta);
   font-weight: 600;
-  color: var(--gris);
+  color: var(--text-muted);
 }
 
 .pagina-cuenta .subtitulo-seccion {
   display: block;
   margin-top: 15px;
-  font-size: 12px;
+  font-size: var(--font-etiqueta);
   font-weight: 600;
-  color: var(--gris);
+  color: var(--text-muted);
 }
 
 .pagina-cuenta hr {
   border: none;
-  border-top: 1px solid var(--borde);
+  border-top: 1px solid var(--border);
   margin: 8px 0;
 }
 
@@ -184,35 +195,44 @@
   width: 100%;
   margin-top: 5px;
   padding: 8px 12px;
-  font-family: 'Barlow', sans-serif;
-  font-size: 15px;
-  border: 1px solid var(--borde);
+  font-family: var(--font-principal);
+  font-size: var(--font-cuerpo);
+  color: var(--text);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 4px;
 }
 
+.pagina-cuenta .campo:focus {
+  outline: 2px solid var(--primary-soft);
+  border-color: var(--primary);
+}
+
 .pagina-cuenta .campo-error {
-  border-color: var(--rojo);
+  border-color: var(--danger);
 }
 
 .pagina-cuenta .campo-deshabilitado {
-  color: var(--gris);
-  background-color: #F5F7F8;
+  color: var(--text-muted);
+  background-color: var(--bg);
 }
 
 .pagina-cuenta .ayuda-campo {
   display: block;
   margin-top: 4px;
-  font-size: 13px;
-  color: var(--gris);
+  font-size: var(--font-auxiliar);
+  color: var(--text-muted);
 }
 
 .pagina-cuenta .ayuda-error {
   display: block;
   margin-top: 4px;
-  font-size: 13px;
+  font-size: var(--font-auxiliar);
   font-weight: 600;
-  color: var(--rojo);
+  color: var(--danger);
 }
+
+/* FILAS DE FORMULARIO */
 
 .pagina-cuenta .fila-dos {
   display: flex;
@@ -221,6 +241,7 @@
 
 .pagina-cuenta .fila-dos > div {
   flex: 1;
+  min-width: 0;
 }
 
 .pagina-cuenta .fila-enlaces {
@@ -238,14 +259,18 @@
   font-size: 14px;
 }
 
+/* ==========================================
+   BOTONES
+   ========================================== */
+
 .pagina-cuenta .boton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 40px;
+  min-height: 40px;
   padding: 0 20px;
-  font-family: 'Barlow', sans-serif;
-  font-size: 15px;
+  font-family: var(--font-principal);
+  font-size: var(--font-cuerpo);
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
@@ -253,29 +278,29 @@
 }
 
 .pagina-cuenta .boton-primario {
-  color: white;
-  background-color: var(--primario);
-  border: 1px solid var(--primario);
+  color: var(--surface);
+  background-color: var(--primary);
+  border: 1px solid var(--primary);
 }
 
 .pagina-cuenta .boton-primario:hover {
-  background-color: var(--primario-oscuro);
+  background-color: var(--primary-dark);
 }
 
 .pagina-cuenta .boton-secundario {
-  color: var(--primario);
-  background-color: white;
-  border: 1px solid var(--primario);
+  color: var(--primary);
+  background-color: var(--surface);
+  border: 1px solid var(--primary);
 }
 
 .pagina-cuenta .boton-secundario:hover {
-  background-color: var(--suave);
+  background-color: var(--primary-soft);
 }
 
 .pagina-cuenta .boton:disabled {
-  color: var(--gris);
-  background-color: var(--suave);
-  border: 1px solid var(--borde);
+  color: var(--text-muted);
+  background-color: var(--primary-soft);
+  border: 1px solid var(--border);
   cursor: not-allowed;
 }
 
@@ -291,6 +316,10 @@
   margin-top: 15px;
 }
 
+/* ==========================================
+   MENSAJES Y ALERTAS
+   ========================================== */
+
 .pagina-cuenta .alerta {
   margin-top: 15px;
   padding: 12px 15px;
@@ -299,22 +328,26 @@
 }
 
 .pagina-cuenta .alerta-roja {
-  color: var(--rojo);
+  color: var(--danger);
   background-color: #FBEDEC;
-  border: 1px solid var(--rojo);
+  border: 1px solid var(--danger);
 }
 
 .pagina-cuenta .alerta-verde {
-  color: var(--verde);
+  color: var(--success);
   background-color: #E8F5EE;
-  border: 1px solid var(--verde);
+  border: 1px solid var(--success);
 }
 
 .pagina-cuenta .alerta-amarilla {
-  color: var(--amarillo);
+  color: var(--warning);
   background-color: #FDF6E3;
-  border: 1px solid #D9A404;
+  border: 1px solid var(--accent);
 }
+
+/* ==========================================
+   SECCIÓN PRINCIPAL / HERO
+   ========================================== */
 
 .pagina-cuenta .hero {
   display: flex;
@@ -322,8 +355,8 @@
   align-items: center;
   gap: 30px;
   padding: 40px 60px;
-  background-color: var(--suave);
-  border-bottom: 1px solid var(--borde);
+  background-color: var(--primary-soft);
+  border-bottom: 1px solid var(--border);
 }
 
 .pagina-cuenta .hero-texto {
@@ -332,23 +365,27 @@
 
 .pagina-cuenta .hero-texto h1 {
   margin-bottom: 10px;
-  font-size: 28px;
+  font-size: var(--font-titulo);
 }
+
+/* ==========================================
+   IMÁGENES
+   ========================================== */
 
 .pagina-cuenta .foto {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 13px;
-  color: var(--gris);
-  background-color: var(--borde);
+  font-size: var(--font-auxiliar);
+  color: var(--text-muted);
+  background-color: var(--border);
   border-radius: 4px;
 }
 
 .pagina-cuenta .foto-hero {
   width: 520px;
   height: 300px;
-  object-fit: cover;     
+  object-fit: cover;
   border-radius: 4px;
   flex-shrink: 0;
 }
@@ -356,11 +393,15 @@
 .pagina-cuenta .foto-equipo {
   display: block;
   width: 100%;
-  aspect-ratio: 1 / 1;  
-  object-fit: cover;     
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
   margin-bottom: 10px;
   border-radius: 4px;
 }
+
+/* ==========================================
+   BÚSQUEDA Y EQUIPOS
+   ========================================== */
 
 .pagina-cuenta .fila-buscar {
   display: flex;
@@ -383,7 +424,8 @@
 .pagina-cuenta .lista-pasos article {
   flex: 1;
   padding: 20px;
-  border: 1px solid var(--borde);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 4px;
 }
 
@@ -393,29 +435,34 @@
 
 .pagina-cuenta .nombre-equipo {
   font-weight: 600;
+  color: var(--text);
 }
 
 .pagina-cuenta .marca-equipo {
-  font-size: 13px;
-  color: var(--gris);
+  font-size: var(--font-auxiliar);
+  color: var(--text-muted);
 }
 
 .pagina-cuenta .libres {
   display: inline-block;
   margin-top: 6px;
-  font-size: 13px;
+  font-size: var(--font-auxiliar);
   font-weight: 600;
-  color: var(--verde);
+  color: var(--success);
 }
 
 .pagina-cuenta .libres-cero {
-  color: var(--rojo);
+  color: var(--danger);
 }
 
 .pagina-cuenta .numero-paso {
   font-weight: 600;
-  color: var(--primario);
+  color: var(--primary);
 }
+
+/* ==========================================
+   SELECCIÓN DE TIPO DE CUENTA
+   ========================================== */
 
 .pagina-cuenta .opcion-cuenta {
   display: flex;
@@ -423,14 +470,18 @@
   gap: 10px;
   margin-top: 15px;
   padding: 15px;
-  border: 1px solid var(--borde);
+  border: 1px solid var(--border);
   border-radius: 4px;
   cursor: pointer;
 }
 
 .pagina-cuenta .opcion-cuenta:hover {
-  background-color: var(--suave);
+  background-color: var(--primary-soft);
 }
+
+/* ==========================================
+   PASOS DE REGISTRO
+   ========================================== */
 
 .pagina-cuenta .pasos {
   display: flex;
@@ -445,17 +496,21 @@
   line-height: 26px;
   text-align: center;
   font-weight: 600;
-  color: var(--gris);
-  background-color: white;
-  border: 1px solid var(--borde);
+  color: var(--text-muted);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 4px;
 }
 
 .pagina-cuenta .paso-activo {
-  color: white;
-  background-color: var(--primario);
-  border-color: var(--primario);
+  color: var(--surface);
+  background-color: var(--primary);
+  border-color: var(--primary);
 }
+
+/* ==========================================
+   RESUMEN DE CUENTA
+   ========================================== */
 
 .pagina-cuenta .resumen {
   display: flex;
@@ -467,33 +522,81 @@
   flex: 1;
   padding: 12px;
   text-align: center;
-  background-color: #F5F7F8;
-  border: 1px solid var(--borde);
+  background-color: var(--bg);
+  border: 1px solid var(--border);
   border-radius: 4px;
 }
 
 .pagina-cuenta .resumen b {
   display: block;
   font-size: 22px;
-  color: var(--primario-oscuro);
+  color: var(--primary-dark);
 }
 
 .pagina-cuenta .error-grande {
   font-size: 48px;
   font-weight: 600;
-  color: var(--rojo);
+  color: var(--danger);
 }
+
+/* ==========================================
+   PIE DE PÁGINA
+   ========================================== */
 
 .pagina-cuenta footer {
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  font-size: 13px;
-  color: white;
-  background-color: var(--primario-oscuro);
+  font-size: var(--font-auxiliar);
+  color: var(--surface);
+  background-color: var(--primary-dark);
 }
 
 .pagina-cuenta footer a {
   margin-left: 15px;
-  color: white;
+  color: var(--surface);
+}
+
+/* ==========================================
+   ADAPTACIÓN A PANTALLAS PEQUEÑAS
+   ========================================== */
+
+@media (max-width: 900px) {
+  .pagina-cuenta .hero {
+    flex-direction: column;
+    padding: 30px 20px;
+  }
+
+  .pagina-cuenta .foto-hero {
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .pagina-cuenta .lista-equipos,
+  .pagina-cuenta .lista-pasos {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 600px) {
+  .pagina-cuenta .fila-dos,
+  .pagina-cuenta .resumen {
+    flex-direction: column;
+  }
+
+  .pagina-cuenta .botones-fila {
+    flex-wrap: wrap;
+  }
+
+  .pagina-cuenta .fila-enlaces {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .pagina-cuenta footer {
+    flex-direction: column;
+    gap: 8px;
+  }
 }

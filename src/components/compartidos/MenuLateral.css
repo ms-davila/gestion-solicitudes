@@ -1,0 +1,182 @@
+
+/* ==========================================
+   MENÚ LATERAL COMPARTIDO DEL ENCARGADO
+   Inventario, Aprobación y entrega,
+   Devoluciones y Usuarios
+   ========================================== */
+
+.sidebar-compartido {
+  width: 240px;
+  min-width: 240px;
+  min-height: 100%;
+  padding: 24px 12px;
+  background-color: var(--surface);
+  border-right: 1px solid var(--border);
+  box-sizing: border-box;
+  font-family: var(--font-principal);
+  font-size: var(--font-cuerpo);
+  color: var(--text);
+}
+
+.sidebar-compartido *,
+.sidebar-compartido *::before,
+.sidebar-compartido *::after {
+  box-sizing: border-box;
+}
+
+.sidebar-compartido .sidebar-compartido__nav {
+  display: block;
+  position: static;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.sidebar-compartido .sidebar-compartido__titulo {
+  padding: 0 12px;
+  margin: 8px 0 10px;
+  font-family: var(--font-principal);
+  font-size: var(--font-etiqueta);
+  line-height: 18px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.sidebar-compartido .sidebar-compartido__lista {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0 0 24px;
+  padding: 0;
+  list-style: none;
+}
+
+.sidebar-compartido .sidebar-compartido__lista li {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sidebar-compartido .sidebar-compartido__enlace {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  min-height: 42px;
+  padding: 10px 12px;
+  border-radius: 4px;
+  background-color: transparent;
+  color: var(--text);
+  font-family: var(--font-principal);
+  font-size: var(--font-cuerpo);
+  font-weight: 400;
+  line-height: 22px;
+  text-decoration: none;
+  white-space: normal;
+}
+
+.sidebar-compartido a.sidebar-compartido__enlace:hover {
+  background-color: var(--bg);
+  color: var(--primary);
+}
+
+.sidebar-compartido .sidebar-compartido__enlace.is-active {
+  background-color: var(--primary-soft);
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
+.sidebar-compartido .sidebar-compartido__enlace--inactivo {
+  color: var(--text-muted);
+  cursor: default;
+}
+
+/* CONTADORES */
+
+.sidebar-compartido .sidebar-compartido__contador {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  min-height: 24px;
+  padding: 2px 8px;
+  flex-shrink: 0;
+  background-color: var(--bg);
+  color: var(--text-muted);
+  border-radius: 4px;
+  font-family: var(--font-codigo);
+  font-size: var(--font-auxiliar);
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.sidebar-compartido
+.sidebar-compartido__enlace.is-active
+.sidebar-compartido__contador {
+  background-color: var(--primary);
+  color: var(--surface);
+}
+
+/* ENFOQUE POR TECLADO */
+
+.sidebar-compartido a:focus-visible {
+  outline: 2px solid var(--info);
+  outline-offset: 2px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 760px) {
+  .sidebar-compartido {
+    width: 100%;
+    min-width: 0;
+    min-height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+}
+
+/* COMPATIBILIDAD CON INVENTARIO */
+
+.pagina-inventario .sidebar-compartido {
+  position: fixed;
+  top: 72px;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  height: calc(100vh - 72px);
+  overflow-y: auto;
+}
+
+.pagina-inventario .sidebar-compartido__nav {
+  position: static;
+  top: auto;
+  bottom: auto;
+  left: auto;
+  height: auto;
+  width: 100%;
+  padding: 0;
+  border: none;
+}
+
+/* COMPATIBILIDAD CON APROBACIÓN Y ENTREGA */
+
+.pagina .app > .sidebar-compartido {
+  width: 240px;
+  min-width: 0;
+}
+
+/* COMPATIBILIDAD CON DEVOLUCIONES */
+
+.pagina-devoluciones .cuerpo > .sidebar-compartido {
+  flex-shrink: 0;
+}

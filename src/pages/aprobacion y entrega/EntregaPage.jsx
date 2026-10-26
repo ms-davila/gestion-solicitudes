@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import "../../styles/h4/base.css";
-import "../../styles/h4/layout.css";
-import "../../styles/h4/componentes.css";
-import "../../styles/h4/historia4.css";
+import "../../styles/aprobacion y entrega/base.css";
+import "../../styles/aprobacion y entrega/layout.css";
+import "../../styles/aprobacion y entrega/componentes.css";
+import "../../styles/aprobacion y entrega/historia4.css";
 
 const ACCESORIOS = [
     { id: 1, texto: '2 sondas de medición completas', entregado: true },

@@ -1,49 +1,21 @@
-/* Estilos aislados: solo afectan dentro de .pagina-devoluciones */
-/* Historia 5 — Devoluciones */
-
-.pagina-devoluciones * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .pagina-devoluciones {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  font-family: 'Barlow', sans-serif;
-  font-size: 15px;
-  color: #12211F;
-  background: #F5F7F8;
+  font-family: var(--font-principal);
+  font-size: var(--font-cuerpo);
+  color: var(--text);
+  background: var(--bg);
+}
+
+.pagina-devoluciones *,
+.pagina-devoluciones *::before,
+.pagina-devoluciones *::after {
+  box-sizing: border-box;
 }
 
 .pagina-devoluciones .codigo {
-  font-family: 'Roboto Mono', monospace;
-}
-
-/* CABECERA */
-
-.pagina-devoluciones .cabecera {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  height: 64px;
-  padding: 0 20px;
-  background: white;
-  border-bottom: 1px solid #D8E0E2;
-}
-
-.pagina-devoluciones .cabecera-izquierda {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.pagina-devoluciones .cabecera-centro {
-  flex: 1;
-  display: flex;
-  justify-content: center;
+  font-family: var(--font-codigo);
 }
 
 .pagina-devoluciones .buscador {
@@ -51,17 +23,11 @@
   max-width: 700px;
   height: 40px;
   padding: 0 12px;
-  font-family: 'Roboto Mono', monospace;
-  font-size: 13px;
-  background: #F5F7F8;
-  border: 1px solid #D8E0E2;
+  font-family: var(--font-codigo);
+  font-size: var(--font-auxiliar);
+  background: var(--bg);
+  border: 1px solid var(--border);
   border-radius: 4px;
-}
-
-.pagina-devoluciones .cabecera-derecha {
-  display: flex;
-  align-items: center;
-  gap: 20px;
 }
 
 .pagina-devoluciones .pendientes {
@@ -70,17 +36,17 @@
   gap: 8px;
   height: 40px;
   padding: 0 12px;
-  font-size: 13px;
-  background: #E3EEF0;
+  font-size: var(--font-auxiliar);
+  background: var(--primary-soft);
   border-radius: 4px;
 }
 
 .pagina-devoluciones .contador-pendientes {
   padding: 2px 8px;
-  font-size: 13px;
+  font-size: var(--font-auxiliar);
   font-weight: 600;
-  color: white;
-  background: #17505C;
+  color: var(--surface);
+  background: var(--primary);
   border-radius: 4px;
 }
 
@@ -90,46 +56,45 @@
   align-items: center;
   width: 40px;
   height: 40px;
-  font-size: 13px;
+  font-size: var(--font-auxiliar);
   font-weight: 600;
-  color: white;
-  background: #17505C;
+  color: var(--surface);
+  background: var(--primary);
   border-radius: 4px;
 }
 
-/* CUERPO */
+/* CUERPO Y CONTENIDO */
 
 .pagina-devoluciones .cuerpo {
   flex: 1;
   display: flex;
 }
 
-/* CONTENIDO */
-
 .pagina-devoluciones .contenido {
   flex: 1;
+  min-width: 0;
   max-width: 1600px;
   padding: 30px 20px;
 }
 
 .pagina-devoluciones .titulo-pantalla {
-  font-size: 28px;
+  font-size: var(--font-titulo);
   font-weight: 600;
-  color: #0F3A43;
+  color: var(--primary-dark);
 }
 
 .pagina-devoluciones .titulo-seccion {
-  font-size: 20px;
+  font-size: var(--font-seccion);
   font-weight: 600;
 }
 
 .pagina-devoluciones .texto-ayuda {
   margin-bottom: 20px;
-  font-size: 13px;
-  color: #5E7073;
+  font-size: var(--font-auxiliar);
+  color: var(--text-muted);
 }
 
-/* las dos tarjetas (5.1 y 5.2) una al lado de la otra */
+/* TARJETAS */
 
 .pagina-devoluciones .columnas {
   display: flex;
@@ -139,13 +104,14 @@
 
 .pagina-devoluciones .columnas .tarjeta {
   flex: 1;
+  min-width: 0;
 }
 
 .pagina-devoluciones .tarjeta {
   padding: 20px;
   margin-bottom: 20px;
-  background: white;
-  border: 1px solid #D8E0E2;
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 4px;
 }
 
@@ -155,9 +121,9 @@
 .pagina-devoluciones .subtitulo-seccion {
   padding: 6px 0;
   display: block;
-  font-size: 12px;
+  font-size: var(--font-etiqueta);
   font-weight: 600;
-  color: #5E7073;
+  color: var(--text-muted);
 }
 
 .pagina-devoluciones .subtitulo-seccion {
@@ -166,21 +132,29 @@
 
 .pagina-devoluciones .linea {
   border: none;
-  border-top: 1px solid #D8E0E2;
+  border-top: 1px solid var(--border);
   margin: 8px 0;
 }
 
 .pagina-devoluciones .campo {
   width: 100%;
   padding: 8px 12px;
-  font-family: 'Barlow', sans-serif;
-  font-size: 15px;
-  border: 1px solid #D8E0E2;
+  font-family: var(--font-principal);
+  font-size: var(--font-cuerpo);
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 4px;
 }
 
 .pagina-devoluciones .campo.codigo {
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--font-codigo);
+}
+
+.pagina-devoluciones .campo:focus,
+.pagina-devoluciones .buscador:focus {
+  outline: 2px solid var(--primary-soft);
+  border-color: var(--primary);
 }
 
 .pagina-devoluciones .area-texto {
@@ -193,23 +167,31 @@
 .pagina-devoluciones .boton {
   height: 40px;
   padding: 0 20px;
-  font-family: 'Barlow', sans-serif;
-  font-size: 15px;
+  font-family: var(--font-principal);
+  font-size: var(--font-cuerpo);
   font-weight: 600;
   cursor: pointer;
   border-radius: 4px;
 }
 
 .pagina-devoluciones .boton-primario {
-  color: white;
-  background: #17505C;
-  border: 1px solid #17505C;
+  color: var(--surface);
+  background: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.pagina-devoluciones .boton-primario:hover {
+  background: var(--primary-dark);
 }
 
 .pagina-devoluciones .boton-secundario {
-  color: #17505C;
-  background: white;
-  border: 1px solid #17505C;
+  color: var(--primary);
+  background: var(--surface);
+  border: 1px solid var(--primary);
+}
+
+.pagina-devoluciones .boton-secundario:hover {
+  background: var(--primary-soft);
 }
 
 .pagina-devoluciones .botones-fila {
@@ -219,7 +201,20 @@
   margin-top: 15px;
 }
 
-/* TARJETA 1 */
+.pagina-devoluciones .boton-ancho {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.pagina-devoluciones .boton-deshabilitado {
+  color: var(--text-muted);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  cursor: not-allowed;
+}
+
+/* BÚSQUEDA DE PRÉSTAMO */
 
 .pagina-devoluciones .fila-buscar {
   display: flex;
@@ -233,8 +228,8 @@
   gap: 15px;
   padding: 15px;
   margin-top: 15px;
-  background: #F5F7F8;
-  border: 1px solid #D8E0E2;
+  background: var(--bg);
+  border: 1px solid var(--border);
   border-radius: 4px;
 }
 
@@ -246,6 +241,8 @@
   display: block;
 }
 
+/* ACCESORIOS */
+
 .pagina-devoluciones .accesorio {
   display: flex;
   align-items: center;
@@ -253,15 +250,13 @@
   height: 44px;
   padding: 0 14px;
   margin-top: 8px;
-  border: 1px solid #D8E0E2;
+  border: 1px solid var(--border);
   border-radius: 4px;
 }
 
-/* cuando el check está desmarcado (accesorio faltante), la fila se pone roja */
-
 .pagina-devoluciones .accesorio:has(input:not(:checked)) {
   background: #FBEDEC;
-  border-color: #B4322B;
+  border-color: var(--danger);
 }
 
 .pagina-devoluciones .accesorio-nombre {
@@ -269,10 +264,16 @@
 }
 
 .pagina-devoluciones .texto-faltante {
-  font-size: 13px;
+  font-size: var(--font-auxiliar);
   font-weight: 600;
-  color: #B4322B;
+  color: var(--danger);
 }
+
+.pagina-devoluciones .accesorio input:checked ~ .texto-faltante {
+  display: none;
+}
+
+/* ESTADO DEL EQUIPO */
 
 .pagina-devoluciones .fila-estado {
   display: flex;
@@ -290,18 +291,26 @@
 .pagina-devoluciones .opcion {
   height: 40px;
   padding: 0 14px;
-  font-family: 'Barlow', sans-serif;
+  font-family: var(--font-principal);
   font-size: 14px;
-  background: white;
-  border: 1px solid #D8E0E2;
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 4px;
+  cursor: pointer;
 }
 
 .pagina-devoluciones .opcion-activa-roja {
   font-weight: 600;
-  color: white;
-  background: #B4322B;
-  border-color: #B4322B;
+  color: var(--surface);
+  background: var(--danger);
+  border-color: var(--danger);
+}
+
+.pagina-devoluciones .opcion-activa-verde {
+  font-weight: 600;
+  color: var(--surface);
+  background: var(--success);
+  border-color: var(--success);
 }
 
 .pagina-devoluciones .grupo-fecha {
@@ -318,24 +327,32 @@
 }
 
 .pagina-devoluciones .alerta-roja {
-  color: #B4322B;
+  color: var(--danger);
   background: #FBEDEC;
-  border: 1px solid #B4322B;
+  border: 1px solid var(--danger);
 }
 
 .pagina-devoluciones .alerta-amarilla {
-  color: #12211F;
+  color: var(--text);
   background: #FBF3E0;
-  border: 1px solid #B7791F;
+  border: 1px solid var(--warning);
 }
 
 .pagina-devoluciones .alerta-verde {
-  color: #1E7F4D;
+  color: var(--success);
   background: #E8F4EE;
-  border: 1px solid #1E7F4D;
+  border: 1px solid var(--success);
 }
 
-/* ACCESORIOS FALTANTES + FOTO */
+.pagina-devoluciones .alerta-borde {
+  border-left-width: 4px;
+}
+
+.pagina-devoluciones #mensaje {
+  margin-bottom: 20px;
+}
+
+/* ACCESORIOS FALTANTES Y FOTO */
 
 .pagina-devoluciones .fila-faltantes {
   display: flex;
@@ -346,6 +363,7 @@
 .pagina-devoluciones .columna-faltantes,
 .pagina-devoluciones .columna-foto {
   flex: 1;
+  min-width: 0;
 }
 
 .pagina-devoluciones .faltante {
@@ -355,41 +373,35 @@
   height: 44px;
   padding: 0 14px;
   margin-top: 8px;
-  background: white;
-  border: 1px solid #D8E0E2;
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 4px;
   cursor: pointer;
 }
 
-/* cuando el check está marcado, la tarjeta se pone roja */
-
 .pagina-devoluciones .faltante:has(input:checked) {
   background: #FBEDEC;
-  border-color: #B4322B;
+  border-color: var(--danger);
 }
-
-/* la imagen ocupa todo el recuadro sin deformarse */
 
 .pagina-devoluciones .foto-dano img {
   width: 100%;
   height: 100%;
-  object-fit: cover;      /* recorta sin deformar; usa "contain" si prefieres verla completa */
+  object-fit: cover;
   object-position: center;
   display: block;
 }
 
-/* INTERRUPTOR "Derivar a mantenimiento" */
+/* DERIVAR A MANTENIMIENTO */
 
 .pagina-devoluciones .derivacion {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-top: 20px;
-  font-size: 15px;
+  font-size: var(--font-cuerpo);
   cursor: pointer;
 }
-
-/* escondemos el checkbox de verdad y mostramos el interruptor */
 
 .pagina-devoluciones .derivacion input {
   display: none;
@@ -399,11 +411,9 @@
   position: relative;
   width: 40px;
   height: 22px;
-  background: #D8E0E2;
+  background: var(--border);
   border-radius: 4px;
 }
-
-/* la "perilla" blanca */
 
 .pagina-devoluciones .interruptor::after {
   content: "";
@@ -412,62 +422,16 @@
   left: 3px;
   width: 16px;
   height: 16px;
-  background: white;
+  background: var(--surface);
   border-radius: 2px;
 }
 
-/* encendido: fondo azul petróleo y la perilla se mueve a la derecha */
-
 .pagina-devoluciones .derivacion input:checked + .interruptor {
-  background: #17505C;
+  background: var(--primary);
 }
 
 .pagina-devoluciones .derivacion input:checked + .interruptor::after {
   left: 21px;
-}
-
-/* PIE DE PÁGINA */
-
-.pagina-devoluciones .pie {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 20px;
-  font-size: 13px;
-  color: white;
-  background: #0F3A43;
-}
-
-.pagina-devoluciones .pie-derecha {
-  display: flex;
-  gap: 20px;
-}
-
-/* ===== AGREGADOS DE LA ÚLTIMA VERSIÓN ===== */
-
-.pagina-devoluciones #mensaje {
-  margin-bottom: 20px;
-}
-
-/* accesorio marcado = presente, así que ocultamos la palabra "faltante" */
-
-.pagina-devoluciones .accesorio input:checked ~ .texto-faltante {
-  display: none;
-}
-
-/* botón "Sin novedades" activo */
-
-.pagina-devoluciones .opcion-activa-verde {
-  font-weight: 600;
-  color: white;
-  background: #1E7F4D;
-  border-color: #1E7F4D;
-}
-
-/* alertas con borde grueso a la izquierda (como en los modales) */
-
-.pagina-devoluciones .alerta-borde {
-  border-left-width: 4px;
 }
 
 /* MODALES */
@@ -482,10 +446,8 @@
   justify-content: center;
   align-items: center;
   background: rgba(18, 33, 31, 0.5);
-  z-index: 10;
+  z-index: 1000;
 }
-
-/* el JavaScript agrega esta clase para mostrar el modal */
 
 .pagina-devoluciones .modal.abierto {
   display: flex;
@@ -495,15 +457,15 @@
   width: 100%;
   max-width: 480px;
   padding: 24px;
-  background: white;
+  background: var(--surface);
   border-radius: 4px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 .pagina-devoluciones .modal-subtitulo {
   margin: 4px 0 20px;
-  font-size: 13px;
-  color: #5E7073;
+  font-size: var(--font-auxiliar);
+  color: var(--text-muted);
 }
 
 .pagina-devoluciones .fila-fechas {
@@ -516,71 +478,37 @@
 }
 
 .pagina-devoluciones .campo-bloqueado {
-  color: #5E7073;
-  background: #F5F7F8;
+  color: var(--text-muted);
+  background: var(--bg);
 }
 
 .pagina-devoluciones .texto-error {
   margin-top: 6px;
-  font-size: 13px;
-  color: #B4322B;
+  font-size: var(--font-auxiliar);
+  color: var(--danger);
 }
-
-.pagina-devoluciones .boton-ancho {
-  display: block;
-  width: 100%;
-  margin-top: 10px;
-}
-
-.pagina-devoluciones .boton-deshabilitado {
-  color: #5E7073;
-  background: #F5F7F8;
-  border: 1px solid #D8E0E2;
-  cursor: not-allowed;
-}
-
-/* clase para esconder cualquier elemento: el JavaScript la agrega o la quita */
 
 .pagina-devoluciones .oculto {
   display: none;
 }
 
-/* 1. El contenedor de la izquierda mantiene la alineación */
-
-.pagina-devoluciones .cabecera-izquierda {
-  display: flex;
-  align-items: center;
-  /* Ya no necesitas el gap: 10px, pero no hace daño si lo dejas */
-}
-
-/* 2. El estilo del título (fuente, tamaño, color) */
-
-.pagina-devoluciones .nombre-sistema {
-  font-size: 18px;
-  font-weight: 600;
-  color: #0F3A43;
-  font-family: 'Barlow', sans-serif; /* Por si acaso, aunque ya viene del body */
-}
-
-/* título de la pantalla + botón "Renovar préstamo" a la derecha */
-
-/* ===== MENÚ LATERAL ===== */
+/* MENÚ LATERAL DEL ENCARGADO */
 
 .pagina-devoluciones .menu-lateral {
   width: 240px;
   flex-shrink: 0;
   padding: 20px 10px;
-  background: white;
-  border-right: 1px solid #D8E0E2;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
 }
 
 .pagina-devoluciones .menu-titulo {
   padding: 0 10px;
   margin: 10px 0 8px;
-  font-size: 12px;
+  font-size: var(--font-etiqueta);
   font-weight: 600;
   letter-spacing: 1px;
-  color: #5E7073;
+  color: var(--text-muted);
 }
 
 .pagina-devoluciones .menu-item {
@@ -589,31 +517,108 @@
   align-items: center;
   padding: 10px;
   margin-bottom: 4px;
-  font-size: 15px;
-  color: #12211F;
+  font-size: var(--font-cuerpo);
+  color: var(--text);
   text-decoration: none;
   border-radius: 4px;
 }
 
-/* página actual: fondo azul claro y texto en negrita */
-
 .pagina-devoluciones .menu-item-activo {
   font-weight: 600;
-  color: #0F3A43;
-  background: #E3EEF0;
+  color: var(--primary-dark);
+  background: var(--primary-soft);
 }
-
-/* contadores con cajita de color: azul (solicitudes) y rojo (vencidos) */
 
 .pagina-devoluciones .menu-contador-rojo {
   padding: 2px 8px;
   font-weight: 600;
-  color: white;
+  color: var(--surface);
   border-radius: 4px;
 }
 
 .pagina-devoluciones .menu-linea {
   border: none;
-  border-top: 1px solid #D8E0E2;
+  border-top: 1px solid var(--border);
   margin: 15px 10px;
+}
+
+/* PIE DE PÁGINA */
+
+.pagina-devoluciones .pie {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  font-size: var(--font-auxiliar);
+  color: var(--surface);
+  background: var(--primary-dark);
+}
+
+.pagina-devoluciones .pie-derecha {
+  display: flex;
+  gap: 20px;
+}
+
+/* ADAPTACIÓN A PANTALLAS MENORES */
+
+@media (max-width: 1100px) {
+  .pagina-devoluciones .columnas {
+    flex-direction: column;
+  }
+
+  .pagina-devoluciones .columnas .tarjeta {
+    width: 100%;
+  }
+
+  .pagina-devoluciones .cabecera {
+    gap: 12px;
+  }
+
+  .pagina-devoluciones .buscador {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 760px) {
+  .pagina-devoluciones .cuerpo {
+    flex-direction: column;
+  }
+
+  .pagina-devoluciones .menu-lateral {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .pagina-devoluciones .fila-faltantes {
+    flex-direction: column;
+  }
+
+  .pagina-devoluciones .fila-estado {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .pagina-devoluciones .cabecera {
+    height: auto;
+    min-height: 64px;
+    flex-wrap: wrap;
+    padding: 12px 20px;
+  }
+}
+
+.pagina-devoluciones .header-encargado {
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+.pagina-devoluciones .sidebar-compartido {
+  margin: 0;
+}
+
+/* Evita desplazamientos propios del contenido */
+.pagina-devoluciones .contenido {
+  margin-left: 0;
+  box-sizing: border-box;
 }

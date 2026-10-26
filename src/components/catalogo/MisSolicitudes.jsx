@@ -2,7 +2,7 @@ import { useState, useMemo, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/catalogo/missolicitudes.css";
 import useIdentidad from "../useIdentidad.js";
-import BotonSalir from "../BotonSalir.jsx";
+import HeaderEstudiante from "../compartidos/HeaderEstudiante.jsx";
 
 // =============================================================================
 // DATASET INICIAL DE SOLICITUDES
@@ -292,56 +292,10 @@ function MisSolicitudes() {
   return (
     <div className="solicitudes-page">
       {/* HEADER */}
-      <header>
-        <div className="title">
-          <div className="square"></div>
-          <h2>Almacén de equipos</h2>
-        </div>
-        <ul>
-          <li>
-            <Link to="/catalogo" className="rapi_mov">
-              Catálogo
-            </Link>
-          </li>
-          <li>
-            <Link to="/missolicitudes" className="rapi_mov selected">
-              Mis Solicitudes
-            </Link>
-          </li>
-          <li>
-            <Link to="/mis-reservas" className="rapi_mov">
-              Mis Reservas
-            </Link>
-          </li>
-          <li>
-            <Link to="/calendario" className="rapi_mov">
-              Calendario
-            </Link>
-          </li>
-        </ul>
-        <div className="derecha_div">
-          <form className="buscador_top" onSubmit={(e) => e.preventDefault()}>
-            <input
-              type="search"
-              name="codigo"
-              placeholder="⌕ Buscar por código de inventario: INV-OSC-0042"
-              value={busqueda}
-              onChange={(e) => setBusqueda(e.target.value)}
-            />
-          </form>
-          <div className="perfil">
-            {rol ? (
-              <>
-                <h3>{nombreCorto}</h3>
-                <Link to={paginaCuenta} className="pfp" title="Mi cuenta" />
-                <BotonSalir />
-              </>
-            ) : (
-              <Link to="/login" className="rapi_mov">Iniciar sesión</Link>
-            )}
-          </div>
-        </div>
-      </header>
+      <HeaderEstudiante
+        busqueda={busqueda}
+        setBusqueda={setBusqueda}
+      />
 
       {/* CUERPO PRINCIPAL */}
       <main className="solicitudes-main">

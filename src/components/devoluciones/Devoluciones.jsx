@@ -1,8 +1,8 @@
-import MenuLateral from "../MenuLateral.jsx";
+import MenuLateral from "../compartidos/MenuLateral.jsx";
 import "../../styles/devoluciones/Devoluciones.css";
 import fotoUsb from "../../assets/USB.jpg";
 import useIdentidad from "../useIdentidad.js";
-import BotonSalir from "../BotonSalir.jsx";
+import HeaderEncargado from "../compartidos/HeaderEncargado.jsx";
 
 function Devoluciones() {
   const { iniciales } = useIdentidad();
@@ -10,24 +10,7 @@ function Devoluciones() {
     <div>
 
       {/* CABECERA */}
-      <header className="cabecera">
-          <div className="cabecera-izquierda">
-            <span className="nombre-sistema">Almacén de Equipos</span>
-        </div>
-
-        <div className="cabecera-centro">
-          <input className="buscador" type="text" placeholder="⌕ Buscar por código de préstamo: PRE-2026-0291" />
-        </div>
-
-        <div className="cabecera-derecha">
-          <div className="pendientes">
-            <span>Solicitudes pendientes</span>
-            <span className="contador-pendientes codigo">12</span>
-          </div>
-          <div className="avatar">{iniciales}</div>
-          <BotonSalir />
-        </div>
-      </header>
+      <HeaderEncargado />
 
       {/* CUERPO */}
       <div className="cuerpo">

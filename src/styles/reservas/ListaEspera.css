@@ -1,66 +1,14 @@
-
-/* Lista de espera */
 .espera-page {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #F5F7F8;
-  color: #12211F;
-  font-family: 'Barlow', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-principal);
+  font-size: var(--font-cuerpo);
 }
 
-.espera-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  padding: 16px 30px;
-  background-color: white;
-  border-bottom: 1px solid #D8E0E2;
-}
-
-.espera-logo,
-.espera-nav,
-.espera-perfil {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.espera-logo-cuadro {
-  width: 28px;
-  height: 28px;
-  background-color: #17505C;
-  border-radius: 4px;
-}
-
-.espera-logo h2 {
-  margin: 0;
-  font-size: 18px;
-  color: #0F3A43;
-}
-
-.espera-nav a {
-  color: #5E7073;
-  text-decoration: none;
-}
-
-.espera-nav .espera-activo {
-  color: #17505C;
-  font-weight: 600;
-  text-decoration: underline;
-}
-
-.espera-avatar {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #17505C;
-  color: white;
-  border-radius: 4px;
-}
+/* CONTENIDO PRINCIPAL */
 
 .espera-main {
   flex: 1;
@@ -77,27 +25,33 @@
 
 .espera-encabezado h1 {
   margin: 0 0 6px;
-  color: #0F3A43;
-  font-size: 28px;
+  color: var(--primary-dark);
+  font-size: var(--font-titulo);
+  font-weight: 600;
 }
 
 .espera-encabezado p {
   margin: 0;
-  color: #5E7073;
+  color: var(--text-muted);
 }
 
+/* TARJETA PRINCIPAL */
+
 .espera-tarjeta {
-  background-color: white;
-  border: 1px solid #D8E0E2;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 4px;
   padding: 20px;
 }
 
 .espera-tarjeta h2 {
   margin: 0 0 18px;
-  color: #0F3A43;
-  font-size: 18px;
+  color: var(--primary-dark);
+  font-size: var(--font-seccion);
+  font-weight: 600;
 }
+
+/* TABLA DE LISTA DE ESPERA */
 
 .espera-tabla-contenedor {
   overflow-x: auto;
@@ -111,49 +65,33 @@
 
 .espera-tabla th {
   padding: 15px;
-  background-color: #E3EEF0;
-  color: #0F3A43;
-  font-size: 13px;
+  background-color: var(--primary-soft);
+  color: var(--primary-dark);
+  font-size: var(--font-auxiliar);
+  font-weight: 600;
 }
 
 .espera-tabla td {
   padding: 15px;
-  border-bottom: 1px solid #D8E0E2;
+  border-bottom: 1px solid var(--border);
   font-size: 14px;
+  color: var(--text);
 }
+
+/* ESTADO: EN ESPERA */
 
 .espera-estado {
   display: inline-block;
   padding: 6px 10px;
   border-radius: 4px;
   background-color: #FFF3DC;
-  color: #B7791F;
-  font-size: 12px;
+  color: var(--warning);
+  font-size: var(--font-etiqueta);
   font-weight: 600;
 }
 
-.espera-vacio {
-  padding: 40px !important;
-  text-align: center;
-  color: #5E7073;
-}
+/* POSICIÓN EN LA LISTA DE ESPERA */
 
-.espera-footer {
-  display: flex;
-  justify-content: space-between;
-  padding: 18px 30px;
-  background-color: #0F3A43;
-  color: white;
-  font-size: 13px;
-}
-
-@media (max-width: 850px) {
-  .espera-header {
-    flex-wrap: wrap;
-  }
-}
-
-/* Posición en lista de espera */
 .espera-posicion {
   display: inline-flex;
   align-items: center;
@@ -162,8 +100,41 @@
   height: 36px;
   padding: 0 8px;
   background-color: #FFF3DC;
-  color: #B7791F;
-  border: 1px solid #B7791F;
+  color: var(--warning);
+  border: 1px solid var(--warning);
   border-radius: 4px;
+  font-family: var(--font-codigo);
   font-weight: 700;
+}
+
+/* ESTADO VACÍO */
+
+.espera-vacio {
+  padding: 40px !important;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+/* PIE DE PÁGINA */
+
+.espera-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 30px;
+  background-color: var(--primary-dark);
+  color: var(--surface);
+  font-size: var(--font-auxiliar);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+  .espera-tabla {
+    min-width: 720px;
+  }
+
+  .espera-footer {
+    flex-wrap: wrap;
+  }
 }

@@ -1,26 +1,2 @@
+/* Carga los estilos del módulo de Inventario */
 @import "./legacy.css";
-
-/* Zona derecha de la cabecera: nombre, avatar y "Salir" en fila (sin superponerse) */
-.pagina-inventario .derecha {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  line-height: normal;
-}
-
-.pagina-inventario .derecha .pendientes {
-  display: inline-flex;
-  align-items: center;
-  margin-right: 0;
-}
-
-.pagina-inventario .derecha .avatar {
-  position: static;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: none;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 600;
-}

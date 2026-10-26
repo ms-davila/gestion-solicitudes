@@ -18,8 +18,6 @@ export default function useIdentidad() {
     paginaCuenta: inicioPorRol(rol),
     salir: (e) => {
       e?.preventDefault?.();
-      // primero se navega al inicio y luego se cierra la sesión,
-      // así el guard no alcanza a mandarte a /login
       navigate('/');
       setTimeout(logout, 100);
     },
