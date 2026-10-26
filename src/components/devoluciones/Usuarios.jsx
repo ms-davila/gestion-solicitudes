@@ -75,28 +75,28 @@ function Usuarios() {
           </div>
 
           {/* RESUMEN */}
-          <div className="tarjetas-resumen">
-            <div className="resumen">
+          <div className="usr-tarjetas-resumen">
+            <div className="usr-resumen">
               <span className="etiqueta-campo">PRÉSTAMOS</span>
-              <span className="resumen-numero codigo">14</span>
+              <span className="usr-resumen-numero codigo">14</span>
             </div>
-            <div className="resumen">
+            <div className="usr-resumen">
               <span className="etiqueta-campo">RETRASOS ACUMULADOS</span>
-              <span className="resumen-numero numero-rojo codigo">2</span>
+              <span className="usr-resumen-numero numero-rojo codigo">2</span>
             </div>
-            <div className="resumen">
+            <div className="usr-resumen">
               <span className="etiqueta-campo">PENALIDADES</span>
-              <span className="resumen-numero numero-ambar codigo">S/ 45.00</span>
+              <span className="usr-resumen-numero numero-ambar codigo">S/ 45.00</span>
             </div>
-            <div className="resumen">
+            <div className="usr-resumen">
               <span className="etiqueta-campo">ESTADO</span>
               <span className="etiqueta-estado" id="estado-cuenta">Con deuda</span>
             </div>
           </div>
 
           {/* HISTORIAL DE PRÉSTAMOS */}
-          <div className="contenedor-tabla">
-            <table className="tabla">
+          <div className="usr-contenedor-tabla">
+            <table className="usr-tabla">
               <thead>
                 <tr>
                   <th>PRÉSTAMO</th>
