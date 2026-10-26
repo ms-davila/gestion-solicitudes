@@ -138,3 +138,27 @@
     flex-wrap: wrap;
   }
 }
+
+/* DISTRIBUCIÓN DEL PANEL DEL ENCARGADO */
+
+.espera-page .espera-cuerpo {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  align-items: stretch;
+}
+
+.espera-page .espera-main {
+  flex: 1;
+  min-width: 0;
+  width: auto;
+  max-width: none;
+  margin: 0;
+  padding: 30px 24px;
+}
+
+@media (max-width: 850px) {
+  .espera-page .espera-main {
+    padding: 20px 12px;
+  }
+}

@@ -85,5 +85,5 @@ src/
 | Mia Sunmy Davila Felix | 20246279 |
 | Alonso Gabriel Canales Cardenas | 20240611 |
 | Arteaga Hanco Mayte Fernanda | 20240267 |
-| Gomez Carner Jimena Alexandra | Pendiente |
+| Gomez Carner Jimena Alexandra | 20241534 |
 | Yamile Natalia Rebatta Campos | 20245828 |
