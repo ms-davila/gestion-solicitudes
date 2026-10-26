@@ -12,6 +12,7 @@ const equipos = [
   { id: 4, nombre: "Tableta gráfica Wacom Intuos", unidades: 3 },
 ];
 
+
 const prestamos = [
   { equipoId: 1, inicio: "2026-10-26", fin: "2026-10-29", unidades: 2 },
   { equipoId: 2, inicio: "2026-10-27", fin: "2026-10-30", unidades: 1 },
@@ -19,6 +20,7 @@ const prestamos = [
 ];
 
 const diasSemana = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
+
 
 function leerReservas() {
   try {
